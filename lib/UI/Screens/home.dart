@@ -17,15 +17,27 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: backColor,
       appBar: appBarBuilder(),
-      bottomNavigationBar: SalomonBottomBar(
-        items: [
-          SalomonBottomBarItem(
-              icon: Icon(FontAwesomeIcons.bowlFood), title: Text("divrorir")),
-          SalomonBottomBarItem(
-              icon: Icon(FontAwesomeIcons.jediOrder), title: Text("divrorir")),
-          SalomonBottomBarItem(
-              icon: Icon(FontAwesomeIcons.person), title: Text("divrorir")),
-        ],
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: SalomonBottomBar(
+          items: [
+            SalomonBottomBarItem(
+                icon: SvgPicture.asset('assets/icons/food.svg'),
+                title: Text("explorer"),
+                selectedColor: mainColor,
+                unselectedColor: greyColor),
+            SalomonBottomBarItem(
+                icon: SvgPicture.asset('assets/icons/ordre.svg'),
+                title: Text("commandes"),
+                selectedColor: mainColor,
+                unselectedColor: greyColor),
+            SalomonBottomBarItem(
+                icon: SvgPicture.asset('assets/icons/account.svg'),
+                title: Text("profil"),
+                selectedColor: mainColor,
+                unselectedColor: greyColor),
+          ],
+        ),
       ),
     );
   }
