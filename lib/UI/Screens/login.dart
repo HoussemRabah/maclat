@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
+import 'package:mbh/UI/Screens/home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -15,15 +17,22 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         backgroundColor: backColor,
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        floatingActionButton: Container(
-          decoration: BoxDecoration(
-            borderRadius: radius,
-            color: mainColor,
-          ),
-          padding: EdgeInsets.all(16.0),
-          child: Text(
-            "étape suivante",
-            style: textStyleSouTitle.copyWith(color: inColor),
+        floatingActionButton: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: radius,
+              color: mainColor,
+            ),
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              "étape suivante",
+              style: textStyleSouTitle.copyWith(color: inColor),
+            ),
           ),
         ),
         body: Stack(children: [
@@ -84,10 +93,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       borderRadius: BorderRadius.only(
                                           topLeft: Radius.circular(30),
                                           bottomLeft: Radius.circular(30))),
-                                  child: Text(
-                                    "+213",
-                                    style: textStyleSimple.copyWith(
-                                        color: inColor),
+                                  child: Icon(
+                                    FontAwesomeIcons.phone,
+                                    color: inColor,
                                   )),
                               border: InputBorder.none),
                         ),
