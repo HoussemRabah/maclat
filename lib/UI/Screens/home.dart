@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
 
@@ -16,10 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: backColor,
       appBar: AppBar(
         backgroundColor: backColor,
+        foregroundColor: frontColor,
         elevation: 0.0,
-        leading: Icon(FontAwesomeIcons.bars),
+        leading: SvgPicture.asset("icons/menu.svg"),
         actions: [
-          Icon(FontAwesomeIcons.magnifyingGlass),
+          SvgPicture.asset("icons/search.svg"),
         ],
       ),
     );
