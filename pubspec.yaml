@@ -22,6 +22,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_svg: ^1.0.3
   font_awesome_flutter: ^10.1.0
+  salomon_bottom_bar: ^3.3.0
 
 dev_dependencies:
   flutter_test:
