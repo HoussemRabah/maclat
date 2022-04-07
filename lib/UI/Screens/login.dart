@@ -47,7 +47,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 'une expérience culinaire unique',
                 style: textStyleSouTitle,
               ),
-              Spacer(),
+              SizedBox(
+                height: 32.0,
+              ),
               Container(
                 padding: EdgeInsets.all(32.0),
                 width: MediaQuery.of(context).size.width * 0.8,
@@ -72,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           textAlignVertical: TextAlignVertical.center,
                           style: textStyleSimple,
                           cursorColor: mainColor,
+                          keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                               hintText: "0X XX XX XX XX",
                               icon: Container(
