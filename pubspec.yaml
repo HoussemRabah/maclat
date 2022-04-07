@@ -21,7 +21,6 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.0.1
   flutter_svg: ^1.0.3
-  google_fonts: ^2.3.1
   font_awesome_flutter: ^10.1.0
 
 dev_dependencies:
