@@ -36,12 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
               CardSwip(url: "http://via.placeholder.com/300x200"),
               CardSwip(url: "http://via.placeholder.com/300x200"),
             ]),
-            SizedBox(
-              height: 8.0,
-            ),
-            TitleBar(),
-            SizedBox(
-              height: 2.0,
+            TitleBar(
+              title: "recommandé",
+              button: "afficher plus",
             ),
             Container(
               height: 200.0,
@@ -59,6 +56,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 layout: SwiperLayout.TINDER,
                 pagination: null,
               ),
+            ),
+            TitleBar(title: "recommandé", button: "afficher plus"),
+            Container(
+              margin: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(color: inColor, borderRadius: radius),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(borderRadius: radius),
+                    child: Image.asset(
+                      "assets/proto/cardads1.png",
+                      width: MediaQuery.of(context).size.width * 0.5 - 16.0 - 32.0,
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -68,7 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container bottomNavigationBarBuilder() {
     return Container(
-      decoration: BoxDecoration(color: inColor, borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+      decoration: BoxDecoration(
+          color: inColor,
+          boxShadow: [
+            BoxShadow(blurRadius: 5.0, spreadRadius: 3.0, offset: Offset(0, -4))
+          ],
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: SalomonBottomBar(
         items: [
           SalomonBottomBarItem(icon: SvgPicture.asset('assets/icons/food.svg'), title: Text("explorer"), selectedColor: mainColor, unselectedColor: greyColor),

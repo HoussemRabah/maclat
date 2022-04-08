@@ -30,7 +30,6 @@ class _CardSwiperState extends State<CardSwiper> {
               );
             },
             itemCount: widget.cards.length,
-            itemWidth: 200,
             index: _index,
             onIndexChanged: (index) {
               _index = index;
