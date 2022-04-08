@@ -41,20 +41,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TitleBar(),
             SizedBox(
-              height: 8.0,
+              height: 2.0,
             ),
             Container(
               height: 200.0,
               child: Swiper(
                 itemBuilder: (BuildContext context, int index) {
                   return Image.network(
-                    "https://via.placeholder.com/196x196",
+                    "https://via.placeholder.com/250x250",
                     fit: BoxFit.fill,
                   );
                 },
                 itemCount: 10,
-                itemWidth: 196.0,
-                itemHeight: 196.0,
+                itemWidth: 250.0,
+                itemHeight: 250.0,
                 viewportFraction: 0.8,
                 layout: SwiperLayout.TINDER,
                 pagination: null,

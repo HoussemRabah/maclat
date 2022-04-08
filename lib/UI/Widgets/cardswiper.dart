@@ -23,14 +23,10 @@ class _CardSwiperState extends State<CardSwiper> {
           height: 222,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
-              return new Image.asset(
-                'assets/proto/cardads1.png',
-                fit: BoxFit.fitWidth,
-                width: 100,
-              );
+              return new Image.asset('assets/proto/cardads1.png', fit: BoxFit.fitWidth);
             },
             itemCount: widget.cards.length,
-            itemWidth: 100,
+            itemWidth: 200,
             index: _index,
             onIndexChanged: (index) {
               _index = index;
