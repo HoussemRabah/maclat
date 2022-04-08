@@ -8,6 +8,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
 import 'package:mbh/UI/Widgets/cardswiper.dart';
+import 'package:mbh/UI/Widgets/gpscard.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,52 +25,37 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: backColor,
       appBar: appBarBuilder(),
       bottomNavigationBar: bottomNavigationBarBuilder(),
-      body: Column(
-        children: [
-          Stack(
-            clipBehavior: Clip.antiAlias,
-            alignment: Alignment.center,
-            children: [
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.all(8.0),
-                height: 124,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  borderRadius: radius,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            GpsCard(),
+            CardSwiper(cards: [
+              CardSwip(url: "http://via.placeholder.com/300x200"),
+              CardSwip(url: "http://via.placeholder.com/300x200"),
+              CardSwip(url: "http://via.placeholder.com/300x200"),
+              CardSwip(url: "http://via.placeholder.com/300x200"),
+            ]),
+            Row(
+              children: [
+                SizedBox(
+                  width: 8.0,
                 ),
-                child: Image.asset(
-                  "assets/proto/maps.png",
-                  fit: BoxFit.cover,
+                Text(
+                  "recommandé",
+                  style: textStyleSouTitle,
                 ),
-              ),
-              Text(
-                'Rouiba,Alger',
-                style: textStyleSouTitle,
-              ),
-              Positioned(
-                top: 90,
-                child: ClipPath(
-                  clipper: OvalTopBorderClipper(),
-                  child: Container(
-                      width: 100.0,
-                      height: 60.0,
-                      color: backColor,
-                      child: Icon(
-                        LineIcons.locationArrow,
-                        color: mainColor,
-                      )),
+                Spacer(),
+                Text(
+                  "afficher plus",
+                  style: textStyleSmall.copyWith(color: mainColor),
                 ),
-              )
-            ],
-          ),
-          CardSwiper(cards: [
-            CardSwip(url: "http://via.placeholder.com/300x200"),
-            CardSwip(url: "http://via.placeholder.com/300x200"),
-            CardSwip(url: "http://via.placeholder.com/300x200"),
-            CardSwip(url: "http://via.placeholder.com/300x200"),
-          ]),
-        ],
+                SizedBox(
+                  width: 8.0,
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
