@@ -6,11 +6,11 @@ Color backColor = Color(0xFFf5f5f5);
 Color frontColor = Color(0xFF000000);
 Color greyColor = Color(0xFFC4C4C4);
 
-TextStyle textStyleSmall = TextStyle(fontSize: 10.0);
-TextStyle textStyleSouSimple = TextStyle(fontSize: 13.0);
-TextStyle textStyleSimple = TextStyle(fontSize: 15.0);
+TextStyle textStyleSmall = TextStyle(fontSize: 13.0);
+TextStyle textStyleSouSimple = TextStyle(fontSize: 15.0);
+TextStyle textStyleSimple = TextStyle(fontSize: 17.0);
 TextStyle textStyleSouTitle =
-    TextStyle(fontSize: 17.0, fontWeight: FontWeight.w500);
+    TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300);
 TextStyle textStyleTitle =
     TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900);
 

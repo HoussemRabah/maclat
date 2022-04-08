@@ -39,7 +39,6 @@ class _GpsCardState extends State<GpsCard> {
           child: ClipPath(
             clipper: OvalTopBorderClipper(),
             child: Container(
-                width: 100.0,
                 height: 40.0,
                 color: backColor,
                 child: Icon(

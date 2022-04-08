@@ -9,6 +9,7 @@ import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
 import 'package:mbh/UI/Widgets/cardswiper.dart';
 import 'package:mbh/UI/Widgets/gpscard.dart';
+import 'package:mbh/UI/Widgets/titlebar.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,25 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
               CardSwip(url: "http://via.placeholder.com/300x200"),
               CardSwip(url: "http://via.placeholder.com/300x200"),
             ]),
-            Row(
-              children: [
-                SizedBox(
-                  width: 8.0,
-                ),
-                Text(
-                  "recommandé",
-                  style: textStyleSouTitle,
-                ),
-                Spacer(),
-                Text(
-                  "afficher plus",
-                  style: textStyleSmall.copyWith(color: mainColor),
-                ),
-                SizedBox(
-                  width: 8.0,
-                ),
-              ],
-            )
+            TitleBar(),
           ],
         ),
       ),
