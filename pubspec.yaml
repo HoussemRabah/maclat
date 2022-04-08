@@ -50,6 +50,7 @@ flutter:
    - assets/icons/food.svg
    - assets/icons/account.svg
    - assets/icons/ordre.svg
+   - assets/proto/cardads1.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

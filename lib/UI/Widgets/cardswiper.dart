@@ -23,8 +23,8 @@ class _CardSwiperState extends State<CardSwiper> {
           height: 200,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
-              return new Image.network(
-                widget.cards[index].url,
+              return new Image.asset(
+                'assets/proto/cardads1.png',
                 fit: BoxFit.scaleDown,
               );
             },
@@ -45,7 +45,8 @@ class _CardSwiperState extends State<CardSwiper> {
             activeColor: mainColor,
             size: const Size.square(9.0),
             activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
           ),
         )
       ],
