@@ -36,6 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Stack(
               alignment: Alignment.center,
               children: [
+                Text(
+                  'Rouiba,Alger',
+                  style: textStyleSouTitle,
+                ),
                 Container(
                   width: double.infinity,
                   margin: EdgeInsets.all(8.0),
@@ -57,6 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 100.0,
                       height: 50.0,
                       color: backColor,
+                      child: SvgPicture.asset(
+                        "assets/icons/gps.svg",
+                        color: mainColor,
+                      ),
                     ),
                   ),
                 )
