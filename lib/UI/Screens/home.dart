@@ -36,7 +36,45 @@ class _HomeScreenState extends State<HomeScreen> {
               CardSwip(url: "http://via.placeholder.com/300x200"),
               CardSwip(url: "http://via.placeholder.com/300x200"),
             ]),
-            TitleBar(),
+            TitleBar(
+              title: "recommandé",
+              button: "afficher plus",
+            ),
+            Container(
+              height: 200.0,
+              child: Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return Image.network(
+                    "https://via.placeholder.com/250x250",
+                    fit: BoxFit.fill,
+                  );
+                },
+                itemCount: 10,
+                itemWidth: 250.0,
+                itemHeight: 250.0,
+                viewportFraction: 0.8,
+                layout: SwiperLayout.TINDER,
+                pagination: null,
+              ),
+            ),
+            TitleBar(title: "recommandé", button: "afficher plus"),
+            Container(
+              margin: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(color: inColor, borderRadius: radius),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(borderRadius: radius),
+                    child: Image.asset(
+                      "assets/proto/cardads1.png",
+                      width:
+                          MediaQuery.of(context).size.width * 0.5 - 16.0 - 32.0,
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -47,6 +85,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
           color: inColor,
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 5.0,
+                spreadRadius: 3.0,
+                offset: Offset(0, -4),
+                color: Color(0xAA000000))
+          ],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: SalomonBottomBar(

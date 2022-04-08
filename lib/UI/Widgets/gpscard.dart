@@ -40,6 +40,7 @@ class _GpsCardState extends State<GpsCard> {
             clipper: OvalTopBorderClipper(),
             child: Container(
                 height: 40.0,
+                width: 60,
                 color: backColor,
                 child: Icon(
                   LineIcons.mapMarker,

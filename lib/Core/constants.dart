@@ -10,7 +10,7 @@ TextStyle textStyleSmall = TextStyle(fontSize: 13.0);
 TextStyle textStyleSouSimple = TextStyle(fontSize: 15.0);
 TextStyle textStyleSimple = TextStyle(fontSize: 17.0);
 TextStyle textStyleSouTitle =
-    TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300);
+    TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500);
 TextStyle textStyleTitle =
     TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900);
 
