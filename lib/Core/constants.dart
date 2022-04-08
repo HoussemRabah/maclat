@@ -22,3 +22,10 @@ List<String> examples = [
   "assets/proto/exp3.png",
   "assets/proto/exp4.png",
 ];
+
+List<String> examplesNames = [
+  "Super Plat",
+  "plat healthy",
+  "tajin el zitoun",
+  "baklawa"
+];

@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -41,18 +42,45 @@ class _HomeScreenState extends State<HomeScreen> {
               button: "afficher plus",
             ),
             Container(
-              height: 200.0,
+              height: MediaQuery.of(context).size.width - 16.0,
               child: Swiper(
                 itemBuilder: (BuildContext context, int index) {
-                  return Image.asset(
-                    examples[index],
-                    fit: BoxFit.fill,
-                  );
+                  return Stack(alignment: Alignment.bottomCenter, children: [
+                    Badge(
+                      badgeColor: mainColor,
+                      badgeContent: Text(
+                        "200DA",
+                        style: textStyleSimple.copyWith(color: inColor),
+                      ),
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        width: MediaQuery.of(context).size.width - 16.0,
+                        height: MediaQuery.of(context).size.width - 16.0,
+                        decoration: BoxDecoration(borderRadius: radius),
+                        child: Image.asset(
+                          examples[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 16.0,
+                      child: Container(
+                        padding: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                            borderRadius: radius, color: mainColor),
+                        child: Text(
+                          "tajin ziton",
+                          style: textStyleSimple.copyWith(color: inColor),
+                        ),
+                      ),
+                    ),
+                  ]);
                 },
-                itemCount: 10,
-                itemWidth: 250.0,
-                itemHeight: 250.0,
-                viewportFraction: 0.8,
+                itemWidth: MediaQuery.of(context).size.width - 16.0,
+                itemHeight: MediaQuery.of(context).size.width - 16.0,
+                itemCount: 4,
+                viewportFraction: 0.7,
                 layout: SwiperLayout.TINDER,
                 pagination: null,
               ),
@@ -90,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 blurRadius: 5.0,
                 spreadRadius: 3.0,
                 offset: Offset(0, -4),
-                color: Color(0xAA000000))
+                color: Color(0x44000000))
           ],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
