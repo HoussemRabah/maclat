@@ -25,8 +25,8 @@ class _CardSwiperState extends State<CardSwiper> {
             itemBuilder: (BuildContext context, int index) {
               return new Image.asset(
                 'assets/proto/cardads1.png',
-                fit: BoxFit.scaleDown,
-                width: 200,
+                fit: BoxFit.fitWidth,
+                width: 300,
               );
             },
             itemCount: widget.cards.length,
