@@ -1,4 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,26 +19,40 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: backColor,
       appBar: appBarBuilder(),
-      bottomNavigationBar: BottomNavigationBarBuilder(),
+      bottomNavigationBar: bottomNavigationBarBuilder(),
       body: Column(
         children: [
-          Swiper(
-            itemCount: 3,
-            itemBuilder: (BuildContext context, int index) {
-              return Image.network(
-                "https://via.placeholder.com/350x150",
-                fit: BoxFit.fill,
-              );
-            },
-            autoplay: true,
-            pagination: SwiperPagination.dots,
+          Container(
+            height: 150,
+            child: Swiper(
+              itemBuilder: (BuildContext context, int index) {
+                return new Image.network(
+                  "http://via.placeholder.com/350x150",
+                  fit: BoxFit.fill,
+                );
+              },
+              itemCount: 3,
+              control: new SwiperControl(),
+            ),
+          ),
+          DotsIndicator(
+            dotsCount: 3,
+            position: 0,
+            decorator: DotsDecorator(
+              color: greyColor,
+              activeColor: mainColor,
+              size: const Size.square(9.0),
+              activeSize: const Size(18.0, 9.0),
+              activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0)),
+            ),
           )
         ],
       ),
     );
   }
 
-  Container BottomNavigationBarBuilder() {
+  Container bottomNavigationBarBuilder() {
     return Container(
       decoration: BoxDecoration(
           color: inColor,
