@@ -23,6 +23,7 @@ dependencies:
   flutter_svg: ^1.0.3
   font_awesome_flutter: ^10.1.0
   salomon_bottom_bar: ^3.3.0
+  card_swiper: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +46,9 @@ flutter:
    - phonenumberback.png
    - assets/icons/menu.svg
    - assets/icons/search.svg
+   - assets/icons/food.svg
+   - assets/icons/account.svg
+   - assets/icons/ordre.svg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
