@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
 import 'package:mbh/UI/Widgets/cardswiper.dart';
@@ -25,51 +26,42 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: bottomNavigationBarBuilder(),
       body: Column(
         children: [
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.all(8.0),
-            height: 124,
+          Stack(
             clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              borderRadius: radius,
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Text(
-                  'Rouiba,Alger',
-                  style: textStyleSouTitle,
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: double.infinity,
+                margin: EdgeInsets.all(8.0),
+                height: 124,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  borderRadius: radius,
                 ),
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.all(8.0),
-                  height: 124,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    borderRadius: radius,
-                  ),
-                  child: Image.asset(
-                    "assets/proto/maps.png",
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.asset(
+                  "assets/proto/maps.png",
+                  fit: BoxFit.cover,
                 ),
-                Positioned(
-                  top: 90,
-                  child: ClipPath(
-                    clipper: OvalTopBorderClipper(),
-                    child: Container(
+              ),
+              Text(
+                'Rouiba,Alger',
+                style: textStyleSouTitle,
+              ),
+              Positioned(
+                top: 90,
+                child: ClipPath(
+                  clipper: OvalTopBorderClipper(),
+                  child: Container(
                       width: 100.0,
-                      height: 50.0,
+                      height: 60.0,
                       color: backColor,
-                      child: SvgPicture.asset(
-                        "assets/icons/gps.svg",
+                      child: Icon(
+                        LineIcons.locationArrow,
                         color: mainColor,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
+                      )),
+                ),
+              )
+            ],
           ),
           CardSwiper(cards: [
             CardSwip(url: "http://via.placeholder.com/300x200"),
