@@ -9,6 +9,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
 import 'package:mbh/UI/Widgets/cardswiper.dart';
+import 'package:mbh/UI/Widgets/foodtinder.dart';
 import 'package:mbh/UI/Widgets/gpscard.dart';
 import 'package:mbh/UI/Widgets/titlebar.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -37,54 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
               CardSwip(url: "http://via.placeholder.com/300x200"),
               CardSwip(url: "http://via.placeholder.com/300x200"),
             ]),
-            TitleBar(
-              title: "recommandé",
-              button: "afficher plus",
-            ),
-            Container(
-              height: MediaQuery.of(context).size.width - 16.0,
-              child: Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  return Stack(alignment: Alignment.bottomCenter, children: [
-                    Badge(
-                      badgeColor: mainColor,
-                      badgeContent: Text(
-                        "200DA",
-                        style: textStyleSimple.copyWith(color: inColor),
-                      ),
-                      child: Container(
-                        clipBehavior: Clip.antiAlias,
-                        width: MediaQuery.of(context).size.width - 16.0,
-                        height: MediaQuery.of(context).size.width - 16.0,
-                        decoration: BoxDecoration(borderRadius: radius),
-                        child: Image.asset(
-                          examples[index],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 16.0,
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                            borderRadius: radius, color: mainColor),
-                        child: Text(
-                          "tajin ziton",
-                          style: textStyleSimple.copyWith(color: inColor),
-                        ),
-                      ),
-                    ),
-                  ]);
-                },
-                itemWidth: MediaQuery.of(context).size.width - 16.0,
-                itemHeight: MediaQuery.of(context).size.width - 16.0,
-                itemCount: 4,
-                viewportFraction: 0.7,
-                layout: SwiperLayout.TINDER,
-                pagination: null,
-              ),
-            ),
+            TitleBar(title: "recommandé", button: "afficher plus"),
+            FoodTinder(),
             TitleBar(title: "recommandé", button: "afficher plus"),
             Container(
               margin: EdgeInsets.all(8.0),
