@@ -48,14 +48,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Swiper(
                 itemBuilder: (BuildContext context, int index) {
                   return Image.network(
-                    "https://via.placeholder.com/288x188",
+                    "https://via.placeholder.com/196x196",
                     fit: BoxFit.fill,
                   );
                 },
                 itemCount: 10,
-                itemWidth: 300.0,
-                itemHeight: 400.0,
+                itemWidth: 196.0,
+                itemHeight: 196.0,
+                viewportFraction: 0.8,
                 layout: SwiperLayout.TINDER,
+                pagination: null,
               ),
             )
           ],
