@@ -32,17 +32,29 @@ class _HomeScreenState extends State<HomeScreen> {
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               borderRadius: radius,
-              color: greyColor,
             ),
             child: Stack(
               alignment: Alignment.center,
               children: [
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(8.0),
+                  height: 124,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    borderRadius: radius,
+                  ),
+                  child: Image.asset(
+                    "assets/proto/maps.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 Positioned(
                   top: 90,
                   child: ClipPath(
                     clipper: OvalTopBorderClipper(),
                     child: Container(
-                      width: 50.0,
+                      width: 100.0,
                       height: 50.0,
                       color: backColor,
                     ),
