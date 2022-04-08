@@ -13,9 +13,5 @@ TextStyle textStyleSouTitle =
     TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500);
 TextStyle textStyleTitle =
     TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900);
-TextStyle textStyleSouTitle =
-    TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500);
-TextStyle textStyleTitle =
-    TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900);
 
 BorderRadius radius = BorderRadius.all(Radius.circular(30));

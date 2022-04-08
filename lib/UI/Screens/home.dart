@@ -68,12 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(borderRadius: radius),
                     child: Image.asset(
                       "assets/proto/cardads1.png",
-<<<<<<< HEAD
                       width:
                           MediaQuery.of(context).size.width * 0.5 - 16.0 - 32.0,
-=======
-                      width: MediaQuery.of(context).size.width * 0.5 - 16.0 - 32.0,
->>>>>>> 4094ad5194996cf72e94ba5e9a40da1941ec4ddf
                     ),
                   ),
                 ],
@@ -90,7 +86,6 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
           color: inColor,
           boxShadow: [
-<<<<<<< HEAD
             BoxShadow(
                 blurRadius: 5.0,
                 spreadRadius: 3.0,
@@ -99,16 +94,23 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
-=======
-            BoxShadow(blurRadius: 5.0, spreadRadius: 3.0, offset: Offset(0, -4), color: Color(0xAA000000))
-          ],
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
->>>>>>> 4094ad5194996cf72e94ba5e9a40da1941ec4ddf
       child: SalomonBottomBar(
         items: [
-          SalomonBottomBarItem(icon: SvgPicture.asset('assets/icons/food.svg'), title: Text("explorer"), selectedColor: mainColor, unselectedColor: greyColor),
-          SalomonBottomBarItem(icon: SvgPicture.asset('assets/icons/ordre.svg'), title: Text("commandes"), selectedColor: mainColor, unselectedColor: greyColor),
-          SalomonBottomBarItem(icon: SvgPicture.asset('assets/icons/account.svg'), title: Text("profil"), selectedColor: mainColor, unselectedColor: greyColor),
+          SalomonBottomBarItem(
+              icon: SvgPicture.asset('assets/icons/food.svg'),
+              title: Text("explorer"),
+              selectedColor: mainColor,
+              unselectedColor: greyColor),
+          SalomonBottomBarItem(
+              icon: SvgPicture.asset('assets/icons/ordre.svg'),
+              title: Text("commandes"),
+              selectedColor: mainColor,
+              unselectedColor: greyColor),
+          SalomonBottomBarItem(
+              icon: SvgPicture.asset('assets/icons/account.svg'),
+              title: Text("profil"),
+              selectedColor: mainColor,
+              unselectedColor: greyColor),
         ],
       ),
     );
