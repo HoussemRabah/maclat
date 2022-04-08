@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
           color: inColor,
           boxShadow: [
-            BoxShadow(blurRadius: 5.0, spreadRadius: 3.0, offset: Offset(0, -4))
+            BoxShadow(blurRadius: 5.0, spreadRadius: 3.0, offset: Offset(0, -4), color: Color(0xAA000000))
           ],
           borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: SalomonBottomBar(
