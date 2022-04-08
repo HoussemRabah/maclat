@@ -20,12 +20,12 @@ class _CardSwiperState extends State<CardSwiper> {
     return Column(
       children: [
         Container(
-          height: 300,
+          height: 200,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
               return new Image.network(
                 widget.cards[index].url,
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.scaleDown,
               );
             },
             itemCount: widget.cards.length,
