@@ -55,6 +55,10 @@ flutter:
    - assets/proto/cardads1.png
    - assets/proto/maps.png
    - assets/icons/gps.svg
+   - assets/proto/exp1.png
+   - assets/proto/exp2.png
+   - assets/proto/exp3.png
+   - assets/proto/exp4.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 200.0,
               child: Swiper(
                 itemBuilder: (BuildContext context, int index) {
-                  return Image.network(
-                    "https://via.placeholder.com/250x250",
+                  return Image.asset(
+                    examples[index],
                     fit: BoxFit.fill,
                   );
                 },

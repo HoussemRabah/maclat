@@ -15,3 +15,10 @@ TextStyle textStyleTitle =
     TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900);
 
 BorderRadius radius = BorderRadius.all(Radius.circular(30));
+
+List<String> examples = [
+  "assets/proto/exp1.png",
+  "assets/proto/exp2.png",
+  "assets/proto/exp3.png",
+  "assets/proto/exp4.png",
+];
