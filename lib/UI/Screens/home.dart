@@ -1,6 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
@@ -24,12 +25,38 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: bottomNavigationBarBuilder(),
       body: Column(
         children: [
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.all(8.0),
+            height: 124,
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              borderRadius: radius,
+              color: greyColor,
+            ),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  top: 90,
+                  child: ClipPath(
+                    clipper: OvalTopBorderClipper(),
+                    child: Container(
+                      width: 50.0,
+                      height: 50.0,
+                      color: backColor,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
           CardSwiper(cards: [
             CardSwip(url: "http://via.placeholder.com/300x200"),
             CardSwip(url: "http://via.placeholder.com/300x200"),
             CardSwip(url: "http://via.placeholder.com/300x200"),
             CardSwip(url: "http://via.placeholder.com/300x200"),
-          ])
+          ]),
         ],
       ),
     );

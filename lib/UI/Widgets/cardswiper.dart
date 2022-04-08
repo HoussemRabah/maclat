@@ -20,12 +20,13 @@ class _CardSwiperState extends State<CardSwiper> {
     return Column(
       children: [
         Container(
-          height: 200,
+          height: 222,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
               return new Image.asset(
                 'assets/proto/cardads1.png',
                 fit: BoxFit.scaleDown,
+                width: 300,
               );
             },
             itemCount: widget.cards.length,
@@ -34,7 +35,6 @@ class _CardSwiperState extends State<CardSwiper> {
               _index = index;
               setState(() {});
             },
-            control: new SwiperControl(color: mainColor),
           ),
         ),
         DotsIndicator(
@@ -43,10 +43,6 @@ class _CardSwiperState extends State<CardSwiper> {
           decorator: DotsDecorator(
             color: greyColor,
             activeColor: mainColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
           ),
         )
       ],
