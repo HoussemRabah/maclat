@@ -4,8 +4,12 @@ import 'package:mbh/Core/constants.dart';
 class TitleBar extends StatefulWidget {
   final String title;
   final String button;
+<<<<<<< HEAD
   const TitleBar({Key? key, required this.title, required this.button})
       : super(key: key);
+=======
+  const TitleBar({Key? key, required this.title, required this.button}) : super(key: key);
+>>>>>>> 4094ad5194996cf72e94ba5e9a40da1941ec4ddf
 
   @override
   State<TitleBar> createState() => _TitleBarState();
