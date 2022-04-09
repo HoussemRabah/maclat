@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
 
@@ -14,7 +15,7 @@ class _StoreLabelState extends State<StoreLabel> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
+        SvgPicture.asset(
           "assets/proto/store.svg",
           width: 50.0,
           fit: BoxFit.fitWidth,
@@ -28,13 +29,18 @@ class _StoreLabelState extends State<StoreLabel> {
           children: [
             Text(
               "FaresFood",
-              style: textStyleSouSimple,
+              style: textStyleSimple,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   FontAwesomeIcons.star,
                   color: Colors.orange,
+                  size: 15.0,
+                ),
+                SizedBox(
+                  width: 4.0,
                 ),
                 Text(
                   "3.5",

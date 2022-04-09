@@ -67,14 +67,34 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(width: 8.0),
                         Column(
                           children: [
-                            Text(
-                              "Tajin el ziton",
-                              style: textStyleSouTitle,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width -
+                                  MediaQuery.of(context).size.width * 0.5 -
+                                  16.0 -
+                                  8.0 -
+                                  8.0 -
+                                  8.0 -
+                                  8.0 -
+                                  8.0,
+                              child: Text(
+                                "Tajin el ziton",
+                                style: textStyleSouTitle,
+                              ),
                             ),
-                            Text(
-                              "Ziton , viande ou pullet",
-                              style:
-                                  textStyleSouSimple.copyWith(color: greyColor),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width -
+                                  MediaQuery.of(context).size.width * 0.5 -
+                                  16.0 -
+                                  8.0 -
+                                  8.0 -
+                                  8.0 -
+                                  8.0 -
+                                  8.0,
+                              child: Text(
+                                "Ziton , viande ou pullet",
+                                style: textStyleSouSimple.copyWith(
+                                    color: greyColor),
+                              ),
                             ),
                             Spacer(),
                             Container(
