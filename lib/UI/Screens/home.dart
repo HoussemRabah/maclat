@@ -11,6 +11,7 @@ import 'package:mbh/Logic/Modules/UI.dart';
 import 'package:mbh/UI/Widgets/cardswiper.dart';
 import 'package:mbh/UI/Widgets/foodtinder.dart';
 import 'package:mbh/UI/Widgets/gpscard.dart';
+import 'package:mbh/UI/Widgets/storelabel.dart';
 import 'package:mbh/UI/Widgets/titlebar.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -45,14 +46,49 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.all(8.0),
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(color: inColor, borderRadius: radius),
-              child: Row(
+              child: Column(
                 children: [
+                  StoreLabel(),
                   Container(
-                    decoration: BoxDecoration(borderRadius: radius),
-                    child: Image.asset(
-                      "assets/proto/cardads1.png",
-                      width:
-                          MediaQuery.of(context).size.width * 0.5 - 16.0 - 32.0,
+                    height: MediaQuery.of(context).size.width * 0.5,
+                    child: Row(
+                      children: [
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width * 0.5 - 16.0,
+                          width: MediaQuery.of(context).size.width * 0.5 - 16.0,
+                          decoration: BoxDecoration(borderRadius: radius),
+                          clipBehavior: Clip.antiAlias,
+                          child: Image.asset(
+                            "assets/proto/exp3.png",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(width: 8.0),
+                        Column(
+                          children: [
+                            Text(
+                              "Tajin el ziton",
+                              style: textStyleSouTitle,
+                            ),
+                            Text(
+                              "Ziton , viande ou pullet",
+                              style:
+                                  textStyleSouSimple.copyWith(color: greyColor),
+                            ),
+                            Spacer(),
+                            Container(
+                              padding: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                  borderRadius: radius, color: mainColor),
+                              child: Text(
+                                "200DA",
+                                style: textStyleSimple.copyWith(color: inColor),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ],
