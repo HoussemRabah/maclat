@@ -15,7 +15,7 @@ class _StoreLabelState extends State<StoreLabel> {
     return Row(
       children: [
         Image.asset(
-          "assets/proto/store.png",
+          "assets/proto/store.svg",
           width: 50.0,
           fit: BoxFit.fitWidth,
         ),
