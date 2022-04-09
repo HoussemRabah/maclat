@@ -1,11 +1,5 @@
-import 'package:badges/badges.dart';
-import 'package:card_swiper/card_swiper.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
 import 'package:mbh/Logic/Modules/food.dart';
@@ -13,9 +7,7 @@ import 'package:mbh/UI/Widgets/cardswiper.dart';
 import 'package:mbh/UI/Widgets/foodcard.dart';
 import 'package:mbh/UI/Widgets/foodtinder.dart';
 import 'package:mbh/UI/Widgets/gpscard.dart';
-import 'package:mbh/UI/Widgets/ratelabel.dart';
 import 'package:mbh/UI/Widgets/storecard.dart';
-import 'package:mbh/UI/Widgets/storelabel.dart';
 import 'package:mbh/UI/Widgets/titlebar.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -61,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     image: "assets/proto/exp4.png",
                     store: Store(name: "omRamy Sweet", rate: "4.2"))),
             TitleBar(title: "restaurants", button: "afficher tous"),
-            StoreCard(),
+            StoreCard(
+              store: Store(name: "FaresFood", rate: "3.5"),
+            ),
           ],
         ),
       ),
@@ -72,13 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
           color: inColor,
-          boxShadow: [
-            BoxShadow(
-                blurRadius: 5.0,
-                spreadRadius: 3.0,
-                offset: Offset(0, -4),
-                color: Color(0x44000000))
-          ],
+          boxShadow: navigationBarShadows,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: SalomonBottomBar(
