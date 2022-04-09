@@ -29,3 +29,13 @@ List<String> examplesNames = [
   "tajin el zitoun",
   "baklawa"
 ];
+
+List<BoxShadow> navigationBarShadows = [
+  BoxShadow(
+      offset: Offset(0, -4), blurRadius: 5.0, color: Colors.black.withAlpha(25))
+];
+
+List<BoxShadow> shadows = [
+  BoxShadow(
+      offset: Offset(0, 0), blurRadius: 3.0, color: Colors.black.withAlpha(25))
+];
