@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
+import 'package:mbh/Logic/Modules/food.dart';
 
 class StoreLabel extends StatefulWidget {
-  const StoreLabel({Key? key}) : super(key: key);
+  final Store store;
+  const StoreLabel({Key? key, required this.store}) : super(key: key);
 
   @override
   State<StoreLabel> createState() => _StoreLabelState();

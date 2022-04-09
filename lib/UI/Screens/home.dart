@@ -8,7 +8,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
+import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Widgets/cardswiper.dart';
+import 'package:mbh/UI/Widgets/foodcard.dart';
 import 'package:mbh/UI/Widgets/foodtinder.dart';
 import 'package:mbh/UI/Widgets/gpscard.dart';
 import 'package:mbh/UI/Widgets/storelabel.dart';
@@ -39,81 +41,23 @@ class _HomeScreenState extends State<HomeScreen> {
               CardSwip(url: "http://via.placeholder.com/300x200"),
               CardSwip(url: "http://via.placeholder.com/300x200"),
             ]),
-            TitleBar(title: "recommandé", button: "afficher plus"),
+            TitleBar(title: "explorer", button: "afficher plus"),
             FoodTinder(),
             TitleBar(title: "recommandé", button: "afficher plus"),
-            Container(
-              margin: EdgeInsets.all(8.0),
-              padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(color: inColor, borderRadius: radius),
-              child: Column(
-                children: [
-                  StoreLabel(),
-                  Container(
-                    height: MediaQuery.of(context).size.width * 0.5,
-                    child: Row(
-                      children: [
-                        Container(
-                          height:
-                              MediaQuery.of(context).size.width * 0.5 - 16.0,
-                          width: MediaQuery.of(context).size.width * 0.5 - 16.0,
-                          decoration: BoxDecoration(borderRadius: radius),
-                          clipBehavior: Clip.antiAlias,
-                          child: Image.asset(
-                            "assets/proto/exp3.png",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(width: 8.0),
-                        Column(
-                          children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width -
-                                  MediaQuery.of(context).size.width * 0.5 -
-                                  16.0 -
-                                  8.0 -
-                                  8.0 -
-                                  8.0 -
-                                  8.0 -
-                                  8.0,
-                              child: Text(
-                                "Tajin el ziton",
-                                style: textStyleSouTitle,
-                              ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width -
-                                  MediaQuery.of(context).size.width * 0.5 -
-                                  16.0 -
-                                  8.0 -
-                                  8.0 -
-                                  8.0 -
-                                  8.0 -
-                                  8.0,
-                              child: Text(
-                                "Ziton , viande ou pullet",
-                                style: textStyleSouSimple.copyWith(
-                                    color: greyColor),
-                              ),
-                            ),
-                            Spacer(),
-                            Container(
-                              padding: EdgeInsets.all(4.0),
-                              decoration: BoxDecoration(
-                                  borderRadius: radius, color: mainColor),
-                              child: Text(
-                                "200DA",
-                                style: textStyleSimple.copyWith(color: inColor),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )
+            FoodCard(
+                food: Food(
+                    name: "Tajin el ziton",
+                    price: "200DA",
+                    disc: "olives, viande et poulet",
+                    image: "assets/proto/exp3.png",
+                    store: Store(name: "HomeFood Resto", rate: "3.4"))),
+            FoodCard(
+                food: Food(
+                    name: "Baklawa",
+                    price: "90DA pour 1",
+                    disc: "Délicieux baklava d'un professionnel",
+                    image: "assets/proto/exp4.png",
+                    store: Store(name: "omRamy Sweet", rate: "4.2"))),
           ],
         ),
       ),
