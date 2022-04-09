@@ -13,6 +13,8 @@ import 'package:mbh/UI/Widgets/cardswiper.dart';
 import 'package:mbh/UI/Widgets/foodcard.dart';
 import 'package:mbh/UI/Widgets/foodtinder.dart';
 import 'package:mbh/UI/Widgets/gpscard.dart';
+import 'package:mbh/UI/Widgets/ratelabel.dart';
+import 'package:mbh/UI/Widgets/storecard.dart';
 import 'package:mbh/UI/Widgets/storelabel.dart';
 import 'package:mbh/UI/Widgets/titlebar.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -58,6 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     disc: "Délicieux baklava d'un professionnel",
                     image: "assets/proto/exp4.png",
                     store: Store(name: "omRamy Sweet", rate: "4.2"))),
+            TitleBar(title: "restaurants", button: "afficher tous"),
+            StoreCard(),
           ],
         ),
       ),

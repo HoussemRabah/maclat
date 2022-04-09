@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 
@@ -68,6 +69,21 @@ class _FoodCardState extends State<FoodCard> {
                       ),
                     ),
                     Spacer(),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          LineIcons.timesCircle,
+                          size: 10.0,
+                        ),
+                        Text(
+                          "1h",
+                          style: textStyleSouSimple,
+                        )
+                      ],
+                    ),
                     Container(
                       padding: EdgeInsets.all(6.0),
                       decoration:

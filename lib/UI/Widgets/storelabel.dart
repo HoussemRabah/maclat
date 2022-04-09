@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
+import 'package:mbh/UI/Widgets/ratelabel.dart';
 
 class StoreLabel extends StatefulWidget {
   final Store store;
@@ -30,27 +31,10 @@ class _StoreLabelState extends State<StoreLabel> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "FaresFood",
+              widget.store.name,
               style: textStyleSimple,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  FontAwesomeIcons.star,
-                  color: Colors.orange,
-                  size: 15.0,
-                ),
-                SizedBox(
-                  width: 4.0,
-                ),
-                Text(
-                  "3.5",
-                  style: textStyleSmall.copyWith(color: Colors.orange),
-                ),
-              ],
-            ),
+            RateLabel(rate: widget.store.rate)
           ],
         ),
       ],
