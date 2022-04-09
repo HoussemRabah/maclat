@@ -69,7 +69,7 @@ class _FoodCardState extends State<FoodCard> {
                     ),
                     Spacer(),
                     Container(
-                      padding: EdgeInsets.all(4.0),
+                      padding: EdgeInsets.all(6.0),
                       decoration:
                           BoxDecoration(borderRadius: radius, color: mainColor),
                       child: Text(

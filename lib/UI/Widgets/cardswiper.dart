@@ -20,16 +20,18 @@ class _CardSwiperState extends State<CardSwiper> {
     return Column(
       children: [
         Container(
+          width: MediaQuery.of(context).size.width - 16.0,
           height: 222,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
               return Image.asset(
                 'assets/proto/cardads1.png',
-                height: 50,
-                width: 50,
+                width: MediaQuery.of(context).size.width - 16.0,
+                fit: BoxFit.fitWidth,
               );
             },
             itemCount: widget.cards.length,
+            itemWidth: MediaQuery.of(context).size.width - 16.0,
             index: _index,
             onIndexChanged: (index) {
               _index = index;

@@ -35,6 +35,7 @@ class _StoreLabelState extends State<StoreLabel> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(
                   FontAwesomeIcons.star,
