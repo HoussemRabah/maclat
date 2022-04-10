@@ -33,14 +33,15 @@ class _FoodScreenState extends State<FoodScreen> {
                 "assets/proto/exp1.png",
                 fit: BoxFit.cover,
               ).blurred(
+                colorOpacity: 0.0,
                 overlay: Text(
                   'plat pro',
-                  style: textStyleTitle,
+                  style: textStyleTitle.copyWith(color: Colors.white),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
                   GestureDetector(
