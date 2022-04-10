@@ -82,8 +82,8 @@ class _FoodCardState extends State<FoodCard> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Icon(
-                            LineIcons.timesCircle,
-                            size: 10.0,
+                            LineIcons.clock,
+                            size: 18.0,
                           ),
                           Text(
                             "1h",
