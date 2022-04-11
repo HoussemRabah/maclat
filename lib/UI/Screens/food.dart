@@ -37,56 +37,70 @@ class _FoodScreenState extends State<FoodScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4 - 40.0,
+                    height: MediaQuery.of(context).size.height * 0.4,
                   ),
-                  Container(
+                  Stack(
+                    alignment: AlignmentDirectional.topCenter,
                     clipBehavior: Clip.none,
-                    width: MediaQuery.of(context).size.width,
-                    height: 1000,
-                    decoration: BoxDecoration(
-                        color: inColor,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30.0),
-                            topRight: Radius.circular(30.0))),
-                    child: Stack(
-                      alignment: AlignmentDirectional.topCenter,
-                      clipBehavior: Clip.none,
-                      children: [
-                        Positioned(
-                          top: -150 / 2,
-                          child: Container(
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(borderRadius: radius),
-                            width: 150,
-                            height: 150,
-                            child: Image.asset(
-                              "assets/proto/exp1.png",
-                              fit: BoxFit.cover,
+                    children: [
+                      Container(
+                        clipBehavior: Clip.none,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            color: inColor,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30.0),
+                                topRight: Radius.circular(30.0))),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 69.0,
                             ),
-                          ),
+                            Text(
+                              "pour la santé",
+                              style: textStyleSimple,
+                            ),
+                            CheckLine(text: "pour le diabète"),
+                            CheckLine(text: "pour votre regime"),
+                            Text(
+                              "Fourni par",
+                              style: textStyleSimple,
+                            ),
+                            StoreCard(
+                                store: Store(name: "fares food", rate: "2.5")),
+                            Text(
+                              "Déscription",
+                              style: textStyleSimple,
+                            ),
+                            Text(
+                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+                              style:
+                                  textStyleSouSimple.copyWith(color: greyColor),
+                            ),
+                          ],
                         ),
-                        Positioned(
-                          top: 150 / 2 + 8.0,
-                          child: Column(
+                      ),
+                      Positioned(
+                          top: -69 / 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              TitleBar(title: "pour la santé", button: ""),
-                              CheckLine(text: "pour le diabète"),
-                              CheckLine(text: "pour votre regime"),
-                              TitleBar(title: "Fourni par", button: ""),
-                              StoreCard(
-                                  store:
-                                      Store(name: "fares food", rate: "2.5")),
-                              TitleBar(title: "Déscription", button: ""),
-                              Text(
-                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-                                style: textStyleSouSimple.copyWith(
-                                    color: greyColor),
-                              ),
+                              Container(
+                                  height: 69,
+                                  width: 69 * 2,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(4.0),
+                                  decoration: BoxDecoration(
+                                      borderRadius: radius, color: mainColor),
+                                  child: Text(
+                                    "200DA",
+                                    style: textStyleSimple.copyWith(
+                                        color: inColor),
+                                  )),
                             ],
-                          ),
-                        )
-                      ],
-                    ),
+                          )),
+                    ],
                   ),
                 ],
               ),
@@ -100,20 +114,12 @@ class _FoodScreenState extends State<FoodScreen> {
 
   Container backgroundBuilder(BuildContext context) {
     return Container(
-      color: greyColor,
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.4,
-      child: Image.asset(
-        "assets/proto/exp1.png",
-        fit: BoxFit.cover,
-      ).blurred(
-        colorOpacity: 0.0,
-        overlay: Text(
-          'plat pro',
-          style: textStyleTitle.copyWith(color: Colors.white),
-        ),
-      ),
-    );
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.4,
+        child: Image.asset(
+          "assets/proto/exp1.png",
+          fit: BoxFit.cover,
+        ));
   }
 
   Container buildNavigationBar() {

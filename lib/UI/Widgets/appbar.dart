@@ -30,16 +30,6 @@ class _ScreenAppBarState extends State<ScreenAppBar> {
             )),
           ),
           Spacer(),
-          Container(
-              height: 69,
-              width: 69 * 2,
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(4.0),
-              decoration: BoxDecoration(borderRadius: radius, color: mainColor),
-              child: Text(
-                "200DA",
-                style: textStyleSimple.copyWith(color: inColor),
-              )),
         ],
       ),
     );
