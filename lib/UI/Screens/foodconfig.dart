@@ -3,6 +3,7 @@ import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Widgets/appbar.dart';
 import 'package:mbh/UI/Widgets/config.dart';
+import 'package:mbh/UI/Widgets/configSup.dart';
 import 'package:mbh/UI/Widgets/panier.dart';
 
 class FoodConfigScreen extends StatefulWidget {
@@ -23,6 +24,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
           children: [
             Stack(
               alignment: Alignment.topCenter,
+              clipBehavior: Clip.none,
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -40,28 +42,76 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                 ),
                 ScreenAppBar(),
                 Positioned(
-                  top: MediaQuery.of(context).size.height * 0.4 - -32.0 - 8.0,
+                  top: MediaQuery.of(context).size.height * 0.4 - 69 / 2,
                   child: Container(
+                    width: 69 * 2,
+                    height: 69.0,
+                    alignment: Alignment.center,
                     decoration:
                         BoxDecoration(borderRadius: radius, color: mainColor),
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(4.0),
                     child: Text(
                       "200DA",
-                      style: textStyleTitle,
+                      style: textStyleSimple.copyWith(color: inColor),
                     ),
                   ),
                 )
               ],
             ),
             SizedBox(
-              height: 16.0,
+              height: 32.0,
             ),
             ConfigSlider(
                 config: Config(
-                    icon: Text("test"),
-                    points: ["chewiya", "bzf", "khra"],
-                    prices: [0, 40, 80],
-                    defaut: 0))
+                    icon: Text(
+                      "taille",
+                      style: textStyleSimple.copyWith(color: mainColor),
+                    ),
+                    points: ["S", "M", "X", "XL", "XLL"],
+                    prices: [0, 100, 150, 170, 250],
+                    defaut: 1)),
+            ConfigSlider(
+                config: Config(
+                    icon: Image.asset(
+                      "assets/ing/pic.png",
+                      width: 30,
+                      fit: BoxFit.cover,
+                    ),
+                    points: ["un peu", "becaupe", "moyen"],
+                    prices: [
+                      0,
+                      0,
+                      0,
+                    ],
+                    defaut: 1)),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Suppléments",
+                style: textStyleSimple,
+              ),
+            ),
+            ConfigSup(
+                sup: Sup(
+                    image: "assets/ing/coca.png",
+                    name: "cocacola 0.25L",
+                    price: 60,
+                    limit: 6,
+                    count: 0,
+                    free: 0)),
+            Container(
+              margin: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(borderRadius: radius, color: inColor),
+              child: TextField(
+                maxLines: null,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintMaxLines: 3,
+                    hintText:
+                        "Commentaire au chef pour lui donner une consigne"),
+              ),
+            )
           ],
         ),
       ),
