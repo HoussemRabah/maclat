@@ -23,12 +23,17 @@ class _IngSqaureState extends State<IngSqaure> {
             child: Image.asset(
           widget.image,
           fit: BoxFit.scaleDown,
-          width: 30,
-          height: 30,
+          width: 50,
+          height: 50,
         )),
-        Text(
-          widget.name,
-          style: textStyleSmall,
+        SizedBox(
+          width: 60,
+          child: Center(
+            child: Text(
+              widget.name,
+              style: textStyleSmall,
+            ),
+          ),
         )
       ],
     );

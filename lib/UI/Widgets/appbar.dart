@@ -25,7 +25,7 @@ class _ScreenAppBarState extends State<ScreenAppBar> {
             },
             child: Sqaure(
                 child: Icon(
-              LineIcons.stepBackward,
+              LineIcons.arrowLeft,
               size: 30.0,
             )),
           ),

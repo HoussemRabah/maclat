@@ -62,24 +62,31 @@ class _FoodScreenState extends State<FoodScreen> {
                             ),
                             Center(
                               child: Text(
-                                "Plat Pro",
+                                "Plat mélange mini",
                                 style: textStyleTitle,
                               ),
                             ),
-                            Wrap(
-                              children: [
-                                IngSqaure(
-                                    image: "frites",
-                                    name: "assets/ing/frite.png"),
-                                IngSqaure(
-                                    image: "pomme de terre",
-                                    name: "assets/ing/potato.png"),
-                                IngSqaure(
-                                    image: "riz", name: "assets/ing/rice.png"),
-                                IngSqaure(
-                                    image: "Viande",
-                                    name: "assets/ing/steak.png"),
-                              ],
+                            Center(
+                              child: Wrap(
+                                spacing: 8.0,
+                                runSpacing: 8.0,
+                                alignment: WrapAlignment.center,
+                                runAlignment: WrapAlignment.center,
+                                children: [
+                                  IngSqaure(
+                                      name: "frites",
+                                      image: "assets/ing/frite.png"),
+                                  IngSqaure(
+                                      name: "pomme de terre",
+                                      image: "assets/ing/potato.png"),
+                                  IngSqaure(
+                                      name: "riz",
+                                      image: "assets/ing/rice.png"),
+                                  IngSqaure(
+                                      name: "Viande",
+                                      image: "assets/ing/steak.png"),
+                                ],
+                              ),
                             ),
                             SizedBox(
                               height: 16.0,
@@ -107,7 +114,7 @@ class _FoodScreenState extends State<FoodScreen> {
                               style: textStyleSimple,
                             ),
                             Text(
-                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+                              "Un plat composé d'un mélange de viande fraîche chaude et de riz vapeur avec des pommes de terre sautées sans huile et des pommes de terre avec une sauce spéciale du restaurant",
                               style:
                                   textStyleSouSimple.copyWith(color: greyColor),
                             ),
@@ -135,24 +142,13 @@ class _FoodScreenState extends State<FoodScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 8.0,
+            width: 16.0,
           ),
           Sqaure(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                LineIcons.bookmark,
-                size: 20,
-              ),
-              SizedBox(
-                  width: 69 - 10.0,
-                  child: Text(
-                    "plus tard",
-                    style: textStyleSmall,
-                  )),
-            ],
+              child: Icon(
+            LineIcons.bookmark,
+            size: 30,
+            color: greyColor,
           )),
           Spacer(),
           Container(
@@ -166,20 +162,19 @@ class _FoodScreenState extends State<FoodScreen> {
                 style: textStyleSimple.copyWith(color: inColor),
               )),
           Spacer(),
-          Sqaure(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                LineIcons.clock,
-                size: 20,
-              ),
-              Text("1h", style: textStyleSmall),
-            ],
-          )),
+          Badge(
+            badgeColor: mainColor,
+            badgeContent:
+                Text("1h", style: textStyleSmall.copyWith(color: inColor)),
+            child: Sqaure(
+                child: Icon(
+              LineIcons.clock,
+              size: 30,
+              color: greyColor,
+            )),
+          ),
           SizedBox(
-            width: 8.0,
+            width: 16.0,
           ),
         ],
       ),
