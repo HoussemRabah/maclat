@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mbh/UI/Screens/login.dart';
 
+import 'UI/Screens/food.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
       ),
-      home: LoginScreen(),
+      home: FoodScreen(),
     );
   }
 }
