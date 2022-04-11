@@ -67,6 +67,8 @@ flutter:
    - assets/ing/frite.png
    - assets/ing/rice.png
    - assets/ing/steak.png
+   - assets/ing/pic.png
+   - assets/ing/coca.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

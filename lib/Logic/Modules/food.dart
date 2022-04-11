@@ -31,3 +31,19 @@ class Config {
       required this.prices,
       required this.defaut});
 }
+
+class Sup {
+  String image;
+  String name;
+  int price;
+  int limit;
+  int free;
+  int count;
+  Sup(
+      {required this.image,
+      required this.name,
+      required this.price,
+      required this.limit,
+      required this.free,
+      required this.count});
+}
