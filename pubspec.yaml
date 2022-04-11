@@ -62,6 +62,10 @@ flutter:
    - assets/proto/exp3.png
    - assets/proto/exp4.png
    - assets/proto/store.svg
+   - assets/ing/potato.png
+   - assets/ing/frite.png
+   - assets/ing/rice.png
+   - assets/ing/steak.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

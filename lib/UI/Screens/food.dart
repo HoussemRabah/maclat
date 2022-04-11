@@ -8,6 +8,7 @@ import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Widgets/appbar.dart';
 import 'package:mbh/UI/Widgets/checkedline.dart';
+import 'package:mbh/UI/Widgets/ingr.dart';
 import 'package:mbh/UI/Widgets/panier.dart';
 import 'package:blur/blur.dart';
 import 'package:mbh/UI/Widgets/storecard.dart';
@@ -64,6 +65,21 @@ class _FoodScreenState extends State<FoodScreen> {
                                 "Plat Pro",
                                 style: textStyleTitle,
                               ),
+                            ),
+                            Wrap(
+                              children: [
+                                IngSqaure(
+                                    image: "frites",
+                                    name: "assets/ing/frite.png"),
+                                IngSqaure(
+                                    image: "pomme de terre",
+                                    name: "assets/ing/potato.png"),
+                                IngSqaure(
+                                    image: "riz", name: "assets/ing/rice.png"),
+                                IngSqaure(
+                                    image: "Viande",
+                                    name: "assets/ing/steak.png"),
+                              ],
                             ),
                             SizedBox(
                               height: 16.0,
