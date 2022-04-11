@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class Food {
   String name;
   String price;
@@ -16,4 +18,16 @@ class Store {
   String name;
   String rate;
   Store({required this.name, required this.rate});
+}
+
+class Config {
+  Widget icon;
+  List<String> points;
+  List<int> prices;
+  int defaut;
+  Config(
+      {required this.icon,
+      required this.points,
+      required this.prices,
+      required this.defaut});
 }

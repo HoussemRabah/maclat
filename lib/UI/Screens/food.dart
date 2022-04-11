@@ -6,6 +6,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
+import 'package:mbh/UI/Screens/foodconfig.dart';
 import 'package:mbh/UI/Widgets/appbar.dart';
 import 'package:mbh/UI/Widgets/checkedline.dart';
 import 'package:mbh/UI/Widgets/ingr.dart';
@@ -236,14 +237,21 @@ class _FoodScreenState extends State<FoodScreen> {
             width: 8.0,
           ),
           Expanded(
-            child: Container(
-              height: 69.0,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(borderRadius: radius, color: mainColor),
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "commander",
-                style: textStyleSimple.copyWith(color: inColor),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => FoodConfigScreen()));
+              },
+              child: Container(
+                height: 69.0,
+                alignment: Alignment.center,
+                decoration:
+                    BoxDecoration(borderRadius: radius, color: mainColor),
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "commander",
+                  style: textStyleSimple.copyWith(color: inColor),
+                ),
               ),
             ),
           )
