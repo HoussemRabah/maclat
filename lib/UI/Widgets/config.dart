@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class ConfigSlider extends StatefulWidget {
   final Config config;
@@ -20,22 +21,19 @@ class _ConfigSliderState extends State<ConfigSlider> {
         children: [
           Container(
             height: 69,
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width - 8.0 * 2 - 8.0 - 69,
             decoration: BoxDecoration(
                 borderRadius: radius, boxShadow: shadows, color: inColor),
             child: Row(
               children: [
                 Sqaure(child: widget.config.icon),
-                Slider(
-                    thumbColor: mainColor,
+                SfSlider(
+                    showDividers: true,
+                    interval: 1.0 / widget.config.points.length,
                     activeColor: mainColor,
                     inactiveColor: inColor,
-                    divisions: widget.config.points.length,
                     value: widget.config.defaut / widget.config.points.length,
                     onChanged: (newValue) {}),
-                SizedBox(
-                  width: 8.0,
-                ),
               ],
             ),
           ),
@@ -43,9 +41,12 @@ class _ConfigSliderState extends State<ConfigSlider> {
             width: 8.0,
           ),
           Sqaure(
-              child: Text(
-            widget.config.points[0],
-            style: textStyleSimple,
+              child: SizedBox(
+            width: 50,
+            child: Text(
+              widget.config.points[0],
+              style: textStyleSouSimple,
+            ),
           )),
         ],
       ),

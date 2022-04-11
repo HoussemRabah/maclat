@@ -40,7 +40,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                 ),
                 ScreenAppBar(),
                 Positioned(
-                  top: MediaQuery.of(context).size.height * 0.4 - 8.0,
+                  top: MediaQuery.of(context).size.height * 0.4 - -32.0 - 8.0,
                   child: Container(
                     decoration:
                         BoxDecoration(borderRadius: radius, color: mainColor),

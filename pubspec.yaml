@@ -29,6 +29,7 @@ dependencies:
   line_icons: ^2.0.1
   badges: ^2.0.2
   blur: ^3.0.0
+  syncfusion_flutter_sliders: ^20.1.47
 
 dev_dependencies:
   flutter_test:
