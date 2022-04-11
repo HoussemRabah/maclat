@@ -18,13 +18,14 @@ class _CheckLineState extends State<CheckLine> {
         Icon(
           LineIcons.check,
           color: Colors.green,
+          size: 25.0,
         ),
         SizedBox(
           width: 2.0,
         ),
         Text(
           widget.text,
-          style: textStyleSimple.copyWith(color: Colors.green),
+          style: textStyleSouSimple.copyWith(color: Colors.green),
         )
       ],
     );

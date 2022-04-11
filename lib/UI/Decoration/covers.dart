@@ -13,7 +13,8 @@ class _SqaureState extends State<Sqaure> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: widget.child,
+      alignment: Alignment.center,
+      child: Center(child: widget.child),
       width: 69,
       height: 69,
       decoration: BoxDecoration(

@@ -46,28 +46,46 @@ class _FoodScreenState extends State<FoodScreen> {
                       Container(
                         clipBehavior: Clip.none,
                         width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                             color: inColor,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(30.0),
                                 topRight: Radius.circular(30.0))),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
-                              height: 69.0,
+                              height: 69.0 / 2 + 8.0,
+                            ),
+                            Center(
+                              child: Text(
+                                "Plat Pro",
+                                style: textStyleTitle,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 16.0,
                             ),
                             Text(
-                              "pour la santé",
+                              "la santé",
                               style: textStyleSimple,
                             ),
                             CheckLine(text: "pour le diabète"),
                             CheckLine(text: "pour votre regime"),
+                            SizedBox(
+                              height: 16.0,
+                            ),
                             Text(
                               "Fourni par",
                               style: textStyleSimple,
                             ),
                             StoreCard(
                                 store: Store(name: "fares food", rate: "2.5")),
+                            SizedBox(
+                              height: 16.0,
+                            ),
                             Text(
                               "Déscription",
                               style: textStyleSimple,
@@ -81,25 +99,7 @@ class _FoodScreenState extends State<FoodScreen> {
                         ),
                       ),
                       Positioned(
-                          top: -69 / 2,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  height: 69,
-                                  width: 69 * 2,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                      borderRadius: radius, color: mainColor),
-                                  child: Text(
-                                    "200DA",
-                                    style: textStyleSimple.copyWith(
-                                        color: inColor),
-                                  )),
-                            ],
-                          )),
+                          top: -69 / 2, child: centerRowBuilder(context)),
                     ],
                   ),
                 ],
@@ -108,6 +108,64 @@ class _FoodScreenState extends State<FoodScreen> {
             ScreenAppBar(),
           ],
         ),
+      ),
+    );
+  }
+
+  Container centerRowBuilder(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 8.0,
+          ),
+          Sqaure(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                LineIcons.bookmark,
+                size: 20,
+              ),
+              SizedBox(
+                  width: 69 - 10.0,
+                  child: Text(
+                    "plus tard",
+                    style: textStyleSmall,
+                  )),
+            ],
+          )),
+          Spacer(),
+          Container(
+              height: 69,
+              width: 69 * 2,
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(4.0),
+              decoration: BoxDecoration(borderRadius: radius, color: mainColor),
+              child: Text(
+                "200DA",
+                style: textStyleSimple.copyWith(color: inColor),
+              )),
+          Spacer(),
+          Sqaure(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                LineIcons.clock,
+                size: 20,
+              ),
+              Text("1h", style: textStyleSmall),
+            ],
+          )),
+          SizedBox(
+            width: 8.0,
+          ),
+        ],
       ),
     );
   }

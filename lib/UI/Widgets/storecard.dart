@@ -16,8 +16,6 @@ class _StoreCardState extends State<StoreCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8.0),
-      height: 200.0,
       decoration: BoxDecoration(borderRadius: radius, color: inColor),
       child: Row(
         children: [
@@ -74,7 +72,7 @@ class _StoreCardState extends State<StoreCard> {
                       8.0 -
                       8.0 -
                       8.0,
-                  height: 200 - 8.0 - 8.0 - 8.0 - 60,
+                  height: 200 - 8.0 - 8.0 - 8.0 - 8.0 - 60,
                   child: Text(
                     "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
                     style: textStyleSmall.copyWith(color: greyColor),
