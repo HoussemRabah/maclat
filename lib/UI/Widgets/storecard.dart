@@ -16,17 +16,14 @@ class _StoreCardState extends State<StoreCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(borderRadius: radius, color: inColor),
+      margin: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(borderRadius: radius, color: inColor, boxShadow: shadows),
       child: Row(
         children: [
           Container(
             width: 120.0,
             height: 200.0,
-            decoration: BoxDecoration(
-                color: greyColor.withAlpha(100),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    bottomLeft: Radius.circular(30))),
+            decoration: BoxDecoration(color: greyColor.withAlpha(100), borderRadius: BorderRadius.only(topLeft: Radius.circular(30), bottomLeft: Radius.circular(30))),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -66,12 +63,7 @@ class _StoreCardState extends State<StoreCard> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width -
-                      120.0 -
-                      8.0 -
-                      8.0 -
-                      8.0 -
-                      8.0,
+                  width: MediaQuery.of(context).size.width - 120.0 - 8.0 - 8.0 - 8.0 - 8.0,
                   height: 200 - 8.0 - 8.0 - 8.0 - 8.0 - 60,
                   child: Text(
                     "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
