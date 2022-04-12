@@ -4,6 +4,7 @@ import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Widgets/appbar.dart';
 import 'package:mbh/UI/Widgets/config.dart';
 import 'package:mbh/UI/Widgets/configSup.dart';
+import 'package:mbh/UI/Widgets/counter.dart';
 import 'package:mbh/UI/Widgets/panier.dart';
 
 class FoodConfigScreen extends StatefulWidget {
@@ -20,6 +21,34 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
       child: Scaffold(
         backgroundColor: backColor,
         floatingActionButton: Panier(),
+        bottomNavigationBar: Container(
+          child: Row(
+            children: [
+              Counter(limit: 50),
+              SizedBox(width: 8.0),
+              Container(
+                height: 69.0,
+                decoration: BoxDecoration(
+                  borderRadius: radius,
+                  color: mainColor,
+                ),
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Ajouter au panier",
+                  style: textStyleSouTitle.copyWith(color: inColor),
+                ),
+              ),
+            ],
+          ),
+          padding: EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+              color: inColor,
+              boxShadow: navigationBarShadows),
+        ),
         body: Stack(
           children: [
             SingleChildScrollView(
@@ -131,7 +160,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 64.0,
+                        height: 69.0,
                       ),
                     ],
                   )
