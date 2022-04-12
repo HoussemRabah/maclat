@@ -41,10 +41,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          body: Stack(children: [
+          body: Stack(alignment: Alignment.bottomCenter, children: [
             Positioned(
-                top: MediaQuery.of(context).size.height * 0.5,
-                child: Image.asset('phonenumberback.png')),
+                child: Image.asset(
+              'phonenumberback.png',
+              filterQuality: FilterQuality.high,
+            )),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
