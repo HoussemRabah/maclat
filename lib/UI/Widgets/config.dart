@@ -14,6 +14,7 @@ class ConfigSlider extends StatefulWidget {
 }
 
 double _value = 0;
+int old = prixtotal;
 
 class _ConfigSliderState extends State<ConfigSlider> {
   @override
@@ -21,6 +22,7 @@ class _ConfigSliderState extends State<ConfigSlider> {
     // TODO: implement initState
     super.initState();
     _value = widget.config.defaut / (widget.config.points.length - 1);
+    old = prixtotal;
   }
 
   @override
@@ -63,6 +65,8 @@ class _ConfigSliderState extends State<ConfigSlider> {
                     onChanged: (newValue) {
                       setState(() {
                         _value = newValue;
+                        prixtotal = old +
+                            widget.config.prices[getIndexFromValue(_value)];
                       });
                     }),
               ),

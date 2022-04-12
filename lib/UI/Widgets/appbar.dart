@@ -30,6 +30,7 @@ class _ScreenAppBarState extends State<ScreenAppBar> {
             )),
           ),
           Spacer(),
+          Panier(),
         ],
       ),
     );

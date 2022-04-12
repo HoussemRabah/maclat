@@ -39,3 +39,5 @@ List<BoxShadow> shadows = [
   BoxShadow(
       offset: Offset(0, 0), blurRadius: 3.0, color: Colors.black.withAlpha(25))
 ];
+
+int prixtotal = 200;

@@ -24,12 +24,18 @@ class FoodScreen extends StatefulWidget {
 
 class _FoodScreenState extends State<FoodScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    prixtotal = 200;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: inColor,
         bottomNavigationBar: buildNavigationBar(),
-        floatingActionButton: Panier(),
         body: Stack(
           clipBehavior: Clip.antiAlias,
           alignment: Alignment.topCenter,
@@ -66,6 +72,9 @@ class _FoodScreenState extends State<FoodScreen> {
                                 "Plat mélange mini",
                                 style: textStyleTitle,
                               ),
+                            ),
+                            SizedBox(
+                              height: 16.0,
                             ),
                             Center(
                               child: Wrap(

@@ -104,7 +104,11 @@ class _ConfigSupState extends State<ConfigSup> {
                     GestureDetector(
                       onTap: () {
                         if (widget.sup.count != 0) {
-                          widget.sup.count--;
+                          {
+                            widget.sup.count--;
+                            if (widget.sup.count > widget.sup.free)
+                              prixtotal -= widget.sup.price;
+                          }
                           setState(() {});
                         }
                       },
@@ -124,7 +128,11 @@ class _ConfigSupState extends State<ConfigSup> {
                   GestureDetector(
                     onTap: () {
                       if (widget.sup.count != widget.sup.limit) {
-                        widget.sup.count++;
+                        {
+                          widget.sup.count++;
+                          if (widget.sup.count > widget.sup.free)
+                            prixtotal += widget.sup.price;
+                        }
                         setState(() {});
                       }
                     },

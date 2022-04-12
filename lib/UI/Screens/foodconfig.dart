@@ -6,6 +6,7 @@ import 'package:mbh/UI/Widgets/config.dart';
 import 'package:mbh/UI/Widgets/configSup.dart';
 import 'package:mbh/UI/Widgets/counter.dart';
 import 'package:mbh/UI/Widgets/panier.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class FoodConfigScreen extends StatefulWidget {
   const FoodConfigScreen({Key? key}) : super(key: key);
@@ -20,7 +21,6 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: backColor,
-        floatingActionButton: Panier(),
         bottomNavigationBar: Container(
           child: appBarBuilder(),
           padding: EdgeInsets.all(8.0),
@@ -160,7 +160,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "200DA",
+                  "${prixtotal}DA",
                   style: textStyleSouTitle.copyWith(color: inColor),
                 ),
                 Text(
