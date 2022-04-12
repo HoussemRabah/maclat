@@ -3,6 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
+import 'package:mbh/UI/Screens/food.dart';
 
 int _index = 0;
 
@@ -33,6 +34,10 @@ class _CardSwiperState extends State<CardSwiper> {
             itemCount: widget.cards.length,
             itemWidth: MediaQuery.of(context).size.width - 16.0,
             index: _index,
+            onTap: (index) {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => FoodScreen()));
+            },
             onIndexChanged: (index) {
               _index = index;
               setState(() {});
