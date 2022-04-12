@@ -24,6 +24,7 @@ class _CardSwiperState extends State<CardSwiper> {
           width: MediaQuery.of(context).size.width - 16.0,
           height: 222,
           child: Swiper(
+            layout: SwiperLayout.STACK,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {
@@ -40,7 +41,6 @@ class _CardSwiperState extends State<CardSwiper> {
             itemCount: widget.cards.length,
             itemWidth: MediaQuery.of(context).size.width - 16.0,
             index: _index,
-            viewportFraction: 0.8,
             onIndexChanged: (index) {
               _index = index;
               setState(() {});

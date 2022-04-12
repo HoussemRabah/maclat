@@ -141,7 +141,6 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                     "Commentaire au chef pour lui donner une consigne"),
                           ),
                         ),
-                        
                         SizedBox(
                           height: 69.0,
                         ),

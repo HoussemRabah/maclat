@@ -65,8 +65,9 @@ class _ConfigSliderState extends State<ConfigSlider> {
                     },
                     value: _value,
                     onChanged: (newValue) {
-                      foodBloc.sups[widget.index] = newValue;
-                      foodBloc.add(FoodEEventRefresh());
+                      foodBloc.sups[widget.index] =
+                          widget.config.prices[getIndexFromValue(newValue)];
+                      foodBloc..add(FoodEEventRefresh());
                       setState(() {
                         _value = newValue;
                       });
