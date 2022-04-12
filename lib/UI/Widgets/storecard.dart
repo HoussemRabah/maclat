@@ -16,7 +16,9 @@ class _StoreCardState extends State<StoreCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(borderRadius: radius, color: inColor),
+      margin: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+          borderRadius: radius, color: inColor, boxShadow: shadows),
       child: Row(
         children: [
           Container(
@@ -68,6 +70,7 @@ class _StoreCardState extends State<StoreCard> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width -
                       120.0 -
+                      16.0 -
                       8.0 -
                       8.0 -
                       8.0 -
