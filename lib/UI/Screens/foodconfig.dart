@@ -82,11 +82,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                 width: 30,
                                 fit: BoxFit.cover,
                               ),
-                              points: [
-                                "pas piquant",
-                                "un peu piquant",
-                                "tres piquant"
-                              ],
+                              points: ["non", "un peu", "tres"],
                               prices: [
                                 0,
                                 0,
@@ -95,9 +91,13 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                               defaut: 1)),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Suppléments",
-                          style: textStyleSimple,
+                        child: Row(
+                          children: [
+                            Text(
+                              "Suppléments",
+                              style: textStyleSimple,
+                            ),
+                          ],
                         ),
                       ),
                       ConfigSup(
@@ -108,8 +108,16 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                               limit: 6,
                               count: 0,
                               free: 0)),
+                      ConfigSup(
+                          sup: Sup(
+                              image: "assets/ing/khbz.png",
+                              name: "pains",
+                              price: 10,
+                              limit: 4,
+                              count: 1,
+                              free: 2)),
                       Container(
-                        margin: EdgeInsets.all(8.0),
+                        margin: EdgeInsets.all(16.0),
                         padding: EdgeInsets.all(8.0),
                         decoration:
                             BoxDecoration(borderRadius: radius, color: inColor),
