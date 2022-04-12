@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
+import 'package:mbh/UI/Screens/login.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class ConfigSlider extends StatefulWidget {
@@ -65,8 +66,15 @@ class _ConfigSliderState extends State<ConfigSlider> {
                     onChanged: (newValue) {
                       setState(() {
                         _value = newValue;
-                        prixtotal = old +
-                            widget.config.prices[getIndexFromValue(_value)];
+                        int total = 0;
+                        for (int p in widget.config.prices) total += p;
+                        foodBloc.prixtotal = ((foodBloc.prixtotal /
+                                        foodBloc.qnt -
+                                    total +
+                                    widget.config
+                                        .prices[getIndexFromValue(_value)]) *
+                                foodBloc.qnt)
+                            .floor();
                       });
                     }),
               ),

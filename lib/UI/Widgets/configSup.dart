@@ -4,6 +4,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
+import 'package:mbh/UI/Screens/login.dart';
 
 class ConfigSup extends StatefulWidget {
   final Sup sup;
@@ -107,7 +108,7 @@ class _ConfigSupState extends State<ConfigSup> {
                           {
                             widget.sup.count--;
                             if (widget.sup.count > widget.sup.free)
-                              prixtotal -= widget.sup.price;
+                              foodBloc.prixtotal -= widget.sup.price;
                           }
                           setState(() {});
                         }
@@ -131,7 +132,7 @@ class _ConfigSupState extends State<ConfigSup> {
                         {
                           widget.sup.count++;
                           if (widget.sup.count > widget.sup.free)
-                            prixtotal += widget.sup.price;
+                            foodBloc.prixtotal += widget.sup.price;
                         }
                         setState(() {});
                       }
