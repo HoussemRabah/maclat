@@ -9,7 +9,9 @@ import 'package:mbh/UI/Screens/login.dart';
 
 class ConfigSup extends StatefulWidget {
   final Sup sup;
-  const ConfigSup({Key? key, required this.sup}) : super(key: key);
+  final int index;
+  const ConfigSup({Key? key, required this.sup, required this.index})
+      : super(key: key);
 
   @override
   State<ConfigSup> createState() => _ConfigSupState();
@@ -108,8 +110,10 @@ class _ConfigSupState extends State<ConfigSup> {
                         if (widget.sup.count != 0) {
                           {
                             widget.sup.count--;
-                            if (widget.sup.count > widget.sup.free)
-                              foodBloc.prixtotal -= widget.sup.price;
+                            if (widget.sup.count > widget.sup.free) {
+                              foodBloc.sups[widget.index] = widget.sup.price *
+                                  (widget.sup.count - widget.sup.free);
+                            }
                           }
                           setState(() {});
                           foodBloc..add(FoodEEventRefresh());
@@ -133,8 +137,10 @@ class _ConfigSupState extends State<ConfigSup> {
                       if (widget.sup.count != widget.sup.limit) {
                         {
                           widget.sup.count++;
-                          if (widget.sup.count > widget.sup.free)
-                            foodBloc.prixtotal += widget.sup.price;
+                          if (widget.sup.count > widget.sup.free) {
+                            foodBloc.sups[widget.index] = widget.sup.price *
+                                (widget.sup.count - widget.sup.free);
+                          }
                         }
                         setState(() {});
                         foodBloc..add(FoodEEventRefresh());

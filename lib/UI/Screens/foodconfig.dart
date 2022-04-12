@@ -73,6 +73,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                           height: 64.0,
                         ),
                         ConfigSlider(
+                            index: 0,
                             config: Config(
                                 icon: Text(
                                   "taille",
@@ -83,6 +84,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                 prices: [0, 100, 150, 170, 250],
                                 defaut: 1)),
                         ConfigSlider(
+                            index: 1,
                             config: Config(
                                 icon: Image.asset(
                                   "assets/ing/pic.png",
@@ -108,6 +110,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                           ),
                         ),
                         ConfigSup(
+                            index: 2,
                             sup: Sup(
                                 image: "assets/ing/coca.png",
                                 name: "cocacola 0.25L",
@@ -116,6 +119,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                 count: 0,
                                 free: 0)),
                         ConfigSup(
+                            index: 3,
                             sup: Sup(
                                 image: "assets/ing/khbz.png",
                                 name: "pains",
@@ -137,6 +141,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                     "Commentaire au chef pour lui donner une consigne"),
                           ),
                         ),
+                        
                         SizedBox(
                           height: 69.0,
                         ),

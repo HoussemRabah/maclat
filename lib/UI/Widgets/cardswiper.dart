@@ -25,19 +25,22 @@ class _CardSwiperState extends State<CardSwiper> {
           height: 222,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
-              return Image.asset(
-                'assets/proto/cardads1.png',
-                width: MediaQuery.of(context).size.width - 16.0,
-                fit: BoxFit.fitWidth,
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => FoodScreen()));
+                },
+                child: Image.asset(
+                  'assets/proto/cardads1.png',
+                  width: MediaQuery.of(context).size.width - 16.0,
+                  fit: BoxFit.fitWidth,
+                ),
               );
             },
             itemCount: widget.cards.length,
             itemWidth: MediaQuery.of(context).size.width - 16.0,
             index: _index,
-            onTap: (index) {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => FoodScreen()));
-            },
+            viewportFraction: 0.8,
             onIndexChanged: (index) {
               _index = index;
               setState(() {});
