@@ -82,7 +82,9 @@ class _ConfigSupState extends State<ConfigSup> {
             shape: BadgeShape.square,
             showBadge: (widget.sup.count != 0),
             badgeContent: Text(
-              "X${widget.sup.count} +${widget.sup.count * widget.sup.price}DA",
+              (widget.sup.count > widget.sup.free)
+                  ? "X${widget.sup.count} +${(widget.sup.count - widget.sup.free) * widget.sup.price}DA"
+                  : "X${widget.sup.count}",
               style: textStyleSmall.copyWith(color: inColor),
             ),
             child: Container(
