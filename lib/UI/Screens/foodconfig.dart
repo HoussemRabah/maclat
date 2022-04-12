@@ -22,24 +22,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
         backgroundColor: backColor,
         floatingActionButton: Panier(),
         bottomNavigationBar: Container(
-          child: Row(
-            children: [
-              Counter(limit: 50),
-              SizedBox(width: 8.0),
-              Container(
-                height: 69.0,
-                decoration: BoxDecoration(
-                  borderRadius: radius,
-                  color: mainColor,
-                ),
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Ajouter au panier",
-                  style: textStyleSouTitle.copyWith(color: inColor),
-                ),
-              ),
-            ],
-          ),
+          child: appBarBuilder(),
           padding: EdgeInsets.all(8.0),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -72,21 +55,6 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Positioned(
-                        top: MediaQuery.of(context).size.height * 0.4 - 69 / 2,
-                        child: Container(
-                          width: 69 * 2,
-                          height: 69.0,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: radius, color: mainColor),
-                          padding: EdgeInsets.all(4.0),
-                          child: Text(
-                            "200DA",
-                            style: textStyleSimple.copyWith(color: inColor),
-                          ),
-                        ),
-                      )
                     ],
                   ),
                   Column(
@@ -171,6 +139,39 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Row appBarBuilder() {
+    return Row(
+      children: [
+        Counter(limit: 50),
+        SizedBox(width: 8.0),
+        Expanded(
+          child: Container(
+            height: 69.0,
+            decoration: BoxDecoration(
+              borderRadius: radius,
+              color: mainColor,
+            ),
+            padding: EdgeInsets.all(4.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "200DA",
+                  style: textStyleSouTitle.copyWith(color: inColor),
+                ),
+                Text(
+                  "Ajouter au panier",
+                  style: textStyleSouSimple.copyWith(color: inColor),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

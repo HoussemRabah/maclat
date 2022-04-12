@@ -36,7 +36,7 @@ class _CounterState extends State<Counter> {
               ),
               padding: EdgeInsets.all(2.0),
               child: Icon(
-                LineIcons.plus,
+                LineIcons.minus,
                 color: inColor,
                 size: 30,
               ),
