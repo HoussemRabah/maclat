@@ -28,7 +28,11 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
         child: Scaffold(
           backgroundColor: backColor,
           bottomNavigationBar: Container(
-            child: appBarBuilder(),
+            child: BlocBuilder<FoodBloc, FoodState>(
+              builder: (context, state) {
+                return appBarBuilder();
+              },
+            ),
             padding: EdgeInsets.all(8.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -166,13 +170,9 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BlocBuilder<FoodBloc, FoodState>(
-                  builder: (context, state) {
-                    return Text(
-                      "${foodBloc.prixtotal}DA",
-                      style: textStyleSouTitle.copyWith(color: inColor),
-                    );
-                  },
+                Text(
+                  "${foodBloc.prixtotal}DA",
+                  style: textStyleSouTitle.copyWith(color: inColor),
                 ),
                 Text(
                   "Ajouter au panier",

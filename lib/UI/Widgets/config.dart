@@ -66,15 +66,6 @@ class _ConfigSliderState extends State<ConfigSlider> {
                     onChanged: (newValue) {
                       setState(() {
                         _value = newValue;
-                        int total = 0;
-                        for (int p in widget.config.prices) total += p;
-                        foodBloc.prixtotal = ((foodBloc.prixtotal /
-                                        foodBloc.qnt -
-                                    total +
-                                    widget.config
-                                        .prices[getIndexFromValue(_value)]) *
-                                foodBloc.qnt)
-                            .floor();
                       });
                     }),
               ),

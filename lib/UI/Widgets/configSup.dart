@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
+import 'package:mbh/Logic/bloc%20food/food_bloc.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Screens/login.dart';
 
@@ -111,6 +112,7 @@ class _ConfigSupState extends State<ConfigSup> {
                               foodBloc.prixtotal -= widget.sup.price;
                           }
                           setState(() {});
+                          foodBloc..add(FoodEEventRefresh());
                         }
                       },
                       child: Container(
@@ -135,6 +137,7 @@ class _ConfigSupState extends State<ConfigSup> {
                             foodBloc.prixtotal += widget.sup.price;
                         }
                         setState(() {});
+                        foodBloc..add(FoodEEventRefresh());
                       }
                     },
                     child: Container(
