@@ -76,7 +76,30 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                     Column(
                       children: [
                         SizedBox(
-                          height: 64.0,
+                          height: 16.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Quantité",
+                                style: textStyleSimple,
+                              ),
+                            ],
+                          ),
+                        ),
+                        QntSlider(),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Options",
+                                style: textStyleSimple,
+                              ),
+                            ],
+                          ),
                         ),
                         ConfigSlider(
                             index: 0,
@@ -147,20 +170,8 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                     "Commentaire au chef pour lui donner une consigne"),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Quantité",
-                                style: textStyleSimple,
-                              ),
-                            ],
-                          ),
-                        ),
-                        QntSlider(),
                         ClipPath(
-                          clipper: MovieTicketBothSidesClipper(),
+                          clipper: MovieTicketClipper(),
                           child: Container(
                             color: mainColor,
                             margin: EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
@@ -170,6 +181,10 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                 return Column(
                                   children: [
                                     infoLineBuilder("prix de base", "200DA"),
+                                    infoLineBuilder(
+                                        "quantité", "${foodBloc.qnt}"),
+                                    SizedBox(height: 8.0,),
+                                    
                                     if (foodBloc.sups[0] != 0)
                                       infoLineBuilder("cout de taille",
                                           "${foodBloc.sups[0]}DA"),
@@ -177,13 +192,15 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                       infoLineBuilder("cout de piment",
                                           "${foodBloc.sups[1]}DA"),
                                     if (foodBloc.sups[2] != 0)
-                                      infoLineBuilder("prix de cocacola",
+                                      infoLineBuilder("prix de cocacola 0.25L",
                                           "${foodBloc.sups[2]}DA"),
                                     if (foodBloc.sups[3] != 0)
                                       infoLineBuilder("prix de pains",
                                           "${foodBloc.sups[3]}DA"),
-                                    infoLineBuilder(
-                                        "quantité", "${foodBloc.qnt}"),
+                                    
+                                    SizedBox(height: 8.0,),
+                                    infoLineBuilder("prix total",
+                                        "${foodBloc.prixtotal}DA"),
                                   ],
                                 );
                               },
