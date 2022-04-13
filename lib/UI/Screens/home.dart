@@ -96,9 +96,10 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: backColor,
       foregroundColor: frontColor,
       elevation: 0.0,
+      centerTitle: true,
       title: Text(
         "Maclat",
-        style: textStyleSimple.copyWith(color: mainColor),
+        style: textStyleTitle.copyWith(color: mainColor),
       ),
       leading: Padding(
         padding: const EdgeInsets.all(8.0),

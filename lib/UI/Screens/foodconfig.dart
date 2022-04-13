@@ -19,9 +19,16 @@ class FoodConfigScreen extends StatefulWidget {
 
 class _FoodConfigScreenState extends State<FoodConfigScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    foodBloc = new FoodBloc(prixtotal: 200);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider<FoodBloc>(
-      create: (context) => foodBloc,
+      create: (context) => foodBloc..add(FoodEEventRefresh()),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: backColor,
@@ -80,7 +87,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                 ),
                                 points: ["S", "M", "X", "XL", "XLL"],
                                 prices: [0, 100, 150, 170, 250],
-                                defaut: 1)),
+                                defaut: 0)),
                         ConfigSlider(
                             index: 1,
                             config: Config(

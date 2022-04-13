@@ -111,15 +111,6 @@ class _FoodScreenState extends State<FoodScreen> {
                               height: 16.0,
                             ),
                             Text(
-                              "Fourni par",
-                              style: textStyleSimple,
-                            ),
-                            StoreCard(
-                                store: Store(name: "fares food", rate: "2.5")),
-                            SizedBox(
-                              height: 16.0,
-                            ),
-                            Text(
                               "Déscription",
                               style: textStyleSimple,
                             ),
@@ -127,6 +118,18 @@ class _FoodScreenState extends State<FoodScreen> {
                               "Un plat composé d'un mélange de viande fraîche chaude et de riz vapeur avec des pommes de terre sautées sans huile et des pommes de terre avec une sauce spéciale du restaurant",
                               style:
                                   textStyleSouSimple.copyWith(color: greyColor),
+                            ),
+                            SizedBox(
+                              height: 16.0,
+                            ),
+                            Text(
+                              "Fourni par",
+                              style: textStyleSimple,
+                            ),
+                            StoreCard(
+                                store: Store(name: "fares food", rate: "2.5")),
+                            SizedBox(
+                              height: 16.0,
                             ),
                           ],
                         ),
