@@ -16,7 +16,7 @@ class _StoreCardState extends State<StoreCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0),
+      margin: EdgeInsets.all(8.0),
       decoration: BoxDecoration(
           borderRadius: radius, color: inColor, boxShadow: shadows),
       child: Row(

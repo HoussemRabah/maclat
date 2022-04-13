@@ -27,10 +27,6 @@ class _CardSwiperState extends State<CardSwiper> {
             layout: SwiperLayout.STACK,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => FoodScreen()));
-                },
                 child: Image.asset(
                   'assets/proto/cardads1.png',
                   width: MediaQuery.of(context).size.width - 16.0,

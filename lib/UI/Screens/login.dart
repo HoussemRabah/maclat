@@ -53,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Row(),
+                SizedBox(height: 64.0,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(

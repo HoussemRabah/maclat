@@ -96,6 +96,10 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: backColor,
       foregroundColor: frontColor,
       elevation: 0.0,
+      title: Text(
+        "Maclat",
+        style: textStyleSimple.copyWith(color: mainColor),
+      ),
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SvgPicture.asset("assets/icons/menu.svg"),
