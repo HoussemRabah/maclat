@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/Logic/blocfood/food_bloc.dart';
@@ -146,6 +147,49 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                     "Commentaire au chef pour lui donner une consigne"),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Quantité",
+                                style: textStyleSimple,
+                              ),
+                            ],
+                          ),
+                        ),
+                        QntSlider(),
+                        ClipPath(
+                          clipper: MovieTicketBothSidesClipper(),
+                          child: Container(
+                            color: mainColor,
+                            margin: EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+                            padding: EdgeInsets.all(16.0),
+                            child: BlocBuilder<FoodBloc, FoodState>(
+                              builder: (context, state) {
+                                return Column(
+                                  children: [
+                                    infoLineBuilder("prix de base", "200DA"),
+                                    if (foodBloc.sups[0] != 0)
+                                      infoLineBuilder("cout de taille",
+                                          "${foodBloc.sups[0]}DA"),
+                                    if (foodBloc.sups[1] != 0)
+                                      infoLineBuilder("cout de piment",
+                                          "${foodBloc.sups[1]}DA"),
+                                    if (foodBloc.sups[2] != 0)
+                                      infoLineBuilder("prix de cocacola",
+                                          "${foodBloc.sups[2]}DA"),
+                                    if (foodBloc.sups[3] != 0)
+                                      infoLineBuilder("prix de pains",
+                                          "${foodBloc.sups[3]}DA"),
+                                    infoLineBuilder(
+                                        "quantité", "${foodBloc.qnt}"),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                        ),
                         SizedBox(
                           height: 69.0,
                         ),
@@ -162,11 +206,25 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
     );
   }
 
+  Row infoLineBuilder(String info, String data) {
+    return Row(
+      children: [
+        Text(
+          info,
+          style: textStyleSimple.copyWith(color: inColor),
+        ),
+        Spacer(),
+        Text(
+          data,
+          style: textStyleSimple.copyWith(color: inColor),
+        ),
+      ],
+    );
+  }
+
   Row appBarBuilder() {
     return Row(
       children: [
-        Counter(limit: 50),
-        SizedBox(width: 8.0),
         Expanded(
           child: Container(
             height: 69.0,
