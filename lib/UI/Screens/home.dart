@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/UI.dart';
@@ -93,6 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar appBarBuilder() {
     return AppBar(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: mainColor
+      ),
       backgroundColor: backColor,
       foregroundColor: frontColor,
       elevation: 0.0,

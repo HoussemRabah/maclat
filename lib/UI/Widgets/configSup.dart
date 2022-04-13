@@ -110,7 +110,7 @@ class _ConfigSupState extends State<ConfigSup> {
                         if (widget.sup.count != 0) {
                           {
                             widget.sup.count--;
-                            if (widget.sup.count > widget.sup.free) {
+                            if (widget.sup.count >= widget.sup.free) {
                               foodBloc.sups[widget.index] = widget.sup.price *
                                   (widget.sup.count - widget.sup.free);
                             }
