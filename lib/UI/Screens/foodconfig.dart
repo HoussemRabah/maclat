@@ -190,15 +190,20 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                         "${foodBloc.sups[0]}DA"),
                                     infoLineBuilder("cout de piment",
                                         "${foodBloc.sups[1]}DA"),
-                                    infoLineBuilder("prix de cocacola 0.25L",
-                                        "${foodBloc.sups[2]}DA"),
-                                    infoLineBuilder("prix de pains",
-                                        "${foodBloc.sups[3]}DA"),
+                                    if (foodBloc.sups[2] != 0)
+                                      infoLineBuilder("prix de cocacola 0.25L",
+                                          "${foodBloc.sups[2]}DA"),
+                                    if (foodBloc.sups[3] != 0)
+                                      infoLineBuilder("prix de pains",
+                                          "${foodBloc.sups[3]}DA"),
                                     SizedBox(
                                       height: 8.0,
                                     ),
                                     infoLineBuilder("prix total",
                                         "${foodBloc.prixtotal}DA"),
+                                     SizedBox(
+                                      height: 8.0,
+                                    ),
                                   ],
                                 );
                               },
