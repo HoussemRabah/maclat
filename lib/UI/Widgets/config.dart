@@ -127,10 +127,11 @@ class _QntSliderState extends State<QntSlider> {
                 onTap: () {
                   if (foodBloc.qnt != 1) {
                     {
-                      _valueQnt = getValue(foodBloc.qnt - 1);
+                      foodBloc.qnt--;
+                      _valueQnt = getValue((foodBloc.qnt));
                     }
                     setState(() {});
-                    foodBloc..add(FoodEEventRefresh());
+                    foodBloc.add(FoodEEventRefresh());
                   }
                 },
                 child: Container(
@@ -160,7 +161,7 @@ class _QntSliderState extends State<QntSlider> {
                     value: _valueQnt,
                     onChanged: (newValue) {
                       foodBloc.qnt = getQnt(newValue);
-                      foodBloc..add(FoodEEventRefresh());
+                      foodBloc.add(FoodEEventRefresh());
                       setState(() {
                         _valueQnt = newValue;
                       });
@@ -170,7 +171,8 @@ class _QntSliderState extends State<QntSlider> {
                 onTap: () {
                   if (foodBloc.qnt != 50) {
                     {
-                      _valueQnt = getValue(foodBloc.qnt + 1);
+                      foodBloc.qnt++;
+                      _valueQnt = getValue(foodBloc.qnt);
                     }
                     setState(() {});
                     foodBloc..add(FoodEEventRefresh());

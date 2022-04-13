@@ -183,8 +183,9 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                     infoLineBuilder("prix de base", "200DA"),
                                     infoLineBuilder(
                                         "quantité", "${foodBloc.qnt}"),
-                                    SizedBox(height: 8.0,),
-                                    
+                                    SizedBox(
+                                      height: 8.0,
+                                    ),
                                     if (foodBloc.sups[0] != 0)
                                       infoLineBuilder("cout de taille",
                                           "${foodBloc.sups[0]}DA"),
@@ -197,8 +198,9 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                     if (foodBloc.sups[3] != 0)
                                       infoLineBuilder("prix de pains",
                                           "${foodBloc.sups[3]}DA"),
-                                    
-                                    SizedBox(height: 8.0,),
+                                    SizedBox(
+                                      height: 8.0,
+                                    ),
                                     infoLineBuilder("prix total",
                                         "${foodBloc.prixtotal}DA"),
                                   ],
