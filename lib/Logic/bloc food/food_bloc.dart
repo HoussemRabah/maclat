@@ -1,6 +1,7 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'food_event.dart';
+
 part 'food_state.dart';
 
 class FoodBloc extends Bloc<FoodEvent, FoodState> {
