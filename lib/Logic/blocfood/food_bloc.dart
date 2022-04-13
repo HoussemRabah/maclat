@@ -12,7 +12,7 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
   FoodBloc({required this.prixtotal}) : super(FoodInitial()) {
     on<FoodEvent>((event, emit) {
       if (event is FoodEEventRefresh) {
-        prixtotal = (prix) + sups[0] + sups[1] + sups[2] + sups[3];
+        prixtotal = ((prix) + sups[0] + sups[1] + sups[2] + sups[3]) * qnt;
         emit(FoodInitial());
       }
     });

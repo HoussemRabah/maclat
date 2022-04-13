@@ -18,6 +18,7 @@ class ConfigSlider extends StatefulWidget {
 }
 
 double _value = 0;
+double _valueQnt = 1 / 50;
 
 class _ConfigSliderState extends State<ConfigSlider> {
   @override
@@ -89,5 +90,69 @@ class _ConfigSliderState extends State<ConfigSlider> {
 
   int getIndexFromValue(double value) {
     return (value * (widget.config.points.length - 1)).ceil();
+  }
+}
+
+class QntSlider extends StatefulWidget {
+  const QntSlider({Key? key}) : super(key: key);
+
+  @override
+  State<QntSlider> createState() => _QntSliderState();
+}
+
+class _QntSliderState extends State<QntSlider> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
+      child: Badge(
+        alignment: Alignment.topCenter,
+        shape: BadgeShape.square,
+        badgeColor: mainColor,
+        badgeContent: Text(
+          "${foodBloc.qnt}",
+          style: textStyleSmall.copyWith(color: inColor),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(8.0),
+          height: 69 + 8.0 + 8.0,
+          width: MediaQuery.of(context).size.width - 16.0 * 2,
+          decoration: BoxDecoration(
+              borderRadius: radius, boxShadow: shadows, color: inColor),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: SfSlider(
+                    min: 1 / 50,
+                    showDividers: true,
+                    showLabels: true,
+                    activeColor: mainColor,
+                    inactiveColor: inColor,
+                    labelPlacement: LabelPlacement.onTicks,
+                    labelFormatterCallback: (value, formateur) {
+                      return "${getQnt(value)}";
+                    },
+                    value: _valueQnt,
+                    onChanged: (newValue) {
+                      foodBloc.qnt = getQnt(newValue);
+                      foodBloc..add(FoodEEventRefresh());
+                      setState(() {
+                        _value = newValue;
+                      });
+                    }),
+              ),
+              SizedBox(
+                width: 12.0,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  int getQnt(int value) {
+    return (value * 50).floor();
   }
 }
