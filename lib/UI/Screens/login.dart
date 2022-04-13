@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
-import 'package:mbh/Logic/bloc%20food/food_bloc.dart';
+import 'package:mbh/Logic/blocfood/food_bloc.dart';
 import 'package:mbh/UI/Screens/home.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -53,7 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Row(),
-                SizedBox(height: 64.0,),
+                SizedBox(
+                  height: 64.0,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(

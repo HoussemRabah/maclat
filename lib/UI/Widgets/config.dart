@@ -2,7 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
-import 'package:mbh/Logic/bloc%20food/food_bloc.dart';
+import 'package:mbh/Logic/blocfood/food_bloc.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Screens/login.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';

@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
-import 'package:mbh/Logic/bloc%20food/food_bloc.dart';
+import 'package:mbh/Logic/blocfood/food_bloc.dart';
 import 'package:mbh/UI/Widgets/appbar.dart';
 import 'package:mbh/UI/Widgets/config.dart';
 import 'package:mbh/UI/Widgets/configSup.dart';
 import 'package:mbh/UI/Widgets/counter.dart';
-import 'package:mbh/UI/Widgets/panier.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import 'login.dart';
 
@@ -22,7 +20,7 @@ class FoodConfigScreen extends StatefulWidget {
 class _FoodConfigScreenState extends State<FoodConfigScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<FoodBloc>(
       create: (context) => foodBloc,
       child: SafeArea(
         child: Scaffold(
