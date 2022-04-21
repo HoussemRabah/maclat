@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
-import 'package:mbh/Logic/blocfood/food_bloc.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Screens/login.dart';
 
@@ -107,7 +106,7 @@ class _ConfigSupState extends State<ConfigSup> {
                   if (widget.sup.count != 0)
                     GestureDetector(
                       onTap: () {
-                        if (widget.sup.count != 0) {
+                        /*       if (widget.sup.count != 0) {
                           {
                             widget.sup.count--;
                             if (widget.sup.count >= widget.sup.free) {
@@ -116,8 +115,7 @@ class _ConfigSupState extends State<ConfigSup> {
                             }
                           }
                           setState(() {});
-                          foodBloc..add(FoodEEventRefresh());
-                        }
+                        }*/
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -134,7 +132,7 @@ class _ConfigSupState extends State<ConfigSup> {
                     ),
                   GestureDetector(
                     onTap: () {
-                      if (widget.sup.count != widget.sup.limit) {
+                      /*    if (widget.sup.count != widget.sup.limit) {
                         {
                           widget.sup.count++;
                           if (widget.sup.count > widget.sup.free) {
@@ -144,7 +142,7 @@ class _ConfigSupState extends State<ConfigSup> {
                         }
                         setState(() {});
                         foodBloc..add(FoodEEventRefresh());
-                      }
+                      }*/
                     },
                     child: Container(
                       decoration: BoxDecoration(

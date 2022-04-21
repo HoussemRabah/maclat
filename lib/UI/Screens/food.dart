@@ -7,16 +7,17 @@ import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Screens/foodconfig.dart';
-import 'package:mbh/UI/Widgets/appbar.dart';
-import 'package:mbh/UI/Widgets/checkedline.dart';
-import 'package:mbh/UI/Widgets/ingr.dart';
-import 'package:mbh/UI/Widgets/panier.dart';
+import 'package:mbh/UI/Widgets/ess/appbar.dart';
+import 'package:mbh/UI/Widgets/label/checkedline.dart';
+import 'package:mbh/UI/Widgets/ess/ingr.dart';
+import 'package:mbh/UI/Widgets/ess/panier.dart';
 import 'package:blur/blur.dart';
-import 'package:mbh/UI/Widgets/storecard.dart';
-import 'package:mbh/UI/Widgets/titlebar.dart';
+import 'package:mbh/UI/Widgets/cards/storecard.dart';
+import 'package:mbh/UI/Widgets/ess/titlebar.dart';
 
 class FoodScreen extends StatefulWidget {
-  const FoodScreen({Key? key}) : super(key: key);
+  final Food food;
+  const FoodScreen({Key? key, required this.food}) : super(key: key);
 
   @override
   State<FoodScreen> createState() => _FoodScreenState();
@@ -27,7 +28,6 @@ class _FoodScreenState extends State<FoodScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    prixtotal = 200;
   }
 
   @override
@@ -69,7 +69,7 @@ class _FoodScreenState extends State<FoodScreen> {
                             ),
                             Center(
                               child: Text(
-                                "Plat mélange mini",
+                                widget.food.name,
                                 style: textStyleTitle,
                               ),
                             ),
@@ -115,7 +115,7 @@ class _FoodScreenState extends State<FoodScreen> {
                               style: textStyleSimple,
                             ),
                             Text(
-                              "Un plat composé d'un mélange de viande fraîche chaude et de riz vapeur avec des pommes de terre sautées sans huile et des pommes de terre avec une sauce spéciale du restaurant",
+                              widget.food.disc,
                               style:
                                   textStyleSouSimple.copyWith(color: greyColor),
                             ),
@@ -126,8 +126,7 @@ class _FoodScreenState extends State<FoodScreen> {
                               "Fourni par",
                               style: textStyleSimple,
                             ),
-                            StoreCard(
-                                store: Store(name: "fares food", rate: "2.5")),
+                            StoreCard(store: widget.food.store),
                             SizedBox(
                               height: 16.0,
                             ),
@@ -171,7 +170,7 @@ class _FoodScreenState extends State<FoodScreen> {
               padding: EdgeInsets.all(4.0),
               decoration: BoxDecoration(borderRadius: radius, color: mainColor),
               child: Text(
-                "200DA",
+                widget.food.price.getPriceString(),
                 style: textStyleSimple.copyWith(color: inColor),
               )),
           Spacer(),
@@ -199,7 +198,7 @@ class _FoodScreenState extends State<FoodScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.4,
         child: Image.asset(
-          "assets/proto/exp1.png",
+          widget.food.image,
           fit: BoxFit.cover,
         ));
   }
@@ -252,7 +251,7 @@ class _FoodScreenState extends State<FoodScreen> {
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => FoodConfigScreen()));
+                    builder: (context) => FoodConfigScreen(food: widget.food)));
               },
               child: Container(
                 height: 69.0,

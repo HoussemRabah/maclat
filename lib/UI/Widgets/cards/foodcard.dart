@@ -4,7 +4,7 @@ import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Screens/food.dart';
 
-import 'storelabel.dart';
+import '../label/storelabel.dart';
 
 class FoodCard extends StatefulWidget {
   final Food food;
@@ -20,7 +20,10 @@ class _FoodCardState extends State<FoodCard> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const FoodScreen()),
+          MaterialPageRoute(
+              builder: (context) => FoodScreen(
+                    food: widget.food,
+                  )),
         );
       },
       child: Container(
@@ -96,7 +99,7 @@ class _FoodCardState extends State<FoodCard> {
                         decoration: BoxDecoration(
                             borderRadius: radius, color: mainColor),
                         child: Text(
-                          widget.food.price,
+                          widget.food.price.getPriceString(),
                           style: textStyleSimple.copyWith(color: inColor),
                         ),
                       )

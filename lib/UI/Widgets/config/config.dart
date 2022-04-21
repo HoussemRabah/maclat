@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
-import 'package:mbh/Logic/blocfood/food_bloc.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Screens/login.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -67,9 +66,6 @@ class _ConfigSliderState extends State<ConfigSlider> {
                     },
                     value: _value,
                     onChanged: (newValue) {
-                      foodBloc.sups[widget.index] =
-                          widget.config.prices[getIndexFromValue(newValue)];
-                      foodBloc..add(FoodEEventRefresh());
                       setState(() {
                         _value = newValue;
                       });
@@ -95,7 +91,8 @@ class _ConfigSliderState extends State<ConfigSlider> {
 }
 
 class QntSlider extends StatefulWidget {
-  const QntSlider({Key? key}) : super(key: key);
+  final Configuration configuration;
+  const QntSlider({Key? key, required this.configuration}) : super(key: key);
 
   @override
   State<QntSlider> createState() => _QntSliderState();
@@ -111,7 +108,7 @@ class _QntSliderState extends State<QntSlider> {
         shape: BadgeShape.square,
         badgeColor: mainColor,
         badgeContent: Text(
-          "X${foodBloc.qnt}",
+          "X${widget.configuration.qnt}",
           style: textStyleSmall.copyWith(color: inColor),
         ),
         child: Container(
@@ -124,16 +121,7 @@ class _QntSliderState extends State<QntSlider> {
             mainAxisSize: MainAxisSize.max,
             children: [
               GestureDetector(
-                onTap: () {
-                  if (foodBloc.qnt != 1) {
-                    {
-                      foodBloc.qnt--;
-                      _valueQnt = getValue((foodBloc.qnt));
-                    }
-                    setState(() {});
-                    foodBloc.add(FoodEEventRefresh());
-                  }
-                },
+                onTap: () {},
                 child: Container(
                   decoration: BoxDecoration(
                     color: mainColor,
@@ -160,24 +148,13 @@ class _QntSliderState extends State<QntSlider> {
                     },
                     value: _valueQnt,
                     onChanged: (newValue) {
-                      foodBloc.qnt = getQnt(newValue);
-                      foodBloc.add(FoodEEventRefresh());
                       setState(() {
                         _valueQnt = newValue;
                       });
                     }),
               ),
               GestureDetector(
-                onTap: () {
-                  if (foodBloc.qnt != 50) {
-                    {
-                      foodBloc.qnt++;
-                      _valueQnt = getValue(foodBloc.qnt);
-                    }
-                    setState(() {});
-                    foodBloc..add(FoodEEventRefresh());
-                  }
-                },
+                onTap: () {},
                 child: Container(
                   decoration: BoxDecoration(
                     color: mainColor,

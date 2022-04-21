@@ -20,8 +20,8 @@ class _FoodTinderState extends State<FoodTinder> {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => FoodScreen()));
+              //        Navigator.of(context)
+              //          .push(MaterialPageRoute(builder: (context) => FoodScreen()));
             },
             child: Stack(alignment: Alignment.bottomCenter, children: [
               Badge(

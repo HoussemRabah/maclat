@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
-import 'package:mbh/UI/Widgets/ratelabel.dart';
+import 'package:mbh/UI/Widgets/label/ratelabel.dart';
 
 class StoreLabel extends StatefulWidget {
   final Store store;

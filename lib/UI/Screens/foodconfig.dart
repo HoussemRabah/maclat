@@ -3,33 +3,39 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
-import 'package:mbh/Logic/blocfood/food_bloc.dart';
-import 'package:mbh/UI/Widgets/appbar.dart';
-import 'package:mbh/UI/Widgets/config.dart';
-import 'package:mbh/UI/Widgets/configSup.dart';
-import 'package:mbh/UI/Widgets/counter.dart';
+import 'package:mbh/Logic/bloc/foodConfig/food_bloc.dart';
+import 'package:mbh/UI/Widgets/ess/appbar.dart';
+import 'package:mbh/UI/Widgets/config/config.dart';
+import 'package:mbh/UI/Widgets/config/configSup.dart';
+import 'package:mbh/UI/Widgets/ess/counter.dart';
 
 import 'login.dart';
 
 class FoodConfigScreen extends StatefulWidget {
-  const FoodConfigScreen({Key? key}) : super(key: key);
+  final Food food;
+  const FoodConfigScreen({Key? key, required this.food}) : super(key: key);
 
   @override
   State<FoodConfigScreen> createState() => _FoodConfigScreenState();
 }
+
+late FoodBloc foodBloc;
 
 class _FoodConfigScreenState extends State<FoodConfigScreen> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    foodBloc = new FoodBloc(prixtotal: 200);
+    foodBloc = new FoodBloc(
+        foodOrdre: FoodOrdre(
+            food: widget.food,
+            configurationModel: widget.food.getConfigurationModel()));
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<FoodBloc>(
-      create: (context) => foodBloc..add(FoodEEventRefresh()),
+      create: (context) => foodBloc,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: backColor,
@@ -67,7 +73,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                             bottomRight: Radius.circular(30),
                           )),
                           child: Image.asset(
-                            "assets/proto/exp1.png",
+                            widget.food.image,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -78,55 +84,51 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                         SizedBox(
                           height: 16.0,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Quantité",
-                                style: textStyleSimple,
-                              ),
-                            ],
-                          ),
-                        ),
-                        QntSlider(),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Options",
-                                style: textStyleSimple,
-                              ),
-                            ],
-                          ),
-                        ),
-                        ConfigSlider(
-                            index: 0,
-                            config: Config(
-                                icon: Text(
-                                  "taille",
-                                  style: textStyleSimple.copyWith(
-                                      color: mainColor),
-                                ),
-                                points: ["S", "M", "X", "XL", "XLL"],
-                                prices: [0, 100, 150, 170, 250],
-                                defaut: 0)),
-                        ConfigSlider(
-                            index: 1,
-                            config: Config(
-                                icon: Image.asset(
-                                  "assets/ing/pic.png",
-                                  width: 30,
-                                  fit: BoxFit.cover,
-                                ),
-                                points: ["non", "un peu", "tres"],
-                                prices: [
-                                  0,
-                                  0,
-                                  10,
-                                ],
-                                defaut: 1)),
+                        BlocBuilder<FoodBloc, FoodState>(
+                            builder: (context, state) {
+                          return ListView.builder(
+                              itemCount:
+                                  foodBloc.foodOrdre.configurations.length,
+                              itemBuilder: (context, index) =>
+                                  Column(children: [
+                                    SizedBox(
+                                      height: 16.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            (index == 1)
+                                                ? "Configuration"
+                                                : "Configuration $index",
+                                            style: textStyleSimple,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    QntSlider(
+                                        configuration: foodBloc
+                                            .foodOrdre.configurations[index]),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Options",
+                                            style: textStyleSimple,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    for (Config c in foodBloc.foodOrdre
+                                        .configurations[index].configs)
+                                      ConfigSlider(
+                                        config: c,
+                                        index: 0,
+                                      ),
+                                  ]));
+                        }),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
@@ -181,29 +183,6 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                 return Column(
                                   children: [
                                     infoLineBuilder("prix de base", "200DA"),
-                                    infoLineBuilder(
-                                        "quantité", "${foodBloc.qnt}"),
-                                    SizedBox(
-                                      height: 8.0,
-                                    ),
-                                    infoLineBuilder("cout de taille",
-                                        "${foodBloc.sups[0]}DA"),
-                                    infoLineBuilder("cout de piment",
-                                        "${foodBloc.sups[1]}DA"),
-                                    if (foodBloc.sups[2] != 0)
-                                      infoLineBuilder("prix de cocacola 0.25L",
-                                          "${foodBloc.sups[2]}DA"),
-                                    if (foodBloc.sups[3] != 0)
-                                      infoLineBuilder("prix de pains",
-                                          "${foodBloc.sups[3]}DA"),
-                                    SizedBox(
-                                      height: 8.0,
-                                    ),
-                                    infoLineBuilder("prix total",
-                                        "${foodBloc.prixtotal}DA"),
-                                     SizedBox(
-                                      height: 8.0,
-                                    ),
                                   ],
                                 );
                               },
@@ -214,7 +193,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                           height: 69.0,
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -258,7 +237,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "${foodBloc.prixtotal}DA",
+                  "${foodBloc.foodOrdre.getPriceTotalFormatString()}",
                   style: textStyleSouTitle.copyWith(color: inColor),
                 ),
                 Text(
