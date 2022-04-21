@@ -56,7 +56,7 @@ class Store {
 
 class Config {
   Widget icon;
-  late int value;
+  double value = 0.0;
   List<String> points;
   List<int> prices;
   int defaut;
@@ -70,12 +70,20 @@ class Config {
         .getPriceString();
   }
 
+  int valueToPoint() {
+    return (value * (points.length - 1)).ceil();
+  }
+
+  double pointToValue(int point) {
+    return (value * point) / points.length;
+  }
+
   Config(
       {required this.icon,
       required this.points,
       required this.prices,
       required this.defaut}) {
-    value = defaut;
+    value = pointToValue(defaut);
   }
 }
 
@@ -128,8 +136,8 @@ class FoodOrdre {
   List<Configuration> configurations = [];
 
   addConfiguration() {
-    configurations.add(configurationModel);
-    print(configurations[0].choices);
+    configurations.add(new Configuration(
+        configs: configurationModel.configs, qnt: configurationModel.qnt));
   }
 
   removeConfiguration(int index) {
