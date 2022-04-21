@@ -125,6 +125,15 @@ class Configuration {
     return totalPrice;
   }
 
+  List<Config> getConfigs() => [
+        for (Config c in configs)
+          new Config(
+              icon: c.icon,
+              points: c.points,
+              prices: c.prices,
+              defaut: c.defaut)
+      ];
+
   Configuration({required this.configs, required this.qnt}) {
     choices = [for (Config config in configs) config.defaut];
   }
@@ -136,7 +145,8 @@ class FoodOrdre {
   List<Configuration> configurations = [];
 
   addConfiguration() {
-    configurations.add(configurationModel);
+    configurations.add(new Configuration(
+        configs: configurationModel.getConfigs(), qnt: configurationModel.qnt));
   }
 
   removeConfiguration(int index) {
@@ -163,6 +173,6 @@ class FoodOrdre {
   }
 
   FoodOrdre({required this.food, required this.configurationModel}) {
-    configurations.add(configurationModel);
+    addConfiguration();
   }
 }
