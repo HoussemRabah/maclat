@@ -105,39 +105,64 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                             padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               children: [
+                                                SizedBox(
+                                                  width: 8.0,
+                                                ),
                                                 Text(
-                                                  (index == 0)
-                                                      ? "Configuration"
-                                                      : "Configuration $index",
+                                                  "Configuration ${index + 1}",
                                                   style: textStyleSimple,
                                                 ),
                                                 Spacer(),
-                                                Icon(
-                                                  LineIcons.minus,
-                                                  color: mainColor,
-                                                )
+                                                if (index != 0)
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      foodBloc.add(
+                                                          FoodEventRemoveConfiguration(
+                                                              index: index));
+                                                    },
+                                                    child: Icon(
+                                                      LineIcons.minus,
+                                                      color: mainColor,
+                                                    ),
+                                                  )
                                               ],
                                             ),
                                           ),
                                           QntSlider(
                                               configuration: foodBloc.foodOrdre
                                                   .configurations[index]),
+                                          SizedBox(
+                                            height: 8.0,
+                                          ),
                                           for (Config c in foodBloc.foodOrdre
                                               .configurations[index].configs)
-                                            ConfigSlider(
-                                              config: c,
-                                              index: 0,
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      0.0, 0.0, 0.0, 8.0),
+                                              child: ConfigSlider(
+                                                config: c,
+                                                index: 0,
+                                              ),
                                             ),
                                         ]),
                                       )),
-                              Text(
-                                "ajouter autre configuration",
-                                style:
-                                    textStyleSimple.copyWith(color: mainColor),
+                              GestureDetector(
+                                onTap: () {
+                                  foodBloc.add(FoodEventAddConfiguration());
+                                },
+                                child: Text(
+                                  "ajouter autre configuration",
+                                  style: textStyleSimple.copyWith(
+                                      color: mainColor),
+                                ),
                               ),
                             ],
                           );
                         }),
+                        SizedBox(
+                          height: 16.0,
+                        ),
                         // sups
                         Padding(
                           padding: const EdgeInsets.all(8.0),

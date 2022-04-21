@@ -99,7 +99,7 @@ class _QntSliderState extends State<QntSlider> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
+      padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0.0),
       child: Badge(
         alignment: Alignment.topCenter,
         shape: BadgeShape.square,
