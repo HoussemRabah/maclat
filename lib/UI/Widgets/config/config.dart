@@ -9,11 +9,8 @@ import 'package:mbh/UI/Screens/login.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class ConfigSlider extends StatefulWidget {
-  final int configurationIndex;
-  final int configIndex;
-  const ConfigSlider(
-      {Key? key, required this.configurationIndex, required this.configIndex})
-      : super(key: key);
+  final Config config;
+  const ConfigSlider({Key? key, required this.config}) : super(key: key);
 
   @override
   State<ConfigSlider> createState() => _ConfigSliderState();
@@ -21,15 +18,11 @@ class ConfigSlider extends StatefulWidget {
 
 double _valueQnt = 1 / 50;
 
-late Config config;
-
 class _ConfigSliderState extends State<ConfigSlider> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    config = foodBloc.foodOrdre.configurations[widget.configurationIndex]
-        .configs[widget.configIndex];
   }
 
   @override
@@ -37,11 +30,11 @@ class _ConfigSliderState extends State<ConfigSlider> {
     return Badge(
       alignment: Alignment.topCenter,
       shape: BadgeShape.square,
-      showBadge: (config.prices[getIndex()] != 0),
-      badgeContent: (config.prices[getIndex()] == 0)
+      showBadge: (widget.config.prices[getIndex()] != 0),
+      badgeContent: (widget.config.prices[getIndex()] == 0)
           ? null
           : Text(
-              "+${config.prices[getIndex()]}DA",
+              "+${widget.config.prices[getIndex()]}DA",
               style: textStyleSmall.copyWith(color: inColor),
             ),
       child: Container(
@@ -53,23 +46,22 @@ class _ConfigSliderState extends State<ConfigSlider> {
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Sqaure(child: config.icon),
+            Sqaure(child: widget.config.icon),
             Expanded(
-              child: SfSlider(
+              child: new SfSlider(
                   showDividers: true,
-                  interval: 1.0 / (config.points.length - 1),
-                  stepSize: 1.0 / (config.points.length - 1),
+                  interval: 1.0 / (widget.config.points.length - 1),
+                  stepSize: 1.0 / (widget.config.points.length - 1),
                   showLabels: true,
                   activeColor: mainColor,
                   inactiveColor: inColor,
                   labelPlacement: LabelPlacement.onTicks,
                   labelFormatterCallback: (value, formateur) {
-                    return "${config.points[getIndexFromValue(value)]}";
+                    return "${widget.config.points[getIndexFromValue(value)]}";
                   },
-                  value: config.value,
+                  value: widget.config.value,
                   onChanged: (newValue) {
                     //             config.value = newValue;
-                    setState(() {});
                   }),
             ),
             SizedBox(
@@ -82,11 +74,11 @@ class _ConfigSliderState extends State<ConfigSlider> {
   }
 
   int getIndex() {
-    return (config.value * (config.points.length - 1)).ceil();
+    return (widget.config.value * (widget.config.points.length - 1)).ceil();
   }
 
   int getIndexFromValue(double value) {
-    return (value * (config.points.length - 1)).ceil();
+    return (value * (widget.config.points.length - 1)).ceil();
   }
 }
 
