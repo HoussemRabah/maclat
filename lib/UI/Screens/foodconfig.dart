@@ -154,10 +154,8 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                   const EdgeInsets.fromLTRB(
                                                       0.0, 0.0, 0.0, 8.0),
                                               child: new ConfigSlider(
-                                                config: foodBloc
-                                                    .foodOrdre
-                                                    .configurations[index]
-                                                    .configs[configIndex],
+                                                configIndex: configIndex,
+                                                configurationIndex: index,
                                               ),
                                             ),
                                           )
