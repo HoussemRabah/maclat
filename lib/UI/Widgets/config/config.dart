@@ -68,7 +68,8 @@ class _ConfigSliderState extends State<ConfigSlider> {
                   },
                   value: config.value,
                   onChanged: (newValue) {
-                    config.value = newValue;
+                    //             config.value = newValue;
+                    setState(() {});
                   }),
             ),
             SizedBox(

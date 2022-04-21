@@ -37,7 +37,7 @@ class Food {
   List<Sup>? sups;
 
   Configuration getConfigurationModel() =>
-      Configuration(configs: configs, qnt: 1);
+      new Configuration(configs: configs, qnt: 1);
   Food(
       {required this.name,
       required this.price,
@@ -136,8 +136,7 @@ class FoodOrdre {
   List<Configuration> configurations = [];
 
   addConfiguration() {
-    configurations.add(new Configuration(
-        configs: configurationModel.configs, qnt: configurationModel.qnt));
+    configurations.add(configurationModel);
   }
 
   removeConfiguration(int index) {
