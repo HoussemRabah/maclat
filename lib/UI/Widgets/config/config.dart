@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
+import 'package:mbh/Logic/bloc/foodConfig/food_bloc.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 import 'package:mbh/UI/Screens/foodconfig.dart';
 import 'package:mbh/UI/Screens/login.dart';
@@ -61,7 +62,8 @@ class _ConfigSliderState extends State<ConfigSlider> {
                   },
                   value: widget.config.value,
                   onChanged: (newValue) {
-                    //             config.value = newValue;
+                    foodBloc.add(FoodEventUpdateConfig(
+                        config: widget.config, newValue: newValue));
                   }),
             ),
             SizedBox(

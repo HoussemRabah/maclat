@@ -21,10 +21,9 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         emit(FoodStateLoaded());
       }
 
-      if (event is FoodEventUpdateConfiguration) {
+      if (event is FoodEventUpdateConfig) {
         emit(FoodStateLoading());
-        foodOrdre.updateConfiguration(
-            configuration: event.configuration, index: event.index);
+        event.config.value = event.newValue;
         emit(FoodStateLoaded());
       }
     });
