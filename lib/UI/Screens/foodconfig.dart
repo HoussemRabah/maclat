@@ -147,16 +147,17 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                 .configurations[index]
                                                 .configs
                                                 .length,
-                                            itemBuilder: (context, index) =>
-                                                Padding(
+                                            itemBuilder:
+                                                (context, configIndex) =>
+                                                    Padding(
                                               padding:
                                                   const EdgeInsets.fromLTRB(
                                                       0.0, 0.0, 0.0, 8.0),
-                                              child: ConfigSlider(
+                                              child: new ConfigSlider(
                                                 config: foodBloc
                                                     .foodOrdre
                                                     .configurations[index]
-                                                    .configs[index],
+                                                    .configs[configIndex],
                                               ),
                                             ),
                                           )

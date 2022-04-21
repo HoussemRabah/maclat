@@ -56,6 +56,7 @@ class Store {
 
 class Config {
   Widget icon;
+  late int value;
   List<String> points;
   List<int> prices;
   int defaut;
@@ -73,7 +74,9 @@ class Config {
       {required this.icon,
       required this.points,
       required this.prices,
-      required this.defaut});
+      required this.defaut}) {
+    value = defaut;
+  }
 }
 
 class Sup {
@@ -126,6 +129,7 @@ class FoodOrdre {
 
   addConfiguration() {
     configurations.add(configurationModel);
+    print(configurations[0].choices);
   }
 
   removeConfiguration(int index) {

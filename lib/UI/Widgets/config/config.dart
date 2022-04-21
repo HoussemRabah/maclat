@@ -60,11 +60,9 @@ class _ConfigSliderState extends State<ConfigSlider> {
                   labelFormatterCallback: (value, formateur) {
                     return "${widget.config.points[getIndexFromValue(value)]}";
                   },
-                  value: _value,
+                  value: widget.config.value,
                   onChanged: (newValue) {
-                    setState(() {
-                      _value = newValue;
-                    });
+                    widget.config.value = newValue;
                   }),
             ),
             SizedBox(
@@ -77,7 +75,7 @@ class _ConfigSliderState extends State<ConfigSlider> {
   }
 
   int getIndex() {
-    return (_value * (widget.config.points.length - 1)).ceil();
+    return (widget.config.value * (widget.config.points.length - 1)).ceil();
   }
 
   int getIndexFromValue(double value) {
