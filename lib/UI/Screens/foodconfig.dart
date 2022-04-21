@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/Logic/bloc/foodConfig/food_bloc.dart';
@@ -84,51 +85,60 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                         SizedBox(
                           height: 16.0,
                         ),
+                        // configurations
                         BlocBuilder<FoodBloc, FoodState>(
                             builder: (context, state) {
-                          return ListView.builder(
-                              itemCount:
-                                  foodBloc.foodOrdre.configurations.length,
-                              itemBuilder: (context, index) =>
-                                  Column(children: [
-                                    SizedBox(
-                                      height: 16.0,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            (index == 1)
-                                                ? "Configuration"
-                                                : "Configuration $index",
-                                            style: textStyleSimple,
+                          return Column(
+                            children: [
+                              ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount:
+                                      foodBloc.foodOrdre.configurations.length,
+                                  itemBuilder: (context, index) => Container(
+                                        margin: EdgeInsets.all(8.0),
+                                        decoration: BoxDecoration(
+                                            color: inColor,
+                                            borderRadius: radius),
+                                        child: Column(children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  (index == 0)
+                                                      ? "Configuration"
+                                                      : "Configuration $index",
+                                                  style: textStyleSimple,
+                                                ),
+                                                Spacer(),
+                                                Icon(
+                                                  LineIcons.minus,
+                                                  color: mainColor,
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    QntSlider(
-                                        configuration: foodBloc
-                                            .foodOrdre.configurations[index]),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            "Options",
-                                            style: textStyleSimple,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    for (Config c in foodBloc.foodOrdre
-                                        .configurations[index].configs)
-                                      ConfigSlider(
-                                        config: c,
-                                        index: 0,
-                                      ),
-                                  ]));
+                                          QntSlider(
+                                              configuration: foodBloc.foodOrdre
+                                                  .configurations[index]),
+                                          for (Config c in foodBloc.foodOrdre
+                                              .configurations[index].configs)
+                                            ConfigSlider(
+                                              config: c,
+                                              index: 0,
+                                            ),
+                                        ]),
+                                      )),
+                              Text(
+                                "ajouter autre configuration",
+                                style:
+                                    textStyleSimple.copyWith(color: mainColor),
+                              ),
+                            ],
+                          );
                         }),
+                        // sups
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
