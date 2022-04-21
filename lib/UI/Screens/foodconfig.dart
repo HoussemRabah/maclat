@@ -113,7 +113,11 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                   style: textStyleSimple,
                                                 ),
                                                 Spacer(),
-                                                if (index != 0)
+                                                if (foodBloc
+                                                        .foodOrdre
+                                                        .configurations
+                                                        .length !=
+                                                    1)
                                                   GestureDetector(
                                                     onTap: () {
                                                       foodBloc.add(
@@ -134,17 +138,28 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                           SizedBox(
                                             height: 8.0,
                                           ),
-                                          for (Config c in foodBloc.foodOrdre
-                                              .configurations[index].configs)
-                                            Padding(
+                                          ListView.builder(
+                                            shrinkWrap: true,
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            itemCount: foodBloc
+                                                .foodOrdre
+                                                .configurations[index]
+                                                .configs
+                                                .length,
+                                            itemBuilder: (context, index) =>
+                                                Padding(
                                               padding:
                                                   const EdgeInsets.fromLTRB(
                                                       0.0, 0.0, 0.0, 8.0),
                                               child: ConfigSlider(
-                                                config: c,
-                                                index: 0,
+                                                config: foodBloc
+                                                    .foodOrdre
+                                                    .configurations[index]
+                                                    .configs[index],
                                               ),
                                             ),
+                                          )
                                         ]),
                                       )),
                               GestureDetector(

@@ -9,9 +9,7 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class ConfigSlider extends StatefulWidget {
   final Config config;
-  final int index;
-  const ConfigSlider({Key? key, required this.config, required this.index})
-      : super(key: key);
+  const ConfigSlider({Key? key, required this.config}) : super(key: key);
 
   @override
   State<ConfigSlider> createState() => _ConfigSliderState();
