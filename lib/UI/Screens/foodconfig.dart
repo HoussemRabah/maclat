@@ -210,7 +210,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                             infoLineBuilder("prix total",
                                                 "${foodBloc.foodOrdre.getPriceTotalFormatString()}"),
                                             SizedBox(
-                                              height: 16.0,
+                                              height: 32.0,
                                             ),
                                           ],
                                         );
