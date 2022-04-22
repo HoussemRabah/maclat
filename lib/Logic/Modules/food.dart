@@ -170,9 +170,12 @@ class FoodOrdre {
   }
 
   int getPriceTotal() {
-    int priceTotal = 0;
+    int priceTotal = food.price.priceNow;
     for (Configuration c in configurations) {
       priceTotal += c.getPrice();
+    }
+    for (Sup s in food.sups ?? []) {
+      priceTotal += s.getTotalPrice();
     }
     return priceTotal;
   }

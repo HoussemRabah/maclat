@@ -197,9 +197,13 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "${foodBloc.foodOrdre.getPriceTotalFormatString()}",
-                  style: textStyleSouTitle.copyWith(color: inColor),
+                BlocBuilder<FoodBloc, FoodState>(
+                  builder: (context, state) {
+                    return Text(
+                      "${foodBloc.foodOrdre.getPriceTotalFormatString()}",
+                      style: textStyleSouTitle.copyWith(color: inColor),
+                    );
+                  },
                 ),
                 Text(
                   "Ajouter au panier",
