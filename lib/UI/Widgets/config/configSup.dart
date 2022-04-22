@@ -103,10 +103,10 @@ class _ConfigSupState extends State<ConfigSup> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  if (widget.sup.count != 0)
+                  if (widget.sup.count != widget.sup.limitDown)
                     GestureDetector(
                       onTap: () {
-                        foodBloc.add(FoodEventSupAdd(sup: widget.sup));
+                        foodBloc.add(FoodEventSupSub(sup: widget.sup));
                         /*       if (widget.sup.count != 0) {
                           {
                             widget.sup.count--;
@@ -133,6 +133,8 @@ class _ConfigSupState extends State<ConfigSup> {
                     ),
                   GestureDetector(
                     onTap: () {
+                      foodBloc.add(FoodEventSupAdd(sup: widget.sup));
+
                       /*    if (widget.sup.count != widget.sup.limit) {
                         {
                           widget.sup.count++;

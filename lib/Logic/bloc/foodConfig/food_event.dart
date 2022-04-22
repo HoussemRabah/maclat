@@ -49,4 +49,9 @@ class FoodEventSupAdd extends FoodEvent {
   FoodEventSupAdd({required this.sup}) : super();
 }
 
+class FoodEventSupSub extends FoodEvent {
+  final Sup sup;
+  FoodEventSupSub({required this.sup}) : super();
+}
+
 class FoodEventRefresh extends FoodEvent {}

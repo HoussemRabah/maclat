@@ -53,7 +53,7 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         }
       }
 
-      if (event is FoodEventSupAdd) {
+      if (event is FoodEventSupSub) {
         if (event.sup.count != event.sup.limit) {
           {
             event.sup.count++;
