@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mbh/Core/constants.dart';
+import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
 
 class IngSqaure extends StatefulWidget {
-  final String image;
-  final String name;
-  const IngSqaure({Key? key, required this.image, required this.name})
-      : super(key: key);
+  final Ing ing;
+  const IngSqaure({Key? key, required this.ing}) : super(key: key);
 
   @override
   State<IngSqaure> createState() => _IngSqaureState();
@@ -21,7 +20,7 @@ class _IngSqaureState extends State<IngSqaure> {
       children: [
         Sqaure(
             child: Image.asset(
-          widget.image,
+          widget.ing.image,
           fit: BoxFit.scaleDown,
           width: 50,
           height: 50,
@@ -30,7 +29,7 @@ class _IngSqaureState extends State<IngSqaure> {
           width: 60,
           child: Center(
             child: Text(
-              widget.name,
+              widget.ing.title,
               style: textStyleSmall,
             ),
           ),

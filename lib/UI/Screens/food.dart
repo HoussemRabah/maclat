@@ -83,30 +83,21 @@ class _FoodScreenState extends State<FoodScreen> {
                                 alignment: WrapAlignment.center,
                                 runAlignment: WrapAlignment.center,
                                 children: [
-                                  IngSqaure(
-                                      name: "frites",
-                                      image: "assets/ing/frite.png"),
-                                  IngSqaure(
-                                      name: "pomme de terre",
-                                      image: "assets/ing/potato.png"),
-                                  IngSqaure(
-                                      name: "riz",
-                                      image: "assets/ing/rice.png"),
-                                  IngSqaure(
-                                      name: "Viande",
-                                      image: "assets/ing/steak.png"),
+                                  for (Ing ing in widget.food.ings)
+                                    IngSqaure(ing: ing),
                                 ],
                               ),
                             ),
                             SizedBox(
                               height: 16.0,
                             ),
-                            Text(
-                              "la santé",
-                              style: textStyleSimple,
-                            ),
-                            CheckLine(text: "pour le diabète"),
-                            CheckLine(text: "pour votre regime"),
+                            if (widget.food.healths != null)
+                              Text(
+                                "la santé",
+                                style: textStyleSimple,
+                              ),
+                            for (Health health in widget.food.healths ?? [])
+                              CheckLine(health: health),
                             SizedBox(
                               height: 16.0,
                             ),

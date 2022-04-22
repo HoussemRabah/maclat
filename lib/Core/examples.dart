@@ -8,6 +8,7 @@ List<Food> foodExamples = [
       name: "Tajin el ziton",
       price: Price(priceNow: 200, priceFormat: PriceFormat.simple),
       disc: "olives, viande et poulet",
+      discRapide: "olives, viande et poulet",
       image: "assets/proto/exp3.png",
       store: Store(name: "HomeFood Resto", rate: "3.4"),
       qntLimitDown: 1,
@@ -50,15 +51,36 @@ List<Food> foodExamples = [
               0,
               10,
             ],
-            defaut: 1)
+            defaut: 1),
+      ],
+      ings: [
+        Ing(title: "frites", image: "assets/ing/frite.png"),
+        Ing(title: "pomme de terre", image: "assets/ing/potato.png"),
+        Ing(title: "riz", image: "assets/ing/rice.png"),
+        Ing(title: "Viande", image: "assets/ing/steak.png"),
+      ],
+      healths: [
+        Health(title: "pour le diabète", stat: true),
+        Health(title: "pour votre regime", stat: true),
       ]),
   Food(
       name: "Baklawa",
       price: Price(priceNow: 70, priceFormat: PriceFormat.unit, unit: 1),
       disc: "Délicieux baklawa d'un professionnel",
+      discRapide: "Délicieux baklawa d'un professionnel",
       image: "assets/proto/exp4.png",
       store: Store(name: "omRamy Sweet", rate: "4.2"),
       qntLimitUp: 15,
       qntLimitDown: 2,
-      configs: [])
+      configs: [],
+      ings: [
+        Ing(title: "frites", image: "assets/ing/frite.png"),
+        Ing(title: "pomme de terre", image: "assets/ing/potato.png"),
+        Ing(title: "riz", image: "assets/ing/rice.png"),
+        Ing(title: "Viande", image: "assets/ing/steak.png"),
+      ],
+      healths: [
+        Health(title: "pour le diabète", stat: true),
+        Health(title: "pour votre regime", stat: true),
+      ])
 ];

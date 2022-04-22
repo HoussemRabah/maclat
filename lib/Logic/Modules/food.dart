@@ -27,16 +27,31 @@ class Price {
       this.unit});
 }
 
+class Ing {
+  String image;
+  String title;
+  Ing({required this.image, required this.title});
+}
+
+class Health {
+  String title;
+  bool stat;
+  Health({required this.title, required this.stat});
+}
+
 class Food {
   String name;
   Price price;
   String disc;
+  String discRapide;
   String image;
   Store store;
   List<Config> configs;
   int? qntLimitDown;
   int? qntLimitUp;
   List<Sup>? sups;
+  List<Ing> ings;
+  List<Health>? healths;
 
   Configuration getConfigurationModel() => new Configuration(
       configs: configs,
@@ -47,12 +62,15 @@ class Food {
       {required this.name,
       required this.price,
       required this.disc,
+      required this.discRapide,
       required this.image,
       required this.store,
       required this.configs,
       this.sups,
+      required this.ings,
       this.qntLimitDown,
-      this.qntLimitUp});
+      this.qntLimitUp,
+      this.healths});
 }
 
 class Store {

@@ -74,7 +74,7 @@ class _FoodCardState extends State<FoodCard> {
                             8.0 -
                             8.0,
                         child: Text(
-                          widget.food.disc,
+                          widget.food.discRapide,
                           style: textStyleSouSimple.copyWith(color: greyColor),
                         ),
                       ),
