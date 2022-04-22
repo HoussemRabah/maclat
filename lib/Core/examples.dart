@@ -28,16 +28,15 @@ List<Food> foodExamples = [
       ],
       configs: [
         Config(
-            icon: Text(
-              "taille",
-              style: textStyleSimple.copyWith(color: mainColor),
-            ),
-            points: ["S", "M", "X", "XL"],
-            prices: [0, 100, 150, 200],
-            defaut: 0,
-            value: 0 / 4),
+          icon: Text(
+            "taille",
+            style: textStyleSimple.copyWith(color: mainColor),
+          ),
+          points: ["S", "M", "X", "XL"],
+          prices: [0, 100, 150, 200],
+          defaut: 0,
+        ),
         Config(
-            value: 1 / 3,
             icon: Image.asset(
               "assets/ing/pic.png",
               width: 30,

@@ -56,7 +56,7 @@ class Store {
 
 class Config {
   Widget icon;
-  double value;
+  double value = 0.0;
   List<String> points;
   List<int> prices;
   int defaut;
@@ -75,15 +75,15 @@ class Config {
   }
 
   double pointToValue(int point) {
-    return value / points.length;
+    return point / (points.length - 1);
   }
 
-  Config(
-      {required this.icon,
-      required this.points,
-      required this.prices,
-      required this.defaut,
-      required this.value}) {
+  Config({
+    required this.icon,
+    required this.points,
+    required this.prices,
+    required this.defaut,
+  }) {
     value = pointToValue(defaut);
     print(value);
   }
@@ -138,11 +138,11 @@ class Configuration {
   List<Config> castConfigs() => [
         for (Config c in configs)
           new Config(
-              icon: c.icon,
-              points: c.points,
-              prices: c.prices,
-              defaut: c.defaut,
-              value: c.defaut / c.points.length)
+            icon: c.icon,
+            points: c.points,
+            prices: c.prices,
+            defaut: c.defaut,
+          )
       ];
 
   Configuration({required this.configs, required this.qnt}) {
