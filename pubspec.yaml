@@ -30,6 +30,7 @@ dependencies:
   badges: ^2.0.2
   blur: ^3.0.0
   syncfusion_flutter_sliders: ^20.1.47
+  stepper_counter_swipe: ^1.0.2
 
 dev_dependencies:
   flutter_test:

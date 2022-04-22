@@ -5,10 +5,10 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/Logic/bloc/foodConfig/food_bloc.dart';
+import 'package:mbh/UI/Widgets/counter/counter.dart';
 import 'package:mbh/UI/Widgets/ess/appbar.dart';
 import 'package:mbh/UI/Widgets/config/config.dart';
 import 'package:mbh/UI/Widgets/config/configSup.dart';
-import 'package:mbh/UI/Widgets/ess/counter.dart';
 
 import 'login.dart';
 
@@ -143,10 +143,51 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                               builder: (context, state) {
                                 return Column(
                                   children: [
-                                    infoLineBuilder(
-                                        "prix de base",
-                                        foodBloc.foodOrdre.food.price
-                                            .getPriceString()),
+                                    BlocBuilder<FoodBloc, FoodState>(
+                                      builder: (context, state) {
+                                        return Column(
+                                          children: [
+                                            infoLineBuilder(
+                                                "prix de base",
+                                                foodBloc.foodOrdre.food.price
+                                                    .getPriceString()),
+                                            ListView.builder(
+                                              shrinkWrap: true,
+                                              physics:
+                                                  NeverScrollableScrollPhysics(),
+                                              itemCount: foodBloc.foodOrdre
+                                                  .configurations.length,
+                                              itemBuilder: (context, index) =>
+                                                  Column(
+                                                children: [
+                                                  Text(
+                                                    "configuration ${index + 1}",
+                                                    style: textStyleSimple
+                                                        .copyWith(
+                                                            color: inColor),
+                                                  ),
+                                                  infoLineBuilder(
+                                                      "prix",
+                                                      foodBloc.foodOrdre
+                                                          .configurations[index]
+                                                          .getPriceFormatString(
+                                                              foodBloc
+                                                                  .foodOrdre
+                                                                  .food
+                                                                  .price
+                                                                  .priceNow)),
+                                                  infoLineBuilder("qnt",
+                                                      "X${foodBloc.foodOrdre.configurations[index].qnt}"),
+                                                  SizedBox(
+                                                    height: 16.0,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    )
                                   ],
                                 );
                               },
@@ -277,7 +318,7 @@ class BuildConfigsList extends StatelessWidget {
                                 .configs[configIndex]),
                       ),
                     ),
-                    QntSlider(
+                    Counter(
                         configuration:
                             foodBloc.foodOrdre.configurations[index]),
                     SizedBox(
