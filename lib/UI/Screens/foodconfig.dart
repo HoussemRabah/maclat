@@ -143,7 +143,10 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                               builder: (context, state) {
                                 return Column(
                                   children: [
-                                    infoLineBuilder("prix de base", "200DA"),
+                                    infoLineBuilder(
+                                        "prix de base",
+                                        foodBloc.foodOrdre.food.price
+                                            .getPriceString()),
                                   ],
                                 );
                               },

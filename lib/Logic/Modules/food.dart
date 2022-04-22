@@ -40,7 +40,7 @@ class Food {
 
   Configuration getConfigurationModel() => new Configuration(
       configs: configs,
-      qnt: 1,
+      qnt: qntLimitDown ?? 1,
       qntLimitDown: qntLimitDown,
       qntLimitUp: qntLimitUp);
   Food(

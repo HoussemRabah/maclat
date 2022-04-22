@@ -128,7 +128,8 @@ class _QntSliderState extends State<QntSlider> {
               ),
               Expanded(
                 child: SfSlider(
-                    min: 1 / (widget.configuration.qntLimitUp ?? 50),
+                    min: (widget.configuration.qntLimitDown ?? 1) /
+                        (widget.configuration.qntLimitUp ?? 50),
                     showDividers: true,
                     showLabels: true,
                     activeColor: mainColor,
