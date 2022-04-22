@@ -136,7 +136,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                               configuration: foodBloc.foodOrdre
                                                   .configurations[index]),
                                           SizedBox(
-                                            height: 8.0,
+                                            height: 16.0,
                                           ),
                                           ListView.builder(
                                             shrinkWrap: true,
@@ -152,7 +152,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                     Padding(
                                               padding:
                                                   const EdgeInsets.fromLTRB(
-                                                      8.0, 0.0, 8.0, 8.0),
+                                                      8.0, 0.0, 8.0, 16.0),
                                               child: ConfigSlider(
                                                   config: foodBloc
                                                       .foodOrdre

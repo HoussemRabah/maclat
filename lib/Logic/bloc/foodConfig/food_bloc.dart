@@ -31,6 +31,18 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         event.configuration.qnt = event.newValue;
         emit(FoodStateLoaded());
       }
+      if (event is FoodEventUpdateConfigurationQntAdd) {
+        emit(FoodStateLoading());
+        if (event.configuration.qnt != event.configuration.qntLimitUp)
+          event.configuration.qnt++;
+        emit(FoodStateLoaded());
+      }
+      if (event is FoodEventUpdateConfigurationQntSub) {
+        emit(FoodStateLoading());
+        if (event.configuration.qnt != event.configuration.qntLimitDown)
+          event.configuration.qnt--;
+        emit(FoodStateLoaded());
+      }
     });
   }
 }
