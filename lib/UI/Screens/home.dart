@@ -48,8 +48,13 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: NeverScrollableScrollPhysics(),
             ),
             TitleBar(title: "restaurants", button: "afficher tous"),
-            StoreCard(
-              store: Store(name: "FaresFood", rate: "3.5"),
+            ListView.builder(
+              itemBuilder: (context, index) => StoreCard(
+                store: storesExamples[index],
+              ),
+              itemCount: storesExamples.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
             ),
           ],
         ),

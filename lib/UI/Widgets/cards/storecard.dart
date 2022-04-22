@@ -34,13 +34,14 @@ class _StoreCardState extends State<StoreCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(
-                  "assets/proto/store.svg",
+                  widget.store.image,
                   fit: BoxFit.fitWidth,
                   width: 40.0,
                 ),
                 Text(
                   widget.store.name,
                   style: textStyleSimple,
+                  textAlign: TextAlign.center,
                 ),
                 RateLabel(rate: widget.store.rate),
               ],
@@ -77,7 +78,7 @@ class _StoreCardState extends State<StoreCard> {
                       8.0,
                   height: 200 - 8.0 - 8.0 - 8.0 - 8.0 - 60,
                   child: Text(
-                    "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
+                    widget.store.disc,
                     style: textStyleSmall.copyWith(color: greyColor),
                   ),
                 ),

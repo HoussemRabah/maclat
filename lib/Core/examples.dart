@@ -10,7 +10,7 @@ List<Food> foodExamples = [
       disc: "olives, viande et poulet",
       discRapide: "olives, viande et poulet",
       image: "assets/proto/exp3.png",
-      store: Store(name: "HomeFood Resto", rate: "3.4"),
+      store: storesExamples[0],
       qntLimitDown: 1,
       qntLimitUp: 10,
       sups: [
@@ -69,7 +69,7 @@ List<Food> foodExamples = [
       disc: "Délicieux baklawa d'un professionnel",
       discRapide: "Délicieux baklawa d'un professionnel",
       image: "assets/proto/exp4.png",
-      store: Store(name: "omRamy Sweet", rate: "4.2"),
+      store: storesExamples[1],
       qntLimitUp: 15,
       qntLimitDown: 2,
       configs: [],
@@ -83,4 +83,19 @@ List<Food> foodExamples = [
         Health(title: "pour le diabète", stat: true),
         Health(title: "pour votre regime", stat: true),
       ])
+];
+
+List<Store> storesExamples = [
+  Store(
+      name: "HomeFood Resto",
+      rate: "3.4",
+      disc:
+          "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
+      image: "assets/proto/store.svg"),
+  Store(
+      name: "om Ramy Sweet",
+      rate: "4.2",
+      disc:
+          "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
+      image: "assets/proto/store.svg")
 ];

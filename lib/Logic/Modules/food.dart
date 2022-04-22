@@ -76,7 +76,13 @@ class Food {
 class Store {
   String name;
   String rate;
-  Store({required this.name, required this.rate});
+  String image;
+  String disc;
+  Store(
+      {required this.name,
+      required this.rate,
+      required this.disc,
+      required this.image});
 }
 
 class Config {
