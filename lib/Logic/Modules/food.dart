@@ -85,7 +85,6 @@ class Config {
     required this.defaut,
   }) {
     value = pointToValue(defaut);
-    print(value);
   }
 }
 

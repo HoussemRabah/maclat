@@ -107,16 +107,6 @@ class _ConfigSupState extends State<ConfigSup> {
                     GestureDetector(
                       onTap: () {
                         foodBloc.add(FoodEventSupSub(sup: widget.sup));
-                        /*       if (widget.sup.count != 0) {
-                          {
-                            widget.sup.count--;
-                            if (widget.sup.count >= widget.sup.free) {
-                              foodBloc.sups[widget.index] = widget.sup.price *
-                                  (widget.sup.count - widget.sup.free);
-                            }
-                          }
-                          setState(() {});
-                        }*/
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -134,18 +124,6 @@ class _ConfigSupState extends State<ConfigSup> {
                   GestureDetector(
                     onTap: () {
                       foodBloc.add(FoodEventSupAdd(sup: widget.sup));
-
-                      /*    if (widget.sup.count != widget.sup.limit) {
-                        {
-                          widget.sup.count++;
-                          if (widget.sup.count > widget.sup.free) {
-                            foodBloc.sups[widget.index] = widget.sup.price *
-                                (widget.sup.count - widget.sup.free);
-                          }
-                        }
-                        setState(() {});
-                        foodBloc..add(FoodEEventRefresh());
-                      }*/
                     },
                     child: Container(
                       decoration: BoxDecoration(
