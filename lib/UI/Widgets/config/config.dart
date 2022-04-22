@@ -138,7 +138,7 @@ class _QntSliderState extends State<QntSlider> {
                     labelFormatterCallback: (value, formateur) {
                       return "${getQnt(value)}";
                     },
-                    value: widget.configuration.qnt,
+                    value: getValue(widget.configuration.qnt),
                     onChanged: (newValue) {
                       foodBloc.add(FoodEventUpdateConfigurationQnt(
                           configuration: widget.configuration,
