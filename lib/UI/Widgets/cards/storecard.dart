@@ -18,8 +18,10 @@ class _StoreCardState extends State<StoreCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => StoreScreen()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => StoreScreen(
+                  store: widget.store,
+                )));
       },
       child: Container(
         margin: EdgeInsets.all(8.0),

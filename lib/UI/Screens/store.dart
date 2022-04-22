@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/UI/Widgets/ess/appbar.dart';
+import 'package:mbh/UI/Widgets/label/ratelabel.dart';
+
+import '../../Logic/Modules/food.dart';
 
 class StoreScreen extends StatefulWidget {
-  const StoreScreen({Key? key}) : super(key: key);
+  final Store store;
+  const StoreScreen({Key? key, required this.store}) : super(key: key);
 
   @override
   State<StoreScreen> createState() => _StoreScreenState();
@@ -20,29 +26,76 @@ class _StoreScreenState extends State<StoreScreen> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: Image.asset(
-                "assets/exp4.png",
-                fit: BoxFit.cover,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    "assets/proto/exp4.png",
+                    fit: BoxFit.cover,
+                  ),
+                  Column(
+                    children: [
+                      GlassmorphicFlexContainer(
+                        borderRadius: 30.0,
+                        linearGradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xFFffffff).withOpacity(0.1),
+                              Color(0xFFFFFFFF).withOpacity(0.05),
+                            ],
+                            stops: [
+                              0.1,
+                              1,
+                            ]),
+                        border: 2,
+                        blur: 20.0,
+                        borderGradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFffffff).withOpacity(0.5),
+                            Color((0xFFFFFFFF)).withOpacity(0.5),
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            SvgPicture.asset(widget.store.image),
+                            Text(
+                              widget.store.name,
+                              style: textStyleSouTitle,
+                            ),
+                            RateLabel(rate: widget.store.rate),
+                            Text(
+                              widget.store.disc,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                ],
               ),
             ),
             SingleChildScrollView(
               child: Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height,
+                    height: MediaQuery.of(context).size.height - 32.0,
                   ),
                   Container(
                     height: 700,
+                    width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                         color: inColor,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30))),
                     child: Text("wow"),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
+            ScreenAppBar()
           ],
         ),
       ),
