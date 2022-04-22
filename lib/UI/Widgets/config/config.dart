@@ -170,10 +170,10 @@ class _QntSliderState extends State<QntSlider> {
   }
 
   int getQnt(double value) {
-    return (value * 50).floor();
+    return (value * (widget.configuration.qntLimitUp ?? 50)).floor();
   }
 
   double getValue(int value) {
-    return (value / 50);
+    return (value / (widget.configuration.qntLimitUp ?? 50));
   }
 }

@@ -75,7 +75,7 @@ class Config {
   }
 
   double pointToValue(int point) {
-    return (value * point) / points.length;
+    return value / points.length;
   }
 
   Config(
@@ -84,6 +84,7 @@ class Config {
       required this.prices,
       required this.defaut}) {
     value = pointToValue(defaut);
+    print(value);
   }
 }
 
