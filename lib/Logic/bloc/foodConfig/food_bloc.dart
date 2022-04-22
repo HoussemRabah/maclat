@@ -33,13 +33,13 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
       }
       if (event is FoodEventUpdateConfigurationQntAdd) {
         emit(FoodStateLoading());
-        if (event.configuration.qnt != event.configuration.qntLimitUp)
+        if (event.configuration.qnt != (event.configuration.qntLimitUp ?? 50))
           event.configuration.qnt++;
         emit(FoodStateLoaded());
       }
       if (event is FoodEventUpdateConfigurationQntSub) {
         emit(FoodStateLoading());
-        if (event.configuration.qnt != event.configuration.qntLimitDown)
+        if (event.configuration.qnt != (event.configuration.qntLimitDown ?? 1))
           event.configuration.qnt--;
         emit(FoodStateLoaded());
       }

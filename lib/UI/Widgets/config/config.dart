@@ -109,7 +109,10 @@ class _QntSliderState extends State<QntSlider> {
             mainAxisSize: MainAxisSize.max,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  foodBloc.add(FoodEventUpdateConfigurationQntSub(
+                      configuration: widget.configuration));
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     color: mainColor,
@@ -142,7 +145,10 @@ class _QntSliderState extends State<QntSlider> {
                     }),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  foodBloc.add(FoodEventUpdateConfigurationQntAdd(
+                      configuration: widget.configuration));
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     color: mainColor,
