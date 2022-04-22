@@ -56,7 +56,7 @@ class Store {
 
 class Config {
   Widget icon;
-  double value = 0.0;
+  double value;
   List<String> points;
   List<int> prices;
   int defaut;
@@ -82,7 +82,8 @@ class Config {
       {required this.icon,
       required this.points,
       required this.prices,
-      required this.defaut}) {
+      required this.defaut,
+      required this.value}) {
     value = pointToValue(defaut);
     print(value);
   }
@@ -140,7 +141,8 @@ class Configuration {
               icon: c.icon,
               points: c.points,
               prices: c.prices,
-              defaut: c.defaut)
+              defaut: c.defaut,
+              value: c.defaut / c.points.length)
       ];
 
   Configuration({required this.configs, required this.qnt}) {
