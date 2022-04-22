@@ -60,12 +60,12 @@ class Config {
   List<String> points;
   List<int> prices;
   int defaut;
-  int getPrice(int choice) {
-    return prices[choice];
+  int getPrice() {
+    return prices[valueToPoint()];
   }
 
   String getPriceFormatString(int choice) {
-    int totalPrice = getPrice(choice);
+    int totalPrice = getPrice();
     return Price(priceFormat: PriceFormat.simple, priceNow: totalPrice)
         .getPriceString();
   }
@@ -97,7 +97,7 @@ class Sup {
   int free;
   int count;
 
-  int getTotalPrice() => price * (count - free);
+  int getTotalPrice() => (count <= free) ? 0 : price * (count - free);
 
   Sup(
       {required this.image,
@@ -127,7 +127,7 @@ class Configuration {
   int getPrice() {
     int totalPrice = 0;
     for (int i = 0; i < configs.length; i++) {
-      totalPrice += configs[i].getPrice(choices[i]);
+      totalPrice += configs[i].getPrice();
     }
     return totalPrice;
   }
