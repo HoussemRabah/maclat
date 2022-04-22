@@ -152,7 +152,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                     Padding(
                                               padding:
                                                   const EdgeInsets.fromLTRB(
-                                                      0.0, 0.0, 0.0, 8.0),
+                                                      8.0, 0.0, 8.0, 8.0),
                                               child: ConfigSlider(
                                                   config: foodBloc
                                                       .foodOrdre
