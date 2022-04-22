@@ -125,6 +125,14 @@ class Configuration {
   int? qntLimitUp;
   List<int> choices = [];
 
+  Price getExtra() {
+    int totalPrice = 0;
+    for (int i = 0; i < configs.length; i++) {
+      totalPrice += configs[i].getPrice();
+    }
+    return Price(priceNow: totalPrice, priceFormat: PriceFormat.simple);
+  }
+
   String getPriceFormatString(int baseprice) {
     int totalPrice = getPrice(baseprice);
     return Price(priceFormat: PriceFormat.simple, priceNow: totalPrice)
@@ -164,6 +172,24 @@ class FoodOrdre {
   Food food;
   Configuration configurationModel;
   List<Configuration> configurations = [];
+
+  int getQntTotal() {
+    int qnt = 0;
+    for (Configuration c in configurations) {
+      qnt += c.qnt;
+    }
+
+    return qnt;
+  }
+
+  Price getSupPrice() {
+    int prix = 0;
+    for (Sup c in food.sups ?? []) {
+      prix += c.getTotalPrice();
+    }
+
+    return Price(priceNow: prix, priceFormat: PriceFormat.simple);
+  }
 
   addConfiguration() {
     configurations.add(new Configuration(

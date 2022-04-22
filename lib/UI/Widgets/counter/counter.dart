@@ -20,16 +20,21 @@ class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
     return StepperSwipe(
+        withFastCount: true,
+        withSpring: true,
         initialValue: widget.configuration.qnt,
         minValue: widget.configuration.qntLimitDown ?? 1,
         maxValue: widget.configuration.qntLimitUp ?? 50,
         iconsColor: mainColor,
+        firstIncrementDuration: Duration(milliseconds: 250),
+        secondIncrementDuration: Duration(milliseconds: 100),
         counterTextColor: inColor,
         dragButtonColor: mainColor,
+        speedTransitionLimitCount: 3,
         onChanged: (newValue) {
           foodBloc.add(FoodEventUpdateConfigurationQnt(
               configuration: widget.configuration, newValue: newValue));
         },
-        stepperValue: 1);
+        stepperValue: widget.configuration.qnt);
   }
 }
