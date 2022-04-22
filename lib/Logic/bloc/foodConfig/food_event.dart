@@ -44,4 +44,9 @@ class FoodEventUpdateConfigurationQntSub extends FoodEvent {
   FoodEventUpdateConfigurationQntSub({required this.configuration}) : super();
 }
 
+class FoodEventSupAdd extends FoodEvent {
+  final Sup sup;
+  FoodEventSupAdd({required this.sup}) : super();
+}
+
 class FoodEventRefresh extends FoodEvent {}

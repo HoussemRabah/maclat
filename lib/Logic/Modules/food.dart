@@ -92,8 +92,11 @@ class Sup {
   String name;
   int price;
   int limit;
+  int? limitDown;
   int free;
   int count;
+
+  int getTotalPrice() => price * (count - free);
 
   Sup(
       {required this.image,
@@ -101,7 +104,10 @@ class Sup {
       required this.price,
       required this.limit,
       required this.free,
-      required this.count});
+      required this.count,
+      this.limitDown}) {
+    if (limitDown == null) limitDown = 0;
+  }
 }
 
 class Configuration {

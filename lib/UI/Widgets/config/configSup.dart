@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Logic/Modules/food.dart';
+import 'package:mbh/Logic/bloc/foodConfig/food_bloc.dart';
 import 'package:mbh/UI/Decoration/covers.dart';
+import 'package:mbh/UI/Screens/foodconfig.dart';
 import 'package:mbh/UI/Screens/login.dart';
 
 class ConfigSup extends StatefulWidget {
@@ -104,6 +106,7 @@ class _ConfigSupState extends State<ConfigSup> {
                   if (widget.sup.count != 0)
                     GestureDetector(
                       onTap: () {
+                        foodBloc.add(FoodEventSupAdd(sup: widget.sup));
                         /*       if (widget.sup.count != 0) {
                           {
                             widget.sup.count--;
