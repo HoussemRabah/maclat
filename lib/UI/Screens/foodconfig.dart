@@ -262,12 +262,6 @@ class BuildConfigsList extends StatelessWidget {
                         ],
                       ),
                     ),
-                    QntSlider(
-                        configuration:
-                            foodBloc.foodOrdre.configurations[index]),
-                    SizedBox(
-                      height: 16.0,
-                    ),
                     ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
@@ -279,7 +273,13 @@ class BuildConfigsList extends StatelessWidget {
                             config: foodBloc.foodOrdre.configurations[index]
                                 .configs[configIndex]),
                       ),
-                    )
+                    ),
+                    QntSlider(
+                        configuration:
+                            foodBloc.foodOrdre.configurations[index]),
+                    SizedBox(
+                      height: 16.0,
+                    ),
                   ]),
                 )),
         GestureDetector(

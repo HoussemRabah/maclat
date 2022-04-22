@@ -34,10 +34,15 @@ class Food {
   String image;
   Store store;
   List<Config> configs;
+  int? qntLimitDown;
+  int? qntLimitUp;
   List<Sup>? sups;
 
-  Configuration getConfigurationModel() =>
-      new Configuration(configs: configs, qnt: 1);
+  Configuration getConfigurationModel() => new Configuration(
+      configs: configs,
+      qnt: 1,
+      qntLimitDown: qntLimitDown,
+      qntLimitUp: qntLimitUp);
   Food(
       {required this.name,
       required this.price,
@@ -45,7 +50,9 @@ class Food {
       required this.image,
       required this.store,
       required this.configs,
-      this.sups});
+      this.sups,
+      this.qntLimitDown,
+      this.qntLimitUp});
 }
 
 class Store {
@@ -144,7 +151,11 @@ class Configuration {
           )
       ];
 
-  Configuration({required this.configs, required this.qnt}) {
+  Configuration(
+      {required this.configs,
+      required this.qnt,
+      this.qntLimitDown,
+      this.qntLimitUp}) {
     choices = [for (Config config in configs) config.defaut];
   }
 }

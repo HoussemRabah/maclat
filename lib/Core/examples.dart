@@ -10,6 +10,8 @@ List<Food> foodExamples = [
       disc: "olives, viande et poulet",
       image: "assets/proto/exp3.png",
       store: Store(name: "HomeFood Resto", rate: "3.4"),
+      qntLimitDown: 1,
+      qntLimitUp: 10,
       sups: [
         Sup(
             image: "assets/ing/coca.png",
@@ -56,5 +58,7 @@ List<Food> foodExamples = [
       disc: "Délicieux baklawa d'un professionnel",
       image: "assets/proto/exp4.png",
       store: Store(name: "omRamy Sweet", rate: "4.2"),
+      qntLimitUp: 15,
+      qntLimitDown: 2,
       configs: [])
 ];
