@@ -10,6 +10,22 @@ List<Food> foodExamples = [
       disc: "olives, viande et poulet",
       image: "assets/proto/exp3.png",
       store: Store(name: "HomeFood Resto", rate: "3.4"),
+      sups: [
+        Sup(
+            image: "assets/ing/coca.png",
+            name: "cocacola 0.25L",
+            price: 60,
+            limit: 6,
+            count: 0,
+            free: 0),
+        Sup(
+            image: "assets/ing/khbz.png",
+            name: "pains",
+            price: 10,
+            limit: 4,
+            count: 1,
+            free: 2)
+      ],
       configs: [
         Config(
             icon: Text(

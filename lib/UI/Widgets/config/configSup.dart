@@ -8,9 +8,7 @@ import 'package:mbh/UI/Screens/login.dart';
 
 class ConfigSup extends StatefulWidget {
   final Sup sup;
-  final int index;
-  const ConfigSup({Key? key, required this.sup, required this.index})
-      : super(key: key);
+  const ConfigSup({Key? key, required this.sup}) : super(key: key);
 
   @override
   State<ConfigSup> createState() => _ConfigSupState();

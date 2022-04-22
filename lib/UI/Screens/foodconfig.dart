@@ -88,92 +88,7 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                         // configurations
                         BlocBuilder<FoodBloc, FoodState>(
                             builder: (context, state) {
-                          return Column(
-                            children: [
-                              ListView.builder(
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  itemCount:
-                                      foodBloc.foodOrdre.configurations.length,
-                                  itemBuilder: (context, index) => Container(
-                                        margin: EdgeInsets.all(8.0),
-                                        decoration: BoxDecoration(
-                                            color: inColor,
-                                            borderRadius: radius),
-                                        child: Column(children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Row(
-                                              children: [
-                                                SizedBox(
-                                                  width: 8.0,
-                                                ),
-                                                Text(
-                                                  "Configuration ${index + 1}",
-                                                  style: textStyleSimple,
-                                                ),
-                                                Spacer(),
-                                                if (foodBloc
-                                                        .foodOrdre
-                                                        .configurations
-                                                        .length !=
-                                                    1)
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      foodBloc.add(
-                                                          FoodEventRemoveConfiguration(
-                                                              index: index));
-                                                    },
-                                                    child: Icon(
-                                                      LineIcons.minus,
-                                                      color: mainColor,
-                                                    ),
-                                                  )
-                                              ],
-                                            ),
-                                          ),
-                                          QntSlider(
-                                              configuration: foodBloc.foodOrdre
-                                                  .configurations[index]),
-                                          SizedBox(
-                                            height: 16.0,
-                                          ),
-                                          ListView.builder(
-                                            shrinkWrap: true,
-                                            physics:
-                                                NeverScrollableScrollPhysics(),
-                                            itemCount: foodBloc
-                                                .foodOrdre
-                                                .configurations[index]
-                                                .configs
-                                                .length,
-                                            itemBuilder:
-                                                (context, configIndex) =>
-                                                    Padding(
-                                              padding:
-                                                  const EdgeInsets.fromLTRB(
-                                                      8.0, 0.0, 8.0, 16.0),
-                                              child: ConfigSlider(
-                                                  config: foodBloc
-                                                      .foodOrdre
-                                                      .configurations[index]
-                                                      .configs[configIndex]),
-                                            ),
-                                          )
-                                        ]),
-                                      )),
-                              GestureDetector(
-                                onTap: () {
-                                  foodBloc.add(FoodEventAddConfiguration());
-                                },
-                                child: Text(
-                                  "ajouter autre configuration",
-                                  style: textStyleSimple.copyWith(
-                                      color: mainColor),
-                                ),
-                              ),
-                            ],
-                          );
+                          return BuildConfigsList();
                         }),
                         SizedBox(
                           height: 16.0,
@@ -190,24 +105,20 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                             ],
                           ),
                         ),
-                        ConfigSup(
-                            index: 2,
-                            sup: Sup(
-                                image: "assets/ing/coca.png",
-                                name: "cocacola 0.25L",
-                                price: 60,
-                                limit: 6,
-                                count: 0,
-                                free: 0)),
-                        ConfigSup(
-                            index: 3,
-                            sup: Sup(
-                                image: "assets/ing/khbz.png",
-                                name: "pains",
-                                price: 10,
-                                limit: 4,
-                                count: 1,
-                                free: 2)),
+                        BlocBuilder<FoodBloc, FoodState>(
+                          builder: (context, state) {
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount:
+                                  (foodBloc.foodOrdre.food.sups ?? []).length,
+                              itemBuilder: (context, index) => ConfigSup(
+                                sup: foodBloc.foodOrdre.food.sups![index],
+                              ),
+                            );
+                          },
+                        ),
+
                         Container(
                           margin: EdgeInsets.all(16.0),
                           padding: EdgeInsets.all(8.0),
@@ -296,6 +207,84 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                 ),
               ],
             ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class BuildConfigsList extends StatelessWidget {
+  const BuildConfigsList({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: foodBloc.foodOrdre.configurations.length,
+            itemBuilder: (context, index) => Container(
+                  margin: EdgeInsets.all(8.0),
+                  decoration:
+                      BoxDecoration(color: inColor, borderRadius: radius),
+                  child: Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 8.0,
+                          ),
+                          Text(
+                            "Configuration ${index + 1}",
+                            style: textStyleSimple,
+                          ),
+                          Spacer(),
+                          if (foodBloc.foodOrdre.configurations.length != 1)
+                            GestureDetector(
+                              onTap: () {
+                                foodBloc.add(
+                                    FoodEventRemoveConfiguration(index: index));
+                              },
+                              child: Icon(
+                                LineIcons.minus,
+                                color: mainColor,
+                              ),
+                            )
+                        ],
+                      ),
+                    ),
+                    QntSlider(
+                        configuration:
+                            foodBloc.foodOrdre.configurations[index]),
+                    SizedBox(
+                      height: 16.0,
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: foodBloc
+                          .foodOrdre.configurations[index].configs.length,
+                      itemBuilder: (context, configIndex) => Padding(
+                        padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 16.0),
+                        child: ConfigSlider(
+                            config: foodBloc.foodOrdre.configurations[index]
+                                .configs[configIndex]),
+                      ),
+                    )
+                  ]),
+                )),
+        GestureDetector(
+          onTap: () {
+            foodBloc.add(FoodEventAddConfiguration());
+          },
+          child: Text(
+            "ajouter autre configuration",
+            style: textStyleSimple.copyWith(color: mainColor),
           ),
         ),
       ],
