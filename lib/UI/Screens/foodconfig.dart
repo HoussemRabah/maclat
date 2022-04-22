@@ -164,21 +164,27 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                   Column(
                                                 children: [
                                                   Text(
-                                                    "configuration ${index + 1}",
+                                                    (foodBloc
+                                                                .foodOrdre
+                                                                .configurations
+                                                                .length >
+                                                            1)
+                                                        ? "configuration ${index + 1}"
+                                                        : "configuration",
                                                     style: textStyleSimple
                                                         .copyWith(
                                                             color: inColor),
                                                   ),
                                                   infoLineBuilder(
-                                                      "extra",
+                                                      "cout supplémentaire",
                                                       foodBloc.foodOrdre
                                                           .configurations[index]
                                                           .getExtra()
                                                           .getPriceString()),
-                                                  infoLineBuilder("qnt",
+                                                  infoLineBuilder("quantité",
                                                       "X${foodBloc.foodOrdre.configurations[index].qnt}"),
                                                   infoLineBuilder(
-                                                      "total",
+                                                      "cout total",
                                                       foodBloc.foodOrdre
                                                           .configurations[index]
                                                           .getPriceFormatString(
@@ -196,12 +202,16 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                             SizedBox(
                                               height: 16.0,
                                             ),
-                                            infoLineBuilder("qnt total",
+                                            infoLineBuilder("quantité total",
                                                 "X${foodBloc.foodOrdre.getQntTotal()}"),
-                                            infoLineBuilder("prix sup",
+                                            infoLineBuilder(
+                                                "prix des suppléments",
                                                 "${foodBloc.foodOrdre.getSupPrice().priceNow}"),
-                                            infoLineBuilder("prix final",
+                                            infoLineBuilder("prix total",
                                                 "${foodBloc.foodOrdre.getPriceTotalFormatString()}"),
+                                            SizedBox(
+                                              height: 16.0,
+                                            ),
                                           ],
                                         );
                                       },
@@ -306,7 +316,7 @@ class BuildConfigsList extends StatelessWidget {
                             width: 8.0,
                           ),
                           Text(
-                            (index == 1)
+                            (foodBloc.foodOrdre.configurations.length == 1)
                                 ? "Configuration"
                                 : "Configuration ${index + 1}",
                             style: textStyleSimple,
