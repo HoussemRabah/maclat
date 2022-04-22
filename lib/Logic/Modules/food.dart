@@ -125,7 +125,9 @@ class Configuration {
     return totalPrice;
   }
 
-  List<Config> getConfigs() => [
+  int castQnt() => qnt + 0;
+
+  List<Config> castConfigs() => [
         for (Config c in configs)
           new Config(
               icon: c.icon,
@@ -146,7 +148,8 @@ class FoodOrdre {
 
   addConfiguration() {
     configurations.add(new Configuration(
-        configs: configurationModel.getConfigs(), qnt: configurationModel.qnt));
+        configs: configurationModel.castConfigs(),
+        qnt: configurationModel.castQnt()));
   }
 
   removeConfiguration(int index) {

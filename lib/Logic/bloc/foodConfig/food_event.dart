@@ -26,4 +26,12 @@ class FoodEventUpdateConfig extends FoodEvent {
       : super();
 }
 
+class FoodEventUpdateConfigurationQnt extends FoodEvent {
+  final Configuration configuration;
+  final int newValue;
+  FoodEventUpdateConfigurationQnt(
+      {required this.configuration, required this.newValue})
+      : super();
+}
+
 class FoodEventRefresh extends FoodEvent {}

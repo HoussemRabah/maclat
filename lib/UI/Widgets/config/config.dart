@@ -17,8 +17,6 @@ class ConfigSlider extends StatefulWidget {
   State<ConfigSlider> createState() => _ConfigSliderState();
 }
 
-double _valueQnt = 1 / 50;
-
 class _ConfigSliderState extends State<ConfigSlider> {
   @override
   void initState() {
@@ -131,7 +129,7 @@ class _QntSliderState extends State<QntSlider> {
               ),
               Expanded(
                 child: SfSlider(
-                    min: 1 / 50,
+                    min: 1 / (widget.configuration.qntLimitUp ?? 50),
                     showDividers: true,
                     showLabels: true,
                     activeColor: mainColor,
@@ -140,11 +138,11 @@ class _QntSliderState extends State<QntSlider> {
                     labelFormatterCallback: (value, formateur) {
                       return "${getQnt(value)}";
                     },
-                    value: _valueQnt,
+                    value: widget.configuration.qnt,
                     onChanged: (newValue) {
-                      setState(() {
-                        _valueQnt = newValue;
-                      });
+                      foodBloc.add(FoodEventUpdateConfigurationQnt(
+                          configuration: widget.configuration,
+                          newValue: getQnt(newValue)));
                     }),
               ),
               GestureDetector(
