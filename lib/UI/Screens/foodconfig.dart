@@ -233,7 +233,7 @@ class BuildConfigsList extends StatelessWidget {
                       BoxDecoration(color: inColor, borderRadius: radius),
                   child: Column(children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Row(
                         children: [
                           SizedBox(
@@ -283,7 +283,7 @@ class BuildConfigsList extends StatelessWidget {
             foodBloc.add(FoodEventAddConfiguration());
           },
           child: Text(
-            "ajouter autre configuration",
+            "ajouter d'autre configuration",
             style: textStyleSimple.copyWith(color: mainColor),
           ),
         ),
