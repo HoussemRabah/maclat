@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:glass/glass.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/UI/Widgets/ess/appbar.dart';
@@ -34,29 +36,10 @@ class _StoreScreenState extends State<StoreScreen> {
                   ),
                   Column(
                     children: [
-                      GlassmorphicFlexContainer(
-                        borderRadius: 30.0,
-                        linearGradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFffffff).withOpacity(0.1),
-                              Color(0xFFFFFFFF).withOpacity(0.05),
-                            ],
-                            stops: [
-                              0.1,
-                              1,
-                            ]),
-                        border: 2,
-                        blur: 20.0,
-                        borderGradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xFFffffff).withOpacity(0.5),
-                            Color((0xFFFFFFFF)).withOpacity(0.5),
-                          ],
-                        ),
+                      Container(
+                        decoration: BoxDecoration(borderRadius: radius),
+                        margin: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Column(
                           children: [
                             SvgPicture.asset(widget.store.image),
@@ -70,7 +53,7 @@ class _StoreScreenState extends State<StoreScreen> {
                             ),
                           ],
                         ),
-                      )
+                      ).asGlass()
                     ],
                   )
                 ],
