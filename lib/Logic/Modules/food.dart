@@ -129,7 +129,7 @@ class Configuration {
     for (int i = 0; i < configs.length; i++) {
       totalPrice += configs[i].getPrice();
     }
-    return totalPrice;
+    return totalPrice * qnt;
   }
 
   int castQnt() => qnt + 0;
