@@ -21,10 +21,10 @@ class _GlassContainerState extends State<GlassContainer> {
             padding: EdgeInsets.all(8.0),
             child: widget.child)
         .asGlass(
-            blurX: 10,
-            blurY: 10,
+            blurX: 5,
+            blurY: 5,
             clipBorderRadius: radius,
-            tintColor: greyColor,
+            tintColor: frontColor,
             tileMode: TileMode.mirror);
   }
 }

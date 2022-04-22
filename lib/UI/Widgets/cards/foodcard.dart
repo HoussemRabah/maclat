@@ -8,7 +8,8 @@ import '../label/storelabel.dart';
 
 class FoodCard extends StatefulWidget {
   final Food food;
-  const FoodCard({Key? key, required this.food}) : super(key: key);
+  final bool? label;
+  const FoodCard({Key? key, required this.food, this.label}) : super(key: key);
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -32,7 +33,8 @@ class _FoodCardState extends State<FoodCard> {
         decoration: BoxDecoration(color: inColor, borderRadius: radius),
         child: Column(
           children: [
-            StoreLabel(store: widget.food.store),
+            if (widget.label != null)
+              if (widget.label!) StoreLabel(store: widget.food.store),
             Container(
               height: MediaQuery.of(context).size.width * 0.5,
               child: Row(
