@@ -229,7 +229,7 @@ List<Food> foodExamples = [
   Food(
       name: "crepe fruit",
       category: "dessert",
-      price: Price(priceNow: 170, priceFormat: PriceFormat.unit, unit: 1),
+      price: Price(priceNow: 140, priceFormat: PriceFormat.unit, unit: 1),
       disc: "Crepe aux fruits et nutella",
       discRapide: "Crepe aux fruits et nutella",
       image: "assets/proto/exp5.jpg",
@@ -237,6 +237,19 @@ List<Food> foodExamples = [
       qntLimitUp: 50,
       qntLimitDown: 1,
       configs: [
+        Config(
+            icon: Image.asset(
+              "assets/ing/banana.png",
+              width: 30,
+              fit: BoxFit.cover,
+            ),
+            points: ["non", "un peu", "tres"],
+            prices: [
+              0,
+              10,
+              40,
+            ],
+            defaut: 2),
         Config(
             icon: Image.asset(
               "assets/ing/ananas.png",
@@ -292,7 +305,7 @@ List<Food> tinderExamples = [
   foodExamples[4],
   foodExamples[1],
   foodExamples[3],
-  foodExamples[0],
+  foodExamples[2],
 ];
 
 List<Store> storesExamples = [
