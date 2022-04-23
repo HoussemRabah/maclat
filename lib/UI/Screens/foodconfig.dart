@@ -163,18 +163,23 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                               itemBuilder: (context, index) =>
                                                   Column(
                                                 children: [
-                                                  Text(
-                                                    (foodBloc
-                                                                .foodOrdre
-                                                                .configurations
-                                                                .length >
-                                                            1)
-                                                        ? "configuration ${index + 1}"
-                                                        : "configuration",
-                                                    style: textStyleSimple
-                                                        .copyWith(
-                                                            color: inColor),
-                                                  ),
+                                                  if (foodBloc
+                                                          .foodOrdre
+                                                          .configurationModel
+                                                          .configs !=
+                                                      [])
+                                                    Text(
+                                                      (foodBloc
+                                                                  .foodOrdre
+                                                                  .configurations
+                                                                  .length >
+                                                              1)
+                                                          ? "configuration ${index + 1}"
+                                                          : "configuration",
+                                                      style: textStyleSimple
+                                                          .copyWith(
+                                                              color: inColor),
+                                                    ),
                                                   infoLineBuilder(
                                                       "cout supplémentaire",
                                                       foodBloc.foodOrdre
@@ -356,15 +361,16 @@ class BuildConfigsList extends StatelessWidget {
                     ),
                   ]),
                 )),
-        GestureDetector(
-          onTap: () {
-            foodBloc.add(FoodEventAddConfiguration());
-          },
-          child: Text(
-            "ajouter d'autre configuration",
-            style: textStyleSimple.copyWith(color: mainColor),
+        if (foodBloc.foodOrdre.configurationModel.configs != [])
+          GestureDetector(
+            onTap: () {
+              foodBloc.add(FoodEventAddConfiguration());
+            },
+            child: Text(
+              "ajouter d'autre configuration",
+              style: textStyleSimple.copyWith(color: mainColor),
+            ),
           ),
-        ),
       ],
     );
   }
