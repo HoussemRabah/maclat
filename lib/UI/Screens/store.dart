@@ -35,7 +35,7 @@ class _StoreScreenState extends State<StoreScreen> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
-                "assets/proto/exp3.png",
+                "assets/proto/rb1.jpeg",
                 fit: BoxFit.cover,
               ),
             ),
@@ -71,16 +71,12 @@ class _StoreScreenState extends State<StoreScreen> {
                 SizedBox(
                   height: 16.0,
                 ),
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset("assets/proto/overt.png"),
-                    Text(
-                      "ouvert",
-                      style: textStyleSimple.copyWith(color: Colors.white),
-                    )
-                  ],
-                ),
+                Container(
+                    width: 300,
+                    child: Image.asset(
+                      "assets/proto/overt.png",
+                      fit: BoxFit.fitWidth,
+                    )),
                 SizedBox(
                   height: 16.0,
                 ),
