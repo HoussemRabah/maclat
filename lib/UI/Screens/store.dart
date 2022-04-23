@@ -35,7 +35,7 @@ class _StoreScreenState extends State<StoreScreen> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
-                "assets/proto/rb1.jpg",
+                widget.store.background,
                 fit: BoxFit.cover,
               ),
             ),
@@ -74,7 +74,7 @@ class _StoreScreenState extends State<StoreScreen> {
                 Container(
                     width: 300,
                     child: Image.asset(
-                      "assets/proto/overt.png",
+                      widget.store.statut,
                       fit: BoxFit.fitWidth,
                     )),
                 SizedBox(
@@ -105,7 +105,7 @@ class _StoreScreenState extends State<StoreScreen> {
                                 width: 2.0,
                               ),
                               Text(
-                                "345 ventes",
+                                "72 ventes",
                                 style: textStyleSimple.copyWith(color: inColor),
                               ),
                             ],

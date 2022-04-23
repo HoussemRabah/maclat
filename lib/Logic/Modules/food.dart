@@ -46,6 +46,7 @@ class Food {
   String discRapide;
   String image;
   Store store;
+  String category;
   List<Config> configs;
   int? qntLimitDown;
   int? qntLimitUp;
@@ -60,6 +61,7 @@ class Food {
       qntLimitUp: qntLimitUp);
   Food(
       {required this.name,
+      required this.category,
       required this.price,
       required this.disc,
       required this.discRapide,
@@ -77,12 +79,17 @@ class Store {
   String name;
   String rate;
   String image;
+  String background;
+  String statut;
   String disc;
-  Store(
-      {required this.name,
-      required this.rate,
-      required this.disc,
-      required this.image});
+  Store({
+    required this.name,
+    required this.rate,
+    required this.disc,
+    required this.image,
+    required this.background,
+    required this.statut,
+  });
 }
 
 class Config {

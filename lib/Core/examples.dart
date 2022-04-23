@@ -6,6 +6,7 @@ import 'constants.dart';
 List<Food> foodExamples = [
   Food(
       name: "Tajin el ziton",
+      category: "plat traditionere",
       price: Price(priceNow: 200, priceFormat: PriceFormat.simple),
       disc: "olives, viande et poulet",
       discRapide: "olives, viande et poulet",
@@ -65,6 +66,7 @@ List<Food> foodExamples = [
       ]),
   Food(
       name: "Baklawa",
+      category: "gateux",
       price: Price(priceNow: 70, priceFormat: PriceFormat.unit, unit: 1),
       disc: "Délicieux baklawa d'un professionnel",
       discRapide: "Délicieux baklawa d'un professionnel",
@@ -91,11 +93,15 @@ List<Store> storesExamples = [
       rate: "3.4",
       disc:
           "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
-      image: "assets/proto/store.svg"),
+      image: "assets/proto/store.svg",
+      background: "assets/proto/rb1.jpg",
+      statut: "assets/proto/overt.png"),
   Store(
       name: "om Ramy Sweet",
       rate: "4.2",
       disc:
           "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon restaurant propre",
-      image: "assets/proto/store.svg")
+      image: "assets/proto/store.svg",
+      background: "assets/proto/rb1.jpg",
+      statut: "assets/proto/overt.png")
 ];
