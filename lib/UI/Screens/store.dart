@@ -151,9 +151,13 @@ class _StoreScreenState extends State<StoreScreen> {
                             return (element.store == widget.store);
                           }).toList(),
                           groupBy: (element) => (element as Food).category,
-                          groupSeparatorBuilder: (String groupByValue) => Text(
-                            groupByValue,
-                            style: textStyleSouTitle,
+                          groupSeparatorBuilder: (String groupByValue) =>
+                              Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              groupByValue,
+                              style: textStyleSouTitle,
+                            ),
                           ),
                           itemBuilder: (context, dynamic element) =>
                               FoodCard(label: false, food: element),
