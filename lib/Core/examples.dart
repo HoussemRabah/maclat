@@ -5,13 +5,12 @@ import 'constants.dart';
 
 List<Food> foodExamples = [
   Food(
-      name: "plat varié express",
+      name: "plat express",
       category: "plat varié",
       price: Price(priceNow: 170, priceFormat: PriceFormat.simple),
       disc:
           "Un plat soigneusement étudié qui contient tout ce qu'une personne devrait manger dans une journée à travers un mélange de riz cuit à la vapeur, de viande, de pommes de terre bouillies et frites, et d'une quantité de légumes tels que des carottes.",
-      discRapide:
-          "Un plat léger qui contient les éléments nécessaires pour compléter votre journée",
+      discRapide: "les éléments nécessaires pour compléter votre journée",
       image: "assets/proto/exp1.png",
       store: storesExamples[0],
       qntLimitDown: 1,
@@ -74,8 +73,7 @@ List<Food> foodExamples = [
       price: Price(priceNow: 250, priceFormat: PriceFormat.simple),
       disc:
           "Steaks frais de notre boucherie, blanc de poulet savamment cuit avec les épices nécessaires et un lot de frites, riz et salade",
-      discRapide:
-          "Un plat qui contient du steak et du poulet et garantit que vous êtes satisfait",
+      discRapide: "steak et poulet pour garantit que vous êtes satisfait",
       image: "assets/proto/exp2.png",
       store: storesExamples[0],
       qntLimitDown: 1,
@@ -153,8 +151,7 @@ List<Food> foodExamples = [
       price: Price(priceNow: 100, priceFormat: PriceFormat.simple),
       disc:
           "Après 15 ans d'expérience dans la cuisine de ce plat pour de nombreux mariages et qui a remporté les éloges d'un public, je vous donne aujourd'hui l'opportunité de l'essayer",
-      discRapide:
-          "Le célèbre plat de tajine ziton par un chef spécialisé dans les mariages",
+      discRapide: "Le célèbre plat de tajine ziton",
       image: "assets/proto/exp3.png",
       store: storesExamples[0],
       qntLimitDown: 1,
@@ -235,7 +232,7 @@ List<Food> foodExamples = [
       price: Price(priceNow: 170, priceFormat: PriceFormat.unit, unit: 1),
       disc: "Crepe aux fruits et nutella",
       discRapide: "Crepe aux fruits et nutella",
-      image: "assets/proto/exp4.jpg",
+      image: "assets/proto/exp5.jpg",
       store: storesExamples[1],
       qntLimitUp: 50,
       qntLimitDown: 1,
@@ -291,7 +288,12 @@ List<Food> foodExamples = [
       ])
 ];
 
-List<Food> tinderExamples = [foodExamples[3], foodExamples[0], foodExamples[1]];
+List<Food> tinderExamples = [
+  foodExamples[0],
+  foodExamples[4],
+  foodExamples[1],
+  foodExamples[3]
+];
 
 List<Store> storesExamples = [
   Store(
