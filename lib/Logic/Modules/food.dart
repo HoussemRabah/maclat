@@ -196,6 +196,8 @@ class Configuration {
       this.qntLimitDown,
       this.qntLimitUp}) {
     choices = [for (Config config in configs) config.defaut];
+    print(qntLimitDown);
+    print(qntLimitUp);
   }
 }
 
