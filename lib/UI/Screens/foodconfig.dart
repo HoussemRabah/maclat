@@ -218,9 +218,12 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                             ),
                                             infoLineBuilder("quantité total",
                                                 "X${foodBloc.foodOrdre.getQntTotal()}"),
-                                            infoLineBuilder(
-                                                "prix des suppléments",
-                                                "${foodBloc.foodOrdre.getSupPrice().getPriceString()}"),
+                                            if ((foodBloc.foodOrdre.food.sups ??
+                                                    [])
+                                                .isNotEmpty)
+                                              infoLineBuilder(
+                                                  "prix des suppléments",
+                                                  "${foodBloc.foodOrdre.getSupPrice().getPriceString()}"),
                                             infoLineBuilder("prix total",
                                                 "${foodBloc.foodOrdre.getPriceTotalFormatString()}"),
                                             SizedBox(
