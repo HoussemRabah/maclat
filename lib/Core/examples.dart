@@ -87,6 +87,8 @@ List<Food> foodExamples = [
       ])
 ];
 
+List<Food> tinderExamples = [foodExamples[0], foodExamples[1]];
+
 List<Store> storesExamples = [
   Store(
       name: "HomeFood Resto",

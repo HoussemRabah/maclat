@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:mbh/Core/constants.dart';
+import 'package:mbh/Core/examples.dart';
 import 'package:mbh/UI/Screens/food.dart';
 
 class FoodTinder extends StatefulWidget {
@@ -11,17 +12,24 @@ class FoodTinder extends StatefulWidget {
   State<FoodTinder> createState() => _FoodTinderState();
 }
 
+int newIndex = 0;
+
 class _FoodTinderState extends State<FoodTinder> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.width - 16.0,
       child: Swiper(
+        onIndexChanged: (index) {
+          newIndex = index;
+        },
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              //        Navigator.of(context)
-              //          .push(MaterialPageRoute(builder: (context) => FoodScreen()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => FoodScreen(
+                        food: tinderExamples[index],
+                      )));
             },
             child: Stack(alignment: Alignment.bottomCenter, children: [
               Badge(
@@ -30,8 +38,9 @@ class _FoodTinderState extends State<FoodTinder> {
                 shape: BadgeShape.square,
                 borderRadius: radius,
                 badgeColor: mainColor,
+                showBadge: (newIndex == index),
                 badgeContent: Text(
-                  "200DA",
+                  tinderExamples[index].price.getPriceString(),
                   style: textStyleSimple.copyWith(color: inColor),
                 ),
                 child: Container(
@@ -40,7 +49,7 @@ class _FoodTinderState extends State<FoodTinder> {
                   height: MediaQuery.of(context).size.width - 16.0,
                   decoration: BoxDecoration(borderRadius: radius),
                   child: Image.asset(
-                    examples[index],
+                    tinderExamples[index].image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -52,7 +61,7 @@ class _FoodTinderState extends State<FoodTinder> {
                   decoration:
                       BoxDecoration(borderRadius: radius, color: mainColor),
                   child: Text(
-                    examplesNames[index],
+                    tinderExamples[index].name,
                     style: textStyleSimple.copyWith(color: inColor),
                   ),
                 ),
@@ -62,7 +71,7 @@ class _FoodTinderState extends State<FoodTinder> {
         },
         itemWidth: MediaQuery.of(context).size.width - 16.0,
         itemHeight: MediaQuery.of(context).size.width - 16.0,
-        itemCount: 4,
+        itemCount: tinderExamples.length,
         viewportFraction: 0.7,
         layout: SwiperLayout.TINDER,
         pagination: null,
