@@ -226,6 +226,8 @@ class FoodOrdre {
 
   addConfiguration() {
     configurations.add(new Configuration(
+        qntLimitDown: configurationModel.qntLimitDown ?? 1 + 0,
+        qntLimitUp: configurationModel.qntLimitUp ?? 50 + 0,
         configs: configurationModel.castConfigs(),
         qnt: configurationModel.castQnt()));
   }
