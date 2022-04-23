@@ -41,8 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
             FoodTinder(),
             TitleBar(title: "recommandé", button: "afficher plus"),
             ListView.builder(
-              itemBuilder: (context, index) =>
-                  FoodCard(food: foodExamples[index]),
+              itemBuilder: (context, index) => FoodCard(
+                food: foodExamples[index],
+                label: true,
+              ),
               itemCount: foodExamples.length,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),

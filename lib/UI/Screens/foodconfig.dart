@@ -164,10 +164,10 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                   Column(
                                                 children: [
                                                   if (foodBloc
-                                                          .foodOrdre
-                                                          .configurationModel
-                                                          .configs !=
-                                                      [])
+                                                      .foodOrdre
+                                                      .configurationModel
+                                                      .configs
+                                                      .isNotEmpty)
                                                     Text(
                                                       (foodBloc
                                                                   .foodOrdre
@@ -361,7 +361,7 @@ class BuildConfigsList extends StatelessWidget {
                     ),
                   ]),
                 )),
-        if (foodBloc.foodOrdre.configurationModel.configs != [])
+        if (foodBloc.foodOrdre.configurationModel.configs.isNotEmpty)
           GestureDetector(
             onTap: () {
               foodBloc.add(FoodEventAddConfiguration());
