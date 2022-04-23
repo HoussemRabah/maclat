@@ -35,7 +35,7 @@ class _StoreScreenState extends State<StoreScreen> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
-                "assets/proto/exp4.png",
+                "assets/proto/exp3.png",
                 fit: BoxFit.cover,
               ),
             ),
@@ -49,7 +49,11 @@ class _StoreScreenState extends State<StoreScreen> {
                     child: GlassContainer(
                       child: Column(
                         children: [
-                          SvgPicture.asset(widget.store.image),
+                          SvgPicture.asset(
+                            widget.store.image,
+                            width: 69.0,
+                            height: 69.0,
+                          ),
                           Text(
                             widget.store.name,
                             style:
@@ -67,6 +71,19 @@ class _StoreScreenState extends State<StoreScreen> {
                 SizedBox(
                   height: 16.0,
                 ),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset("assets/proto/overt.png"),
+                    Text(
+                      "ouvert",
+                      style: textStyleSimple.copyWith(color: Colors.white),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GlassContainer(
@@ -76,12 +93,13 @@ class _StoreScreenState extends State<StoreScreen> {
                       Expanded(
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 8.0),
-                          margin: EdgeInsets.all(8.0),
+                          margin: EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 8.0),
                           height: 69.0,
                           decoration: BoxDecoration(
                               borderRadius: radius, color: mainColor),
                           child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
                                 LineIcons.box,
