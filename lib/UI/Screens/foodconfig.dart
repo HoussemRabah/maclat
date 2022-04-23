@@ -94,17 +94,18 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                           height: 16.0,
                         ),
                         // sups
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Suppléments",
-                                style: textStyleSimple,
-                              ),
-                            ],
+                        if ((foodBloc.foodOrdre.food.sups ?? []).isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Suppléments",
+                                  style: textStyleSimple,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
                         BlocBuilder<FoodBloc, FoodState>(
                           builder: (context, state) {
                             return ListView.builder(
@@ -180,14 +181,18 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                           .copyWith(
                                                               color: inColor),
                                                     ),
-                                                    infoLineBuilder(
-                                                        "cout supplémentaire",
-                                                        foodBloc
-                                                            .foodOrdre
-                                                            .configurations[
-                                                                index]
-                                                            .getExtra()
-                                                            .getPriceString()),
+                                                    if ((foodBloc.foodOrdre.food
+                                                                .sups ??
+                                                            [])
+                                                        .isNotEmpty)
+                                                      infoLineBuilder(
+                                                          "cout supplémentaire",
+                                                          foodBloc
+                                                              .foodOrdre
+                                                              .configurations[
+                                                                  index]
+                                                              .getExtra()
+                                                              .getPriceString()),
                                                     infoLineBuilder("quantité",
                                                         "X${foodBloc.foodOrdre.configurations[index].qnt}"),
                                                     infoLineBuilder(
@@ -326,7 +331,10 @@ class BuildConfigsList extends StatelessWidget {
                           ),
                           Text(
                             (foodBloc.foodOrdre.configurations.length == 1)
-                                ? "Configuration"
+                                ? (foodBloc.foodOrdre.configurationModel.configs
+                                        .isNotEmpty)
+                                    ? "Configuration"
+                                    : "Quantité"
                                 : "Configuration ${index + 1}",
                             style: textStyleSimple,
                           ),
