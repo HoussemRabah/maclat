@@ -218,8 +218,8 @@ List<Food> foodExamples = [
       qntLimitDown: 2,
       configs: [],
       ings: [
-        Ing(title: "loz", image: "assets/ing/loz.png"),
-        Ing(title: "honey", image: "assets/ing/honey.png"),
+        Ing(title: "Amande", image: "assets/ing/loz.png"),
+        Ing(title: "meil", image: "assets/ing/honey.png"),
       ],
       healths: [
         Health(title: "pour le diabète", stat: false),
@@ -246,10 +246,10 @@ List<Food> foodExamples = [
             points: ["non", "un peu", "tres"],
             prices: [
               0,
-              0,
-              25,
+              20,
+              40,
             ],
-            defaut: 1),
+            defaut: 0),
         Config(
             icon: Image.asset(
               "assets/ing/fraise.png",
@@ -259,10 +259,10 @@ List<Food> foodExamples = [
             points: ["non", "un peu", "tres"],
             prices: [
               0,
-              0,
               10,
+              30,
             ],
-            defaut: 1),
+            defaut: 0),
         Config(
             icon: Image.asset(
               "assets/ing/bais.png",
@@ -272,14 +272,14 @@ List<Food> foodExamples = [
             points: ["non", "un peu", "tres"],
             prices: [
               0,
-              0,
-              20,
+              30,
+              60,
             ],
-            defaut: 1),
+            defaut: 0),
       ],
       ings: [
         Ing(title: "fruits", image: "assets/ing/fruits.png"),
-        Ing(title: "chocola", image: "assets/ing/choco.png"),
+        Ing(title: "chocolat", image: "assets/ing/choco.png"),
       ],
       healths: [
         Health(title: "pour le diabète", stat: false),
@@ -289,15 +289,15 @@ List<Food> foodExamples = [
 ];
 
 List<Food> tinderExamples = [
-  foodExamples[0],
   foodExamples[4],
   foodExamples[1],
-  foodExamples[3]
+  foodExamples[3],
+  foodExamples[0],
 ];
 
 List<Store> storesExamples = [
   Store(
-      name: "Platacos Resto",
+      name: "Platacos",
       rate: "3.4",
       disc:
           "Je suis Fares un chef professionnel, avec 8 ans d'expérience je vous accueille dans mon propre restaurant",
