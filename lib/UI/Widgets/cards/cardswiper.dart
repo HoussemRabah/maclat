@@ -24,7 +24,6 @@ class _CardSwiperState extends State<CardSwiper> {
           width: MediaQuery.of(context).size.width - 16.0,
           height: 222,
           child: Swiper(
-            autoplay: true,
             layout: SwiperLayout.STACK,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(

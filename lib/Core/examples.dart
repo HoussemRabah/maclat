@@ -229,7 +229,10 @@ List<Food> foodExamples = [
   Food(
       name: "crepe fruit",
       category: "dessert",
-      price: Price(priceNow: 140, priceFormat: PriceFormat.unit, unit: 1),
+      price: Price(
+        priceNow: 140,
+        priceFormat: PriceFormat.simple,
+      ),
       disc: "Crepe aux fruits et nutella",
       discRapide: "Crepe aux fruits et nutella",
       image: "assets/proto/exp5.jpg",
@@ -292,7 +295,7 @@ List<Food> foodExamples = [
       ],
       ings: [
         Ing(title: "fruits", image: "assets/ing/fruits.png"),
-        Ing(title: "chocolat", image: "assets/ing/choco.png"),
+        Ing(title: "chocola", image: "assets/ing/choco.png"),
       ],
       healths: [
         Health(title: "pour le diabète", stat: false),
@@ -303,7 +306,7 @@ List<Food> foodExamples = [
 
 List<Food> tinderExamples = [
   foodExamples[4],
-  foodExamples[1],
+  foodExamples[0],
   foodExamples[3],
   foodExamples[2],
 ];
