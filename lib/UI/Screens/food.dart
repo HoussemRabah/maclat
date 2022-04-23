@@ -17,7 +17,9 @@ import 'package:mbh/UI/Widgets/ess/titlebar.dart';
 
 class FoodScreen extends StatefulWidget {
   final Food food;
-  const FoodScreen({Key? key, required this.food}) : super(key: key);
+  final bool? fromResto;
+  const FoodScreen({Key? key, required this.food, this.fromResto})
+      : super(key: key);
 
   @override
   State<FoodScreen> createState() => _FoodScreenState();
@@ -113,14 +115,17 @@ class _FoodScreenState extends State<FoodScreen> {
                             SizedBox(
                               height: 16.0,
                             ),
-                            Text(
-                              "Fourni par",
-                              style: textStyleSimple,
-                            ),
-                            StoreCard(store: widget.food.store),
-                            SizedBox(
-                              height: 16.0,
-                            ),
+                            if ((widget.fromResto ?? false) == false)
+                              Text(
+                                "Fourni par",
+                                style: textStyleSimple,
+                              ),
+                            if ((widget.fromResto ?? false) == false)
+                              StoreCard(store: widget.food.store),
+                            if ((widget.fromResto ?? false) == false)
+                              SizedBox(
+                                height: 16.0,
+                              ),
                           ],
                         ),
                       ),

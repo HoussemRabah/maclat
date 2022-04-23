@@ -59,7 +59,7 @@ List<Food> foodExamples = [
         Ing(title: "frites", image: "assets/ing/frite.png"),
         Ing(title: "pomme de terre", image: "assets/ing/potato.png"),
         Ing(title: "riz", image: "assets/ing/rice.png"),
-        Ing(title: "Viande", image: "assets/ing/steak.png"),
+        Ing(title: "viande", image: "assets/ing/steak.png"),
         Ing(title: "carrot", image: "assets/ing/carrot.png"),
       ],
       healths: [
@@ -136,7 +136,7 @@ List<Food> foodExamples = [
       ings: [
         Ing(title: "frites", image: "assets/ing/frite.png"),
         Ing(title: "riz", image: "assets/ing/rice.png"),
-        Ing(title: "Viande", image: "assets/ing/steak.png"),
+        Ing(title: "viande", image: "assets/ing/steak.png"),
         Ing(title: "poullet", image: "assets/ing/poullet.png"),
         Ing(title: "salad", image: "assets/ing/salad.png"),
       ],
@@ -191,13 +191,13 @@ List<Food> foodExamples = [
             "souce",
             style: textStyleSimple.copyWith(color: mainColor),
           ),
-          points: ["rouge clair", "rouge", "blanc"],
+          points: ["clair", "rouge", "blanc"],
           prices: [0, 0, 0],
           defaut: 0,
         ),
       ],
       ings: [
-        Ing(title: "Viande", image: "assets/ing/steak.png"),
+        Ing(title: "viande", image: "assets/ing/steak.png"),
         Ing(title: "olive", image: "assets/ing/olive.png"),
       ],
       healths: [

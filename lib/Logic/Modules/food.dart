@@ -13,7 +13,7 @@ class Price {
         return "${priceNow}DA";
 
       case PriceFormat.unit:
-        return "${priceNow}DA for ${unit ?? 1}";
+        return "${priceNow}DA pour ${unit ?? 1}";
 
       case PriceFormat.promo:
         return "${priceNow}DA";

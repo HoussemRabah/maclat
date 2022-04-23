@@ -9,7 +9,9 @@ import '../label/storelabel.dart';
 class FoodCard extends StatefulWidget {
   final Food food;
   final bool? label;
-  const FoodCard({Key? key, required this.food, this.label}) : super(key: key);
+  final bool? fromResto;
+  const FoodCard({Key? key, required this.food, this.label, this.fromResto})
+      : super(key: key);
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -23,6 +25,7 @@ class _FoodCardState extends State<FoodCard> {
         Navigator.of(context).push(
           MaterialPageRoute(
               builder: (context) => FoodScreen(
+                    fromResto: widget.fromResto,
                     food: widget.food,
                   )),
         );

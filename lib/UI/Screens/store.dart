@@ -148,8 +148,8 @@ class _StoreScreenState extends State<StoreScreen> {
                               style: textStyleSouTitle.copyWith(color: inColor),
                             ),
                           ),
-                          itemBuilder: (context, dynamic element) =>
-                              FoodCard(label: false, food: element),
+                          itemBuilder: (context, dynamic element) => FoodCard(
+                              label: false, food: element, fromResto: true),
                         ),
                       ],
                     ),
