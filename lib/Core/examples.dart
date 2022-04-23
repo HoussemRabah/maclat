@@ -72,7 +72,7 @@ List<Food> foodExamples = [
       discRapide: "Délicieux baklawa d'un professionnel",
       image: "assets/proto/exp4.png",
       store: storesExamples[1],
-      qntLimitUp: 15,
+      qntLimitUp: 50,
       qntLimitDown: 2,
       configs: [],
       ings: [
