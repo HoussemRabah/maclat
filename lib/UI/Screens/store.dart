@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glass/glass.dart';
+import 'package:grouped_list/grouped_list.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mbh/Core/constants.dart';
 import 'package:mbh/Core/examples.dart';
@@ -143,18 +144,20 @@ class _StoreScreenState extends State<StoreScreen> {
                         SizedBox(
                           height: 69.0,
                         ),
-                        ListView.builder(
-                            itemCount: foodExamples.where((element) {
-                              return (element.store == widget.store);
-                            }).length,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) => FoodCard(
-                                label: false,
-                                food: foodExamples
-                                    .where((element) =>
-                                        (element.store == widget.store))
-                                    .toList()[index]))
+                        GroupedListView<dynamic, String>(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          elements: foodExamples.where((element) {
+                            return (element.store == widget.store);
+                          }).toList(),
+                          groupBy: (element) => (element as Food).category,
+                          groupSeparatorBuilder: (String groupByValue) => Text(
+                            groupByValue,
+                            style: textStyleSouTitle,
+                          ),
+                          itemBuilder: (context, dynamic element) =>
+                              FoodCard(label: false, food: element),
+                        ),
                       ],
                     ),
                   ),

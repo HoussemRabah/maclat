@@ -32,6 +32,7 @@ dependencies:
   syncfusion_flutter_sliders: ^20.1.47
   stepper_counter_swipe: ^1.0.2
   glass: ^1.0.1+1
+  grouped_list: ^4.2.0
 
 dev_dependencies:
   flutter_test:
