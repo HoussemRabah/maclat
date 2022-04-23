@@ -66,6 +66,35 @@ class _StoreScreenState extends State<StoreScreen> {
                             style:
                                 textStyleSimple.copyWith(color: Colors.white),
                           ),
+                          Row(children: [
+                            ReactionButtons(),
+                            Expanded(
+                                child: Container(
+                              alignment: Alignment.center,
+                              margin: EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 8.0),
+                              height: 69.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: radius, color: mainColor),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    LineIcons.play,
+                                    color: inColor,
+                                  ),
+                                  SizedBox(
+                                    width: 2.0,
+                                  ),
+                                  Text(
+                                    "explorer",
+                                    style: textStyleSimple.copyWith(
+                                        color: inColor),
+                                  ),
+                                ],
+                              ),
+                            ))
+                          ]),
                         ],
                       ),
                     )),
@@ -78,44 +107,6 @@ class _StoreScreenState extends State<StoreScreen> {
                       widget.store.statut,
                       fit: BoxFit.fitWidth,
                     )),
-                SizedBox(
-                  height: 16.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GlassContainer(
-                      child: Row(
-                    children: [
-                      ReactionButtons(),
-                      Expanded(
-                        child: Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 8.0),
-                          height: 69.0,
-                          decoration: BoxDecoration(
-                              borderRadius: radius, color: mainColor),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                LineIcons.box,
-                                color: inColor,
-                              ),
-                              SizedBox(
-                                width: 2.0,
-                              ),
-                              Text(
-                                "72 ventes",
-                                style: textStyleSimple.copyWith(color: inColor),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  )),
-                )
               ],
             ),
             SingleChildScrollView(
@@ -125,10 +116,8 @@ class _StoreScreenState extends State<StoreScreen> {
                     height: MediaQuery.of(context).size.height - 64.0,
                   ),
                   Container(
-                    height: 700,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: backColor,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30))),
@@ -138,7 +127,7 @@ class _StoreScreenState extends State<StoreScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             "glisser ver la bas pour voir menu",
-                            style: textStyleSimple,
+                            style: textStyleSimple.copyWith(color: inColor),
                           ),
                         ),
                         SizedBox(
@@ -156,7 +145,7 @@ class _StoreScreenState extends State<StoreScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               groupByValue,
-                              style: textStyleSouTitle,
+                              style: textStyleSouTitle.copyWith(color: inColor),
                             ),
                           ),
                           itemBuilder: (context, dynamic element) =>
@@ -164,7 +153,12 @@ class _StoreScreenState extends State<StoreScreen> {
                         ),
                       ],
                     ),
-                  ),
+                  ).asGlass(
+                      tintColor: Colors.black,
+                      tileMode: TileMode.mirror,
+                      clipBorderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30))),
                 ],
               ),
             ),
