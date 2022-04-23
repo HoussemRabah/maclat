@@ -32,10 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             GpsCard(),
             CardSwiper(cards: [
-              CardSwip(url: "http://via.placeholder.com/300x200"),
-              CardSwip(url: "http://via.placeholder.com/300x200"),
-              CardSwip(url: "http://via.placeholder.com/300x200"),
-              CardSwip(url: "http://via.placeholder.com/300x200"),
+              CardSwip(url: 'assets/proto/cardads1.png'),
+              CardSwip(url: 'assets/proto/cardads2.png'),
+              CardSwip(url: 'assets/proto/cardads3.png'),
             ]),
             TitleBar(title: "explorer", button: "afficher plus"),
             FoodTinder(),
