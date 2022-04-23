@@ -35,7 +35,7 @@ class _StoreScreenState extends State<StoreScreen> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
-                "assets/proto/rb1.jpeg",
+                "assets/proto/rb1.jpg",
                 fit: BoxFit.cover,
               ),
             ),
