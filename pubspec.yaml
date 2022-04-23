@@ -65,6 +65,10 @@ flutter:
    - assets/proto/exp2.png
    - assets/proto/exp3.png
    - assets/proto/exp4.png
+   - assets/proto/exp5.jpg
+   - assets/proto/rb2.jpg
+   - assets/proto/store2.svg
+   - assets/proto/overt2.png
    - assets/proto/store.svg
    - assets/proto/overt.png
    - assets/proto/rb1.jpg
@@ -75,6 +79,17 @@ flutter:
    - assets/ing/pic.png
    - assets/ing/coca.png
    - assets/ing/khbz.png
+   - assets/ing/ananas.png
+   - assets/ing/bais.png
+   - assets/ing/carrot.png
+   - assets/ing/choco.png
+   - assets/ing/fraise.png
+   - assets/ing/fruits.png
+   - assets/ing/honey.png
+   - assets/ing/loz.png
+   - assets/ing/olive.png
+   - assets/ing/poullet.png
+   - assets/ing/salad.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
