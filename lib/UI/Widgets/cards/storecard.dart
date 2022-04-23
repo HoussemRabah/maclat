@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mbh/Core/constants.dart';
+import 'package:mbh/Core/examples.dart';
 import 'package:mbh/Logic/Modules/food.dart';
 import 'package:mbh/UI/Screens/store.dart';
 import 'package:mbh/UI/Widgets/label/ratelabel.dart';
@@ -13,7 +14,18 @@ class StoreCard extends StatefulWidget {
   State<StoreCard> createState() => _StoreCardState();
 }
 
+late List<Food> threeFood;
+
 class _StoreCardState extends State<StoreCard> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    threeFood = foodExamples
+        .where((element) => (element.store == widget.store))
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -59,7 +71,7 @@ class _StoreCardState extends State<StoreCard> {
               children: [
                 Row(
                   children: [
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < 3 && i < threeFood.length; i++)
                       Container(
                           width: 60,
                           height: 60,
@@ -69,7 +81,7 @@ class _StoreCardState extends State<StoreCard> {
                             shape: BoxShape.circle,
                           ),
                           child: Image.asset(
-                            examples[i],
+                            threeFood[i].image,
                             fit: BoxFit.cover,
                           ))
                   ],

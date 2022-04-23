@@ -154,20 +154,20 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                             SizedBox(
                                               height: 16.0,
                                             ),
-                                            ListView.builder(
-                                              shrinkWrap: true,
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              itemCount: foodBloc.foodOrdre
-                                                  .configurations.length,
-                                              itemBuilder: (context, index) =>
-                                                  Column(
-                                                children: [
-                                                  if (foodBloc
-                                                      .foodOrdre
-                                                      .configurationModel
-                                                      .configs
-                                                      .isNotEmpty)
+                                            if (foodBloc
+                                                .foodOrdre
+                                                .configurationModel
+                                                .configs
+                                                .isNotEmpty)
+                                              ListView.builder(
+                                                shrinkWrap: true,
+                                                physics:
+                                                    NeverScrollableScrollPhysics(),
+                                                itemCount: foodBloc.foodOrdre
+                                                    .configurations.length,
+                                                itemBuilder: (context, index) =>
+                                                    Column(
+                                                  children: [
                                                     Text(
                                                       (foodBloc
                                                                   .foodOrdre
@@ -180,30 +180,34 @@ class _FoodConfigScreenState extends State<FoodConfigScreen> {
                                                           .copyWith(
                                                               color: inColor),
                                                     ),
-                                                  infoLineBuilder(
-                                                      "cout supplémentaire",
-                                                      foodBloc.foodOrdre
-                                                          .configurations[index]
-                                                          .getExtra()
-                                                          .getPriceString()),
-                                                  infoLineBuilder("quantité",
-                                                      "X${foodBloc.foodOrdre.configurations[index].qnt}"),
-                                                  infoLineBuilder(
-                                                      "cout total",
-                                                      foodBloc.foodOrdre
-                                                          .configurations[index]
-                                                          .getPriceFormatString(
-                                                              foodBloc
-                                                                  .foodOrdre
-                                                                  .food
-                                                                  .price
-                                                                  .priceNow)),
-                                                  SizedBox(
-                                                    height: 16.0,
-                                                  ),
-                                                ],
+                                                    infoLineBuilder(
+                                                        "cout supplémentaire",
+                                                        foodBloc
+                                                            .foodOrdre
+                                                            .configurations[
+                                                                index]
+                                                            .getExtra()
+                                                            .getPriceString()),
+                                                    infoLineBuilder("quantité",
+                                                        "X${foodBloc.foodOrdre.configurations[index].qnt}"),
+                                                    infoLineBuilder(
+                                                        "cout total",
+                                                        foodBloc
+                                                            .foodOrdre
+                                                            .configurations[
+                                                                index]
+                                                            .getPriceFormatString(
+                                                                foodBloc
+                                                                    .foodOrdre
+                                                                    .food
+                                                                    .price
+                                                                    .priceNow)),
+                                                    SizedBox(
+                                                      height: 16.0,
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
                                             SizedBox(
                                               height: 16.0,
                                             ),
