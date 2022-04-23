@@ -59,6 +59,8 @@ flutter:
    - assets/icons/account.svg
    - assets/icons/ordre.svg
    - assets/proto/cardads1.png
+   - assets/proto/cardads2.png
+   - assets/proto/cardads3.png
    - assets/proto/maps.png
    - assets/icons/gps.svg
    - assets/proto/exp1.png
